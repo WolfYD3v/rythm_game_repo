@@ -1,9 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://du02s2cxy4jtc"]
+[gd_scene load_steps=5 format=3 uid="uid://du02s2cxy4jtc"]
 
 [ext_resource type="Script" uid="uid://bbkgxu68s6e25" path="res://scenes/level/level.gd" id="1_h3e3j"]
 
+[sub_resource type="Environment" id="Environment_h3e3j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3e3j"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h3e3j"]
+material = SubResource("StandardMaterial3D_h3e3j")
+
 [node name="Level" type="Node3D"]
 script = ExtResource("1_h3e3j")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h3e3j")
+
+[node name="Player" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("BoxMesh_h3e3j")
+
+[node name="Camera" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.86602545, 0.5, 0, -0.5, 0.86602545, 0, 2, 2)
+fov = 100.0
+
+[node name="Lines" type="Node3D" parent="."]
 
 [node name="World" type="Node3D" parent="."]
 
