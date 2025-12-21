@@ -1,7 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvmkpmy46b1n3"]
+[gd_scene load_steps=3 format=3 uid="uid://cvmkpmy46b1n3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fwo72"]
-size = Vector3(1, 1, 5)
+size = Vector3(2, 1, 150)
 
-[node name="Line" type="MeshInstance3D"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fwo72"]
+data = PackedVector3Array(-0.5, 0.5, 2.5, 0.5, 0.5, 2.5, -0.5, -0.5, 2.5, 0.5, 0.5, 2.5, 0.5, -0.5, 2.5, -0.5, -0.5, 2.5, 0.5, 0.5, -2.5, -0.5, 0.5, -2.5, 0.5, -0.5, -2.5, -0.5, 0.5, -2.5, -0.5, -0.5, -2.5, 0.5, -0.5, -2.5, 0.5, 0.5, 2.5, 0.5, 0.5, -2.5, 0.5, -0.5, 2.5, 0.5, 0.5, -2.5, 0.5, -0.5, -2.5, 0.5, -0.5, 2.5, -0.5, 0.5, -2.5, -0.5, 0.5, 2.5, -0.5, -0.5, -2.5, -0.5, 0.5, 2.5, -0.5, -0.5, 2.5, -0.5, -0.5, -2.5, 0.5, 0.5, 2.5, -0.5, 0.5, 2.5, 0.5, 0.5, -2.5, -0.5, 0.5, 2.5, -0.5, 0.5, -2.5, 0.5, 0.5, -2.5, -0.5, -0.5, 2.5, 0.5, -0.5, 2.5, -0.5, -0.5, -2.5, 0.5, -0.5, 2.5, 0.5, -0.5, -2.5, -0.5, -0.5, -2.5)
+
+[node name="Line" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -58)
 mesh = SubResource("BoxMesh_fwo72")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_fwo72")
