@@ -1,3 +1,7 @@
 {
-	"lines": 5
+	"lines": 5,
+	"env_colors": {
+		"sky": "4609ff",
+		"fog": "388263"
+	}
 }

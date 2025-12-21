@@ -4,7 +4,8 @@ class_name Level
 @onready var lines: Node3D = $Lines
 @onready var world: Node3D = $World
 @onready var obstacles: Node3D = $Obstacles
-@onready var player: Node3D = $Player
+@onready var player: Player = $Player
+@onready var world_environment: WorldEnvironment = $WorldEnvironment
 
 const LINE = preload("uid://cvmkpmy46b1n3")
 
@@ -18,34 +19,35 @@ func _ready() -> void:
 	build_level("")
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_key_pressed(KEY_LEFT):
+	if player.crouching or player.moving: return
+	if Input.is_action_just_pressed("move_left"):
 		if player_line_idx - 1 >= 0:
 			_set_player_position(player_line_idx - 1)
 			player_line_idx -= 1
-	if Input.is_key_pressed(KEY_RIGHT):
-		if player_line_idx + 1 < nb_lines:
+	if Input.is_action_just_pressed("move_right"):
+		if player_line_idx + 1 <= nb_lines:
 			_set_player_position(player_line_idx + 1)
 			player_line_idx += 1
-	if Input.is_key_pressed(KEY_DOWN):
-		player.position.y = 0.5
-	else:
-		player.position.y = 1.0
-	if Input.is_key_pressed(KEY_UP):
-		player.position.y = 1.5
-	else:
-		player.position.y = 1.0
 
 func build_level(_level_file_path: String) -> void:
 	# Load level data
 	var _level_data: Dictionary = LevelManager.load_level()
 	level_data = _level_data
 	
+	_set_colors()
+	
 	await _generate_lines()
 	player_line_idx = int(nb_lines / 2)
 	_set_player_position(player_line_idx - 1)
 
 func _set_player_position(line_idx: int) -> void:
-	player.position.x = lines.get_child(line_idx).position.x
+	player.change_position(
+		Vector3(
+			lines.get_child(line_idx).position.x,
+			1.0,
+			0.0
+		)
+	)
 
 func _generate_lines() -> void:
 	# Fetch the number of lines of the level from the loaded level data
@@ -53,13 +55,18 @@ func _generate_lines() -> void:
 	
 	# Generate the lines
 	for line_idx: int in range(nb_lines):
-		var _line: MeshInstance3D = LINE.instantiate()
+		var _line: StaticBody3D = LINE.instantiate()
 		lines.add_child(_line)
 		_line.position = line_position
 		
-		line_position.x += _line.mesh.size.x
+		line_position.x += _line.get_child(0).mesh.size.x
 		
 		player_line_idx = int(line_idx / 2)
 		_set_player_position(player_line_idx)
 		
 		await get_tree().create_timer(0.1).timeout
+
+func _set_colors() -> void:
+	var env_colors: Dictionary = level_data.get("env_colors")
+	world_environment.environment.background_color = env_colors.get("sky")
+	world_environment.environment.fog_light_color = env_colors.get("fog")
