@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://dq61fchduiuyg"]
+
+[ext_resource type="Environment" uid="uid://dli6vjc01fh6y" path="res://assets/world_env/map_environment.tres" id="2_3hfiv"]
+[ext_resource type="Script" uid="uid://dqpur1yecjdub" path="res://scenes/song_selection/song_selection.gd" id="2_d57ly"]
+[ext_resource type="Material" uid="uid://vfqt7stponxf" path="res://assets/materials/ground_map_material.tres" id="2_wbaf4"]
+[ext_resource type="PackedScene" uid="uid://btivdjqcejx7y" path="res://scenes/song_selection/map_player.tscn" id="3_3hfiv"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="5_0x6m5"]
+[ext_resource type="PackedScene" uid="uid://viya0fha5sqc" path="res://scenes/song_selection/level_stone/level_stone.tscn" id="5_we6td"]
+[ext_resource type="AudioStream" uid="uid://ca0o2aaghifnb" path="res://assets/songs/KAT-Pull-the-Trigger-ft.-Yi-Xi-_SynthV-Original-Song_.mp3" id="6_67vlu"]
+[ext_resource type="AudioStream" uid="uid://cmav6vwdavfcu" path="res://assets/songs/Badly (feat. Camellia).mp3" id="7_7oj2g"]
+[ext_resource type="AudioStream" uid="uid://rebcva64gats" path="res://assets/songs/traian1984-ambience-wind-blowing-through-trees-01-186986_map_windy_ambiance.mp3" id="8_0x6m5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j8mn7"]
+size = Vector3(300, 0.5, 1000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wbaf4"]
+size = Vector3(300, 0.5, 1000)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7oj2g"]
+viewport_path = NodePath("MapSubViewport")
+
+[sub_resource type="Environment" id="Environment_7oj2g"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 16.0
+
+[node name="SongSelection" type="Node3D" unique_id=1418675258]
+script = ExtResource("2_d57ly")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=378989184]
+environment = ExtResource("2_3hfiv")
+
+[node name="Map_Player" parent="." unique_id=1480831146 instance=ExtResource("3_3hfiv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 700)
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=152786622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 283)
+
+[node name="MeshInstance" type="MeshInstance3D" parent="Ground" unique_id=113410858]
+mesh = SubResource("BoxMesh_j8mn7")
+surface_material_override/0 = ExtResource("2_wbaf4")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Ground" unique_id=599603980]
+shape = SubResource("BoxShape3D_wbaf4")
+
+[node name="LevelStones" type="Node3D" parent="." unique_id=84573970]
+
+[node name="LevelStone1" parent="LevelStones" unique_id=573061259 instance=ExtResource("5_we6td")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.4, 0.29999998, 700.1)
+music_sample = ExtResource("6_67vlu")
+difficulty = 15
+
+[node name="LevelStone2" parent="LevelStones" unique_id=1536611193 instance=ExtResource("5_we6td")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.9068727, 0.29999998, 692.9)
+music_sample = ExtResource("7_7oj2g")
+gameplay_type = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1570802297]
+layer = 2
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1803637525]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("5_0x6m5")
+
+[node name="GoBackButton" type="Button" parent="CanvasLayer/Control" unique_id=1276109105]
+layout_mode = 0
+offset_right = 33.0
+offset_bottom = 31.0
+focus_mode = 0
+text = "<---"
+
+[node name="Map" type="TextureRect" parent="CanvasLayer/Control" unique_id=1967812363]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_7oj2g")
+
+[node name="MapLabel" type="Label" parent="CanvasLayer/Control/Map" unique_id=230668856]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "MAP"
+
+[node name="MapSubViewport" type="SubViewport" parent="." unique_id=1360622392]
+size = Vector2i(1152, 648)
+
+[node name="Camera" type="Camera3D" parent="MapSubViewport" unique_id=1709235602]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 15, 700)
+environment = SubResource("Environment_7oj2g")
+
+[node name="AmbianceAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=989608384]
+stream = ExtResource("8_0x6m5")
+volume_db = 24.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="CanvasLayer/Control/GoBackButton" to="." method="_on_go_back_button_pressed"]

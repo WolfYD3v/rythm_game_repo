@@ -1,0 +1,24 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://vfqt7stponxf"]
+
+[ext_resource type="Texture2D" uid="uid://b2h0q57kbgjnq" path="res://assets/textures/ground_map_texture.tres" id="1_h2g1g"]
+
+[sub_resource type="Gradient" id="Gradient_wwaql"]
+offsets = PackedFloat32Array(0, 0.5026738, 1)
+colors = PackedColorArray(0.54250944, 0.18082488, 0.08529646, 1, 0.29278708, 0.08287742, 0.018719757, 1, 0.41957974, 0.13416252, 0.018326819, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h2g1g"]
+frequency = 0.05
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3d3x3"]
+noise = SubResource("FastNoiseLite_h2g1g")
+color_ramp = SubResource("Gradient_wwaql")
+seamless = true
+in_3d_space = true
+as_normal_map = true
+
+[resource]
+albedo_texture = ExtResource("1_h2g1g")
+normal_enabled = true
+normal_scale = 8.0
+normal_texture = SubResource("NoiseTexture2D_3d3x3")
+uv1_scale = Vector3(5, 5, 5)

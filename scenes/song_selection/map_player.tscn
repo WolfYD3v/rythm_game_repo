@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://btivdjqcejx7y"]
+
+[ext_resource type="Script" uid="uid://bmdlpiegvxcgk" path="res://scenes/song_selection/map_player.gd" id="1_nsu70"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nsu70"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nsu70"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u3mx5"]
+radius = 0.25
+height = 1.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_nsu70"]
+size = Vector3(0.2, 0.6, 0.2)
+
+[node name="Map_Player" type="StaticBody3D" unique_id=1480831146]
+script = ExtResource("1_nsu70")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1480998443]
+shape = SubResource("CapsuleShape3D_nsu70")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=811419150]
+mesh = SubResource("CapsuleMesh_nsu70")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1170564318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.4)
+current = true
+fov = 100.0
+size = 83.113
+
+[node name="Bras" type="MeshInstance3D" parent="." unique_id=640352818]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, -0.8660254, 0, 0.8660254, 0.49999997, -0.5, 0, -0.3)
+mesh = SubResource("CapsuleMesh_u3mx5")
+
+[node name="Flashlight" type="MeshInstance3D" parent="Bras" unique_id=1227222733]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 0, -0.5267947, -0.07320511)
+mesh = SubResource("BoxMesh_nsu70")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Bras/Flashlight" unique_id=1491922033]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.20000005, 8.74228e-09)
+light_energy = 4.0
+shadow_enabled = true
+spot_range = 1000.0
+spot_angle = 75.0
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1509172355]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Area3D" unique_id=993150868]
+shape = SubResource("CapsuleShape3D_nsu70")

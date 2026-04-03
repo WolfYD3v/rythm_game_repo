@@ -1,7 +1,5 @@
 {
-	"lines": 5,
-	"env_colors": {
-		"sky": "4609ff",
-		"fog": "388263"
-	}
+	"song": "res://assets/songs/Badly (feat. Camellia).mp3",
+	"targeted_intensity": 0.5,
+	"input_countdown_timer_duration": 0.5
 }
