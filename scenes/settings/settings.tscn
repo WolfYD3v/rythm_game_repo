@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://1ntsanfb80w4"]
+
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_tt6xx"]
+[ext_resource type="Script" uid="uid://x7q3jm0qh63o" path="res://scenes/settings/settings.gd" id="2_vu5fi"]
+
+[node name="Settings" type="Control" unique_id=1682957814]
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tt6xx")
+script = ExtResource("2_vu5fi")
+
+[node name="Background" type="ColorRect" parent="." unique_id=220423139]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7058824, 0.15686275, 0.078431375, 1)
+
+[node name="InterfaceContainer" type="VBoxContainer" parent="." unique_id=1260201572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsContainer" type="VBoxContainer" parent="InterfaceContainer" unique_id=2092061436]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsRichTextLabel" type="RichTextLabel" parent="InterfaceContainer/SettingsContainer" unique_id=1078566488]
+layout_mode = 2
+bbcode_enabled = true
+text = "[u][b]Settings[/b][/u]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="LanguageSelectionContainer" type="HBoxContainer" parent="InterfaceContainer/SettingsContainer" unique_id=411999801]
+layout_mode = 2
+
+[node name="LanguageRichTextLabel" type="RichTextLabel" parent="InterfaceContainer/SettingsContainer/LanguageSelectionContainer" unique_id=1209439803]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "LANGUAGE"
+fit_content = true
+
+[node name="FrenchButton" type="Button" parent="InterfaceContainer/SettingsContainer/LanguageSelectionContainer" unique_id=2076835203]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "French"
+alignment = 0
+
+[node name="EnglishButton" type="Button" parent="InterfaceContainer/SettingsContainer/LanguageSelectionContainer" unique_id=248959009]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "English"
+alignment = 0
+
+[node name="SectionsContainer" type="HBoxContainer" parent="InterfaceContainer/SettingsContainer" unique_id=613332690]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AudioSectionContainer" type="VBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer" unique_id=1272231268]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AudioRichTextLabel" type="RichTextLabel" parent="InterfaceContainer/SettingsContainer/SectionsContainer/AudioSectionContainer" unique_id=574305021]
+layout_mode = 2
+bbcode_enabled = true
+text = "AUDIO"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ListenSampleCheckButton" type="CheckButton" parent="InterfaceContainer/SettingsContainer/SectionsContainer/AudioSectionContainer" unique_id=1505862054]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Listen Sample"
+
+[node name="VideoSectionContainer" type="VBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer" unique_id=1017252465]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VideoRichTextLabel" type="RichTextLabel" parent="InterfaceContainer/SettingsContainer/SectionsContainer/VideoSectionContainer" unique_id=1762328901]
+layout_mode = 2
+bbcode_enabled = true
+text = "VIDEO"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ControlsSectionContainer" type="VBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer" unique_id=1804509826]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ControlsRichTextLabel" type="RichTextLabel" parent="InterfaceContainer/SettingsContainer/SectionsContainer/ControlsSectionContainer" unique_id=1105425244]
+layout_mode = 2
+bbcode_enabled = true
+text = "CONTROLS"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="DownButtons" type="HBoxContainer" parent="InterfaceContainer" unique_id=1485530958]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="InterfaceContainer/DownButtons" unique_id=462753529]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+text = "SAVE AND CLOSE"
+
+[connection signal="pressed" from="InterfaceContainer/SettingsContainer/LanguageSelectionContainer/FrenchButton" to="." method="set_language" binds= ["fr"]]
+[connection signal="pressed" from="InterfaceContainer/SettingsContainer/LanguageSelectionContainer/EnglishButton" to="." method="set_language" binds= ["en"]]
+[connection signal="toggled" from="InterfaceContainer/SettingsContainer/SectionsContainer/AudioSectionContainer/ListenSampleCheckButton" to="." method="_on_listen_sample_check_button_toggled"]
+[connection signal="pressed" from="InterfaceContainer/DownButtons/CloseButton" to="." method="_on_close_button_pressed"]

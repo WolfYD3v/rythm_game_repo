@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://03k3fc4m3vdk"]
+
+[ext_resource type="Script" uid="uid://cm7r2if5frv7c" path="res://scenes/sound_wave/sound_wave.gd" id="2_p1mje"]
+
+[node name="SoundWave" type="Control" unique_id=309628973]
+modulate = Color(1, 1, 1, 0.39215687)
+custom_minimum_size = Vector2(300, 648)
+layout_mode = 3
+anchor_right = 0.26000002
+anchor_bottom = 1.0
+offset_right = 0.47998047
+offset_bottom = -198.0
+script = ExtResource("2_p1mje")
+flip_y = true
+
+[node name="Background" type="ColorRect" parent="." unique_id=743943992]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

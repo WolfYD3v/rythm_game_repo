@@ -1,0 +1,13 @@
+Visualizing Audio Waves: https://www.youtube.com/watch?v=jttL809UdnQ
+https://github.com/dannyboy1044/GodotAudioVisualizerExample/blob/main/basic_bars_example.gd
+
+Map Windy Ambiance: Ambience Wind Blowing Through Trees 01
+FROM https://pixabay.com/sound-effects/nature-ambience-wind-blowing-through-trees-01-186986/
+BY Traian1984 [ https://pixabay.com/users/traian1984-41907904/ ]
+
+Inspirations:
+-> Beat Saber/JSAB [ Obstacles à éviter , Musique ]
+-> Inscryption [ Carte du monde ]
+
+Fonts:
+https://fonts.google.com/specimen/Lugrasimo?categoryFilters=Feeling:%2FExpressive%2FVintage&preview.script=Latn

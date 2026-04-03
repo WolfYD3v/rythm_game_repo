@@ -1,0 +1,416 @@
+[gd_scene format=4 uid="uid://viya0fha5sqc"]
+
+[ext_resource type="Script" uid="uid://bptifhrmvmvcr" path="res://scenes/song_selection/level_stone/level_stone.gd" id="1_vfdti"]
+[ext_resource type="Material" uid="uid://ujsm1owousxg" path="res://assets/materials/level_stone_gameplay_icon_material.tres" id="3_fpsbj"]
+[ext_resource type="Material" uid="uid://bvh6tgeg5ij2c" path="res://assets/materials/level_stone_material.tres" id="3_jo572"]
+[ext_resource type="PackedScene" uid="uid://03k3fc4m3vdk" path="res://scenes/sound_wave/sound_wave.tscn" id="4_jo572"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="5_vvrli"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vfdti"]
+size = Vector3(0.5, 1, 0.2)
+
+[sub_resource type="PrismMesh" id="PrismMesh_vfdti"]
+size = Vector3(1, 0.5, 0.2)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vfdti"]
+_surfaces = [{
+"aabb": AABB(-1, -0.100000024, -0.5, 1.5, 0.20000005, 1),
+"attribute_data": PackedByteArray("AAAAAAAAAD9WVVUzAAAAPwAAAABVVVU/AACAPwAAAAAAAIA/qqqqPgAAgD+rqqo+AAAAAAAAAD+rqqo+AAAAP1ZVVTMAAAA/q6oqPwAAgD+rqqo+AACAP6uqKj8AAAA/AACAPwAAAAAAAIA/q6qqPquqKj8AAAA/AACAPwAAAD8AAIA/AAAAPwAAgD8AAAA/AACAPwAAAD+rqio/AAAAPwAAgD+rqqo+AACAPwAAAD+rqio/AAAAPwAAgD8AAAA/AAAAAAAAgD8AAAAAAACAP6qqqj4AAIA/q6qqPgAAAAA5jmMyq6qqPgAAAAAAAAAAAAAAAAAAgD+qqqo+AACAP6uqqj4AAIA/q6oqPwAAgD+rqio/AAAAPwAAgD8AAAA/AAAAAAAAAD85jmMyq6qqPquqqj4AAAAAq6qqPlVVVT+qqqo+AACAP6uqqj5VVVU/q6qqPgAAgD+qqqo+AACAP6uqqj5VVVU/q6oqPwAAAAAAAIA/AAAAAKuqKj+rqio+AACAPwAAAACrqio/qqqqPquqKj+rqio+AACAPwAAAACrqio/q6qqPquqKj+qqqo+q6oqPwAAAACrqio/q6oqPquqqj4AAAAAAACAPwAAAACrqio/AAAAP6uqKj+rqqo+q6oqPwAAAD+rqio/AAAAPwAAgD8AAAA/q6oqPwAAAD+rqio/AAAAP6uqKj8AAAA/q6oqPwAAgD8AAIA/AAAAPwAAgD8AAIA/q6oqPwAAAD+sqqo+AAAAP6uqKj8AAAA/q6oqPwAAAD+rqqo+AACAP6uqqj4AAAA/q6qqPgAAAACrqio/q6oqPquqqj6rqio+AAAAAAAAAD+rqqo+AAAAAKuqqj6rqio+q6oqPwAAAD+rqqo+AAAAP6yqqj4AAAA/AAAAAAAAAD+rqqo+q6oqPquqqj6rqqo+AAAAAAAAAD+rqqo+q6qqPquqqj4AAAA/q6qqPgAAAD+rqqo+q6qqPquqqj6qqqo+q6qqPgAAAD+rqqo+q6qqPquqqj4AAAA/VlVVPwAAAAA5jmM/////PquqKj8AAAA/q6oqPwAAAACrqio/AAAAP62qqj4AAAA/VlVVPwAAAAAAAIA/AAAAPzmOYz////8+AAAAAAAAAD+rqqo+AAAAPwAAAAAAAIA/AAAAAAAAgD+rqqo+AAAAP1VV1TIAAIA/AACAPwAAAD85jmM/AAAAPzmOYz////8+q6oqPwAAgD+rqio///9/P3IcRz8AAIA/AAAAAAAAgD9VVdUyAACAP1ZV1TIAAIA/q6oqPwAAAACtqqo+AAAAP6uqqj4AAAA/q6oqPwAAAACrqqo+AAAAP6uqqj4AAAAAq6qqPgAAAD86juM9////PquqKj4AAAAAAACAPwAAAD8AAIA/AQAAP3IcRz8AAAA/q6qqPgAAAD85juM9AAAAPzqO4z3///8+q6qqPgAAAD+rqqo+AACAP1VV1TIAAIA/q6oqPgAAAAA6juM9////PqqqKjL///8+q6oqPwAAgD+rqio/AAAAP3IcRz8AAIA/AACAPwAAAD85jmM/AAAAP1ZVVT8AAAAAAAAAAAAAgD8AAAAAAAAAP6uqqj4AAAA/q6oqPwAAAD9yHEc/AAAAP3IcRz8AAAA/AACAPwAAgD85jmM/AACAPwAAgD///38/q6oqPwAAAD+rqio/AAAAP6uqKj////8+VlVVPwAAAAA5jmM/AAAAP3IcRz8AAAA/q6oqPwAAAD9WVVU/AAAAAHIcRz8AAAA/q6oqPwAAAD+rqio/////PquqKj8AAAAAq6oqPwAAAACrqio/////Pquqqj7///8+q6oqPwAAAD9yHEc/AQAAP3IcRz8AAIA/AAAAAAAAgD+rqqo+AAAAP6uqqj4AAIA/AAAAAAAAAD+rqio+AAAAADmO4z0AAAA/OY7jPQAAAD85jmM+AAAAPzmOYz4AAAA/q6oqPwAAAACrqqo+////Pquqqj4AAAAAOY7jPQAAAD+rqio+AAAAADmOYz4AAAA/q6oqPgAAAACrqqo+////PjmOYz4AAAA/"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 192,
+"vertex_data": PackedByteArray("AAAAv9DMzL0AAAC/AAAAv8zMzL0AAAC/AAAAv8zMzL2qqio+AAAAv9DMzL0AAAC/AAAAv8zMzL2qqio+////vszMzL2rqio+AAAAv9DMzL0AAAC/AAAAv8rMzD0AAAC/AAAAv8zMzL0AAAC/AAAAv9DMzL0AAAC/AAAAANDMzL0AAAC/AAAAv8rMzD0AAAC/AAAAv9DMzL0AAAC/////vszMzL2rqio+AAAAs8rMzL0AAAA/AAAAv8rMzL0AAAA/////vsrMzL0AAAA/AAAAv8rMzL3///8+////vsrMzL0AAAA/AAAAs8rMzL0AAAA/////vszMzL2rqio+AAAAv8rMzL0AAAA/AAAAAMrMzL0AAAA/////vsrMzL0AAAA/AAAAv8rMzL0AAAA/AAAAv8rMzL3///8+AAAAv87MzD3///8+AAAAAMrMzD0AAAC/////vs7MzD2rqio+AAAAv8rMzD0AAAC/AAAAv8rMzL0AAAA/AAAAv87MzD3///8+AAAAv9DMzD0AAAA/AAAAv8rMzL0AAAA/AAAAv9DMzD0AAAA/AAAAANDMzD0AAAA/AAAAv9DMzD0AAAA/////vs7MzD2rqio+AAAAAMrMzD0AAAC/////vs7MzD2rqio+AAAAv87MzD3///8+AAAAv87MzD2qqio+AAAAv9DMzD0AAAA/AAAAv87MzD3///8+////vs7MzD2rqio+AAAAANDMzL0AAAC/AAAAv9DMzL0AAAC/AAAAAMzMzL2rqiq+AAAAv9DMzL0AAAC/AAAAAMzMzL2qqio+AAAAAMzMzL2rqiq+AAAAv9DMzL0AAAC/AACAsszMzL2rqio+AAAAAMzMzL2qqio+AAAAANDMzL0AAAC/AAAAAMzMzL2rqiq+AAAAAMrMzD0AAAC/AAAAv9DMzL0AAAC/AAAAs8rMzL0AAAA/AACAsszMzL2rqio+AAAAAMrMzL0AAAA/AAAAs8rMzL0AAAA/////vsrMzL0AAAA/AAAAAMrMzL0AAAA/AAAAAMrMzL3///8+AAAAs8rMzL0AAAA/AAAAv8rMzL0AAAA/AAAAANDMzD0AAAA/AAAAAMrMzL0AAAA/AAAAAMrMzL0AAAA/AAAAAM7MzD3///8+AAAAAMrMzL3///8+AAAAv8rMzD0AAAC/AAAAANDMzL0AAAC/AAAAAMrMzD0AAAC/AAAAAMrMzD0AAAC/AAAAAMzMzL2rqiq+AAAAAMzMzD2rqiq+AAAAv9DMzD0AAAA/AAAAAMrMzD0AAAC/AAAAAMzMzD2rqiq+AAAAAMrMzL0AAAA/AAAAANDMzD0AAAA/AAAAAM7MzD3///8+AAAAv9DMzD0AAAA/AAAAAMzMzD2rqiq+AACAss7MzD2rqio+AAAAv9DMzD0AAAA/AACAss7MzD2rqio+AAAAANDMzD0AAAA/AAAAAM7MzD3///8+AACAss7MzD2rqio+AAAAAM7MzD2qqio+AAAAANDMzD0AAAA/AACAss7MzD2rqio+AAAAAM7MzD3///8+AACAv87MzL0uvTsyAAAAv8zMzL2qqio+AAAAv8zMzL0AAAC/AACAv87MzL0uvTsyAAAAv8zMzL0AAAC/AAAAv8rMzD0AAAC/AACAv87MzL0uvTsy////vszMzL0AAAA/AAAAv8zMzL2qqio+AACAv87MzL0uvTsyAACAv8zMzD0uvTsy////vszMzL0AAAA/////vszMzL0AAAA/AACAv8zMzD0uvTsyAAAAv8rMzL3///8+////vszMzL0AAAA/////vszMzL2rqio+AAAAv8zMzL2qqio+////vszMzL0AAAA/////vsrMzL0AAAA/////vszMzL2rqio+////vszMzL0AAAA/AAAAv8rMzL3///8+////vsrMzL0AAAA/AACAv87MzL0uvTsyAAAAv8rMzD0AAAC/AAAAv87MzD0AAAC/AACAv87MzL0uvTsyAAAAv87MzD0AAAC/AACAv8zMzD0uvTsyAAAAv87MzD0AAAC/AAAAv87MzD2qqio+AACAv8zMzD0uvTsyAAAAv87MzD0AAAC/AAAAv8rMzD0AAAC/////vs7MzD2rqio+AAAAv87MzD0AAAC/////vs7MzD2rqio+AAAAv87MzD2qqio+AACAv8zMzD0uvTsyAAAAv87MzD3///8+AAAAv8rMzL3///8+AACAv8zMzD0uvTsyAAAAv87MzD2qqio+AAAAv87MzD3///8+AACAMszMzL0AAAC/AACAMs7MzD0AAAC/AAAAAMzMzL2rqiq+AACAMszMzL0AAAC/AAAAAMzMzL2rqiq+AAAAP87MzL0uvTsyAACAMszMzL0AAAC/AAAAP87MzL0uvTsyAAAAP8zMzD0uvTsyAAAAs8zMzL0AAAA/AAAAAMzMzL2qqio+AACAsszMzL2rqio+AAAAs8zMzL0AAAA/AACAsszMzL2rqio+AAAAs8rMzL0AAAA/AAAAs8zMzL0AAAA/AAAAs8rMzL0AAAA/AAAAAMrMzL3///8+AAAAP87MzL0uvTsyAAAAAMzMzL2rqiq+AAAAAMzMzL2qqio+AAAAs8zMzL0AAAA/AAAAP87MzL0uvTsyAAAAAMzMzL2qqio+AAAAs8zMzL0AAAA/AAAAAMrMzL3///8+AAAAP87MzL0uvTsyAAAAP87MzL0uvTsyAAAAAMrMzL3///8+AAAAAM7MzD3///8+AACAMs7MzD0AAAC/AAAAAMzMzD2rqiq+AAAAAMzMzL2rqiq+AACAMszMzL0AAAC/AAAAP8zMzD0uvTsyAACAMs7MzD0AAAC/AACAMs7MzD0AAAC/AAAAP8zMzD0uvTsyAAAAAMzMzD2rqiq+AAAAAMzMzD2rqiq+AAAAAM7MzD2qqio+AACAss7MzD2rqio+AAAAP87MzL0uvTsyAAAAAM7MzD3///8+AAAAP8zMzD0uvTsyAAAAAMzMzD2rqiq+AAAAP8zMzD0uvTsyAAAAAM7MzD2qqio+AAAAP8zMzD0uvTsyAAAAAM7MzD3///8+AAAAAM7MzD2qqio+AAD/f/9///8AAP9//3///wAA/38AAACA/38AAP///z//fwAA////P/9/AAD///8/AAAAAP///78AAAAA////vwAAAAD///+//////wAA/7//////AAD/v/////8AAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+//38AAP///7//fwAA////v/9/AAD///+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+/AAAAAP///78AAAAA////vwAAAAD///+/AAD/f////78AAP9/////vwAA/3////+//3///////7//f///////v/9///////+/AAD/f////78AAP9/////vwAA/3////+//3//f////7//f/9/////v/9//3////+//3///////7//f///////v/9///////+//3///////7//f///////v/9///////+/AAD/f/9/VNUAAP9//39U1QAA/38AAACA/38AAAAA/7//fwAAAAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+/////f/9/AID///9//38AgP///3//fwCA/38AAAAA/7//fwAAAAD/v/9/AAAAAP+/AAAAAP///78AAAAA////vwAAAAD///+//38AAP///7//fwAA////v/9/AAD///+//3//f////7//f/9/////v/9//3////+/////f////7////9/////v////3////+//////wAA/7//////AAD/v/////8AAP+/////f/9/AID///9//38AgP///3//fwCA/3///////7//f///////v/9///////+/////f////7////9/////v////3////+//3///////7//f////v//v/9////+//+//3///////7//f///////v/9///////+//3///////7//f///////v/9///////+//v//f////7/+//9/////v/7//3////+//38AAP9//7//fwAA/3//v/9/AAD/f/+/AAD/v/9/AIAAAP+//38AgAAA/7//fwCA/38AAP9//7//fwAA/3//v/9/AAD/f/+//z//f/9/////P/9//3////8//39dY9b4/z//f11j1vj/P/9//3////8//3+ZGWXm/38AAAAAAID/fwAA/3//v/9/AAD/f/+/////f/////////9//////////38AAACA/z//f11j1vj/P/9/mRll5v8//3////8/AAD/v/9/AIAAAP+//38AgAAA/7//fwCAAAD/v/9/AIAAAP+//38AgAAA/7//fwCA/3///wAAAID/f///AAAAgP9///8AAACA////f/////////9//////////38AAACA/3///wAAAID/f/////////9//////////z//f/9/////P/9//3////8//3//f////3///wAAAID/f///AAAAgP9/////////AAD/f/9//78AAP9//3//vwAA/3//f/+//38AAP//////fwAA//////9/AAD/////////v/9///////+//3///////7//f////38AAP///7//fwAA////v/9/AAD///+/AAD/f/9//78AAP9/AAAAgAAA/3//f/+//7//f////z//v/9/////P/+//3////8//38AAP//////fwAA//////9/AAD//////38AAP//AID/fwAA//8AgP9/AAD//wCA/7//f////z//v/9/////P/+//3////8//7//f/9/AID/v/9//38AgP+//3//fwCAAAD/f/9//78AAP9//3//vwAA/3//f/+/////v/9///////+//3///////7//f////3////9//7//f////3//v/9/////f/+//3/+/////7//f/7/////v/9//v////+//7//f/9/AID/v/9//38AgP+//3//fwCA/3////9//7//f////3//v/9/////f/+//3////9//7//f////3//v/9/////f/+/")
+}]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r68ak"]
+size = Vector2(0.7, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jo572"]
+
+[sub_resource type="Animation" id="Animation_l25s0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GUI/Control/SoundWave:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GUI/Control/InfosContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GUI/Control/InfosContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(300, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GUI/Control/PlayButton:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GUI/Control/InfosContainer/SongNameRichTextLabel:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GUI/Control/InfosContainer/ArtistsNameLabel:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GUI/Control/InfosContainer/DifficultyLabel:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_vpd7x"]
+resource_name = "close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GUI/Control/SoundWave:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.01, 0.01)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GUI/Control/InfosContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.01, 0.01)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GUI/Control/InfosContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Vector2(300, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GUI/Control/PlayButton:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.01, 0.01)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GUI/Control/InfosContainer/SongNameRichTextLabel:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GUI/Control/InfosContainer/ArtistsNameLabel:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GUI/Control/InfosContainer/DifficultyLabel:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_oc7oq"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GUI/Control/SoundWave:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GUI/Control/InfosContainer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GUI/Control/InfosContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(300, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GUI/Control/PlayButton:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(0.01, 0.01), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GUI/Control/InfosContainer/SongNameRichTextLabel:visible_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GUI/Control/InfosContainer/ArtistsNameLabel:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GUI/Control/InfosContainer/DifficultyLabel:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.65, 1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vpd7x"]
+_data = {
+&"RESET": SubResource("Animation_l25s0"),
+&"close": SubResource("Animation_vpd7x"),
+&"open": SubResource("Animation_oc7oq")
+}
+
+[node name="LevelStone" type="Node3D" unique_id=573061259]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+script = ExtResource("1_vfdti")
+sample_start = 5.0
+sample_duration = 10.0
+
+[node name="CSGCombiner3D_Mesh" type="CSGCombiner3D" parent="." unique_id=928869495]
+visible = false
+
+[node name="Body" type="CSGMesh3D" parent="CSGCombiner3D_Mesh" unique_id=1531138120]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.25, 0, 0)
+mesh = SubResource("BoxMesh_vfdti")
+
+[node name="Spike1" type="CSGMesh3D" parent="CSGCombiner3D_Mesh" unique_id=2084977188]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -0.75, 0, 0)
+mesh = SubResource("PrismMesh_vfdti")
+
+[node name="Spike2" type="CSGMesh3D" parent="CSGCombiner3D_Mesh" unique_id=1639150621]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0.25, 0, 0)
+mesh = SubResource("PrismMesh_vfdti")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=887645184]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_vfdti")
+surface_material_override/0 = ExtResource("3_jo572")
+
+[node name="GameplayIconMesh" type="MeshInstance3D" parent="." unique_id=669330189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.1, 0)
+mesh = SubResource("PlaneMesh_r68ak")
+surface_material_override/0 = ExtResource("3_fpsbj")
+
+[node name="PlayerDetectionArea" type="Area3D" parent="." unique_id=739144975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20000002, 0.5, 0)
+
+[node name="CollisionShape" type="CollisionShape3D" parent="PlayerDetectionArea" unique_id=1454229870]
+shape = SubResource("BoxShape3D_jo572")
+
+[node name="GUI" type="CanvasLayer" parent="." unique_id=2025595737]
+
+[node name="Control" type="Control" parent="GUI" unique_id=892586315]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_vvrli")
+
+[node name="SoundWave" parent="GUI/Control" unique_id=309628973 instance=ExtResource("4_jo572")]
+layout_mode = 1
+anchors_preset = 9
+anchor_right = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_vertical = 2
+background_color = Color(0.15686275, 0.019607844, 0, 1)
+num_bars = 15
+
+[node name="InfosContainer" type="VBoxContainer" parent="GUI/Control" unique_id=1794256404]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -852.0
+offset_right = 0.00048828125
+offset_bottom = 106.0
+grow_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="SongNameRichTextLabel" type="RichTextLabel" parent="GUI/Control/InfosContainer" unique_id=1656741165]
+custom_minimum_size = Vector2(852, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
+text = "[u][b]SONG NAME[/b][/u]"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="ArtistsNameLabel" type="Label" parent="GUI/Control/InfosContainer" unique_id=1199640693]
+custom_minimum_size = Vector2(852, 0)
+layout_mode = 2
+text = "artist(s) name(s)"
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="DifficultyLabel" type="Label" parent="GUI/Control/InfosContainer" unique_id=1379766425]
+custom_minimum_size = Vector2(852, 0)
+layout_mode = 2
+text = "{nb}  ★ "
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="PlayButton" type="Button" parent="GUI/Control" unique_id=389023976]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -43.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(89, 43)
+focus_mode = 0
+text = "PLAY"
+
+[node name="MusicSampleAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=89161700]
+bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1148316402]
+libraries/ = SubResource("AnimationLibrary_vpd7x")
+
+[connection signal="area_shape_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_shape_entered"]
+[connection signal="area_shape_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_shape_exited"]
+[connection signal="pressed" from="GUI/Control/PlayButton" to="." method="_on_play_button_pressed"]

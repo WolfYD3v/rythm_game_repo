@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://xlt6gejtwbjq"]
+
+[ext_resource type="Script" uid="uid://haygm2obhd3t" path="res://scenes/_create_song_data/_create_song_data.gd" id="1_84atr"]
+[ext_resource type="AudioStream" uid="uid://ca0o2aaghifnb" path="res://assets/songs/KAT-Pull-the-Trigger-ft.-Yi-Xi-_SynthV-Original-Song_.mp3" id="2_a4kuf"]
+[ext_resource type="PackedScene" uid="uid://03k3fc4m3vdk" path="res://scenes/sound_wave/sound_wave.tscn" id="3_a4kuf"]
+
+[node name="CreateSongData" type="Control" unique_id=1287627703]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_84atr")
+song_name = "test2"
+song_file = ExtResource("2_a4kuf")
+targeted_intensity = 0.05
+input_countdown_timer_duration = 0.1
+
+[node name="SoundWave" parent="." unique_id=1553094432 instance=ExtResource("3_a4kuf")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreateFileButton" type="Button" parent="." unique_id=1924529633]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Create File"
+
+[node name="CloseButton" type="Button" parent="." unique_id=1580293769]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Close"
+
+[node name="OutputLabel" type="Label" parent="." unique_id=1343591231]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "OUTPUT HERE"
+horizontal_alignment = 2
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="SongAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=708199680]
+bus = &"Music"
+
+[connection signal="pressed" from="CreateFileButton" to="." method="_on_create_file_button_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

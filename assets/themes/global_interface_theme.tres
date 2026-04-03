@@ -1,0 +1,36 @@
+[gd_resource type="Theme" format=3 uid="uid://ut3t5ujk5v4b"]
+
+[ext_resource type="FontFile" uid="uid://b848uqxqp4j37" path="res://assets/fonts/Lugrasimo/Lugrasimo-Regular.ttf" id="1_0uri8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jefxd"]
+bg_color = Color(0.15686275, 0.019607844, 0, 0.39215687)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50n3q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n8mu6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uri8"]
+bg_color = Color(0.15686275, 0.019607844, 0, 0.39215687)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2wwp"]
+bg_color = Color(0.15686275, 0.019607844, 0, 0.39215687)
+
+[resource]
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_0uri8")
+Button/styles/focus = SubResource("StyleBoxFlat_jefxd")
+Button/styles/hover = SubResource("StyleBoxFlat_jefxd")
+Button/styles/normal = SubResource("StyleBoxEmpty_50n3q")
+Button/styles/pressed = SubResource("StyleBoxEmpty_n8mu6")
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("1_0uri8")
+Label/styles/normal = SubResource("StyleBoxFlat_0uri8")
+RichTextLabel/font_sizes/bold_font_size = 20
+RichTextLabel/font_sizes/normal_font_size = 20
+RichTextLabel/fonts/bold_font = ExtResource("1_0uri8")
+RichTextLabel/fonts/normal_font = ExtResource("1_0uri8")
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_q2wwp")
