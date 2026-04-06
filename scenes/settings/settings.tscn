@@ -2,6 +2,10 @@
 
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_tt6xx"]
 [ext_resource type="Script" uid="uid://x7q3jm0qh63o" path="res://scenes/settings/settings.gd" id="2_vu5fi"]
+[ext_resource type="PackedScene" uid="uid://bnbo14fxltjln" path="res://scenes/overlay/overlay.tscn" id="3_tt6xx"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vu5fi"]
+viewport_path = NodePath("HoyplomaSubViewport")
 
 [node name="Settings" type="Control" unique_id=1682957814]
 custom_minimum_size = Vector2(400, 600)
@@ -14,14 +18,14 @@ grow_vertical = 2
 theme = ExtResource("1_tt6xx")
 script = ExtResource("2_vu5fi")
 
-[node name="Background" type="ColorRect" parent="." unique_id=220423139]
+[node name="HoyplomaBG" type="TextureRect" parent="." unique_id=683150801]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.7058824, 0.15686275, 0.078431375, 1)
+texture = SubResource("ViewportTexture_vu5fi")
 
 [node name="InterfaceContainer" type="VBoxContainer" parent="." unique_id=1260201572]
 layout_mode = 1
@@ -114,6 +118,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
 text = "SAVE AND CLOSE"
+
+[node name="Overlay" parent="." unique_id=2068804764 instance=ExtResource("3_tt6xx")]
+layout_mode = 0
+anchors_preset = 0
+
+[node name="HoyplomaSubViewport" type="SubViewport" parent="." unique_id=995978748]
+size = Vector2i(1152, 648)
 
 [connection signal="pressed" from="InterfaceContainer/SettingsContainer/LanguageSelectionContainer/FrenchButton" to="." method="set_language" binds= ["fr"]]
 [connection signal="pressed" from="InterfaceContainer/SettingsContainer/LanguageSelectionContainer/EnglishButton" to="." method="set_language" binds= ["en"]]

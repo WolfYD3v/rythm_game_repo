@@ -6,8 +6,22 @@ FROM https://pixabay.com/sound-effects/nature-ambience-wind-blowing-through-tree
 BY Traian1984 [ https://pixabay.com/users/traian1984-41907904/ ]
 
 Inspirations:
--> Beat Saber/JSAB [ Obstacles à éviter , Musique ]
--> Inscryption [ Carte du monde ]
+-> Beat Saber/JSAB [ Obstacles to avoid , Music Idea ]
+-> Inscryption [ World Map Like ]
 
 Fonts:
 https://fonts.google.com/specimen/Lugrasimo?categoryFilters=Feeling:%2FExpressive%2FVintage&preview.script=Latn
+
+Shaders:
+Overlay Shader: VHS Shader
+FROM https://godotshaders.com/shader/vhs-shader/
+BY vacation [ https://godotshaders.com/author/vacation/ ]
+
+Dragon Heart Studios Logo: https://cdn.discordapp.com/icons/1166718999866916964/0efa46d2f7286d1d15df1cea0ba2495d.webp?size=160&quality=lossless
+Godot Logo: https://godotengine.org/assets/press/logo_vertical_monochrome_dark.png
+
+3D Models:
+Blender render building A:
+- "Big Soviet Panel House [Lowpoly]" (https://skfb.ly/pzCZq) by irmich5546 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+Blender render buildings B/C:
+- "Soviet Panel House [Lowpoly]" (https://skfb.ly/pzwsQ) by irmich5546 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
