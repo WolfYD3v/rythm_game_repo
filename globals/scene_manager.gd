@@ -1,10 +1,12 @@
 # This code comes from a collaborative Godot Project, where Healleu
 # added this autoload to the project.
-# I have modified the code to match his code with my coding style.
+# I have modified the code to match his code with my coding style and my needs.
 # But all the credits for this code goes to him :)
 # https://github.com/WolfYD3v/Godot-Wild-Jam-91---Game-Project-Repository/blob/main/autoloads/SceneManager.gd
 
 extends Node
+
+signal replacing_scene
 
 var _scenes : Dictionary = {}
 var _current_scene : Node = null
@@ -18,6 +20,7 @@ func remove_scene(scene_name: String) -> void :
 
 func replace_scene(scene_name: String) -> void :
 	if _scenes.has(scene_name):
+		replacing_scene.emit()
 		if _current_scene != null:
 			_current_scene.queue_free()
 			_current_scene = null
@@ -26,6 +29,10 @@ func replace_scene(scene_name: String) -> void :
 		get_tree().root.call_deferred("add_child", new_scene)
 		_current_scene = new_scene
 		_current_scene_name = scene_name
+
+func get_scene(scene_name: String) -> PackedScene:
+	if _scenes.has(scene_name): return _scenes.get(scene_name)
+	return null
 
 func get_current_scene() -> String:
 	return _current_scene_name

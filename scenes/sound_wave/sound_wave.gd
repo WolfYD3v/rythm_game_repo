@@ -50,7 +50,6 @@ func _process(_delta):
 		var intensity = (magnitude*1000) / (max_freq_amp * 1000.0) if max_freq_amp > 0 else 0.0
 		intensity *= 1000
 		intensity = clamp(intensity, 0.0, 1.0)  # Keep within valid range
-		LevelManager.current_intensity = intensity
 
 		# Get dynamic color from gradient
 		var new_color = color_gradient.sample(intensity)
