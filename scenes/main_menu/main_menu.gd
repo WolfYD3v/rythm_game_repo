@@ -5,6 +5,9 @@ const SETTINGS_PACKED_SCENE: PackedScene = preload("res://scenes/settings/settin
 const SONG_SELECTION_PACKED_SCENE: PackedScene = preload("res://scenes/song_selection/song_selection.tscn")
 
 func _ready() -> void:
+	$SubViewport.add_child(
+		SceneManager.get_scene("Hoyploma").instantiate()
+	)
 	SceneManager.add_scene("Settings", SETTINGS_PACKED_SCENE)
 	SceneManager.add_scene("SongSelection", SONG_SELECTION_PACKED_SCENE)
 

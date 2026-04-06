@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ce37174r0wkkh"]
+
+[ext_resource type="Script" uid="uid://ko5vywd8tud2" path="res://scenes/hoyploma/hoyploma.gd" id="1_kygl1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kygl1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hgdnr"]
+
+[node name="Hoyploma" type="Node3D" unique_id=9521965]
+script = ExtResource("1_kygl1")
+camera_rotation_speed = 100.0
+
+[node name="Camera" type="Camera3D" parent="." unique_id=707719585]
+transform = Transform3D(0.6123725, -0.50000006, 0.6123724, -0.047367148, 0.75, 0.6597397, -0.7891491, -0.43301275, 0.43559578, 2, 3, 3)
+
+[node name="Building" type="Node3D" parent="." unique_id=182932912]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Building" unique_id=1580902986]
+material_override = SubResource("StandardMaterial3D_kygl1")
+mesh = SubResource("BoxMesh_hgdnr")
+skeleton = NodePath("../..")

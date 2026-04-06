@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://c751m542lclx0"]
 
 [ext_resource type="Script" uid="uid://dp8hxtpjxr6nw" path="res://scenes/main_menu/main_menu.gd" id="2_0ebjn"]
-[ext_resource type="Texture2D" uid="uid://ckktxqq4dky23" path="res://icon.svg" id="3_ob46e"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0ebjn"]
+viewport_path = NodePath("SubViewport")
 
 [node name="MainMenu" type="Control" unique_id=2077391775]
 custom_minimum_size = Vector2(450, 400)
@@ -20,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_ob46e")
+texture = SubResource("ViewportTexture_0ebjn")
 
 [node name="GameNameLabel" type="Label" parent="." unique_id=1004746467]
 layout_mode = 1
@@ -73,6 +75,9 @@ layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
 text = "QUIT"
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1176821296]
+size = Vector2i(1152, 648)
 
 [connection signal="pressed" from="GUI/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="GUI/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

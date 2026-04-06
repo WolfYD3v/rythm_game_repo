@@ -1,9 +1,16 @@
 [gd_scene format=3 uid="uid://d160tpf2agyfn"]
 
+[sub_resource type="Environment" id="Environment_qqr54"]
+background_mode = 1
+background_color = Color(0.55279094, 0, 0.14358419, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_qqr54"]
 size = Vector3(0.5, 25, 100)
 
 [node name="TestEnv" type="Node3D" unique_id=583610579]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=837254052]
+environment = SubResource("Environment_qqr54")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=54309285]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
