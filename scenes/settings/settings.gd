@@ -2,8 +2,12 @@ extends Control
 class_name Settings
 
 @onready var listen_sample_check_button: CheckButton = $InterfaceContainer/SettingsContainer/SectionsContainer/AudioSectionContainer/ListenSampleCheckButton
+@onready var hoyploma_sub_viewport: SubViewport = $HoyplomaSubViewport
 
 func _ready() -> void:
+	hoyploma_sub_viewport.add_child(
+		SceneManager.get_scene("Hoyploma").instantiate()
+	)
 	setup_interface()
 
 func setup_interface() -> void:

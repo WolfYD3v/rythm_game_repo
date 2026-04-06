@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bnbo14fxltjln"]
+
+[ext_resource type="Shader" uid="uid://dc7w8m7uaq8ur" path="res://scenes/overlay/overlay.gdshader" id="1_8rvfy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gxboi"]
+shader = ExtResource("1_8rvfy")
+shader_parameter/smearing = 0.5
+shader_parameter/color_offset = 0.005
+shader_parameter/sharpening = 0.4
+shader_parameter/static_noise = 0.08
+shader_parameter/crack_center = Vector2(0.15, 0.85)
+shader_parameter/crack_intensity = 0.0
+shader_parameter/crack_size = 0.0
+shader_parameter/vertical_jitter = 0.002
+shader_parameter/scanline_opacity = 0.1
+shader_parameter/vignette_intensity = 0.3
+
+[node name="Overlay" type="ColorRect" unique_id=2068804764]
+top_level = true
+z_index = 999
+material = SubResource("ShaderMaterial_gxboi")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

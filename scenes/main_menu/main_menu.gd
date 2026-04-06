@@ -1,11 +1,13 @@
 extends Control
 class_name MainMenu
 
+@onready var hoyploma_sub_viewport: SubViewport = $HoyplomaSubViewport
+
 const SETTINGS_PACKED_SCENE: PackedScene = preload("res://scenes/settings/settings.tscn")
 const SONG_SELECTION_PACKED_SCENE: PackedScene = preload("res://scenes/song_selection/song_selection.tscn")
 
 func _ready() -> void:
-	$SubViewport.add_child(
+	hoyploma_sub_viewport.add_child(
 		SceneManager.get_scene("Hoyploma").instantiate()
 	)
 	SceneManager.add_scene("Settings", SETTINGS_PACKED_SCENE)
