@@ -21,6 +21,27 @@ grow_vertical = 2
 theme = ExtResource("1_0ebjn")
 script = ExtResource("2_0ebjn")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=239461653]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.19607843, 1, 1)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1918735606]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "LOADING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HoyplomaBG" type="TextureRect" parent="." unique_id=1774219232]
 layout_mode = 1
 anchors_preset = 15
@@ -66,7 +87,13 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
-text = "PLAY"
+text = "STORY MODE"
+
+[node name="FreePlayButton" type="Button" parent="GUI/VBoxContainer" unique_id=677751326]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+text = "FREE PLAY"
 
 [node name="SettingsButton" type="Button" parent="GUI/VBoxContainer" unique_id=350043106]
 layout_mode = 2
@@ -86,6 +113,37 @@ size_flags_vertical = 3
 focus_mode = 0
 text = "QUIT"
 
+[node name="CreditsRichTextLabel" type="RichTextLabel" parent="." unique_id=106784539]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CloseCreditsButton" type="Button" parent="CreditsRichTextLabel" unique_id=73596185]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Label" type="Label" parent="CreditsRichTextLabel" unique_id=1172262853]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Click to close"
+
 [node name="Overlay" parent="." unique_id=2068804764 instance=ExtResource("3_uqeha")]
 layout_mode = 1
 
@@ -99,4 +157,6 @@ autoplay = true
 
 [connection signal="pressed" from="GUI/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="GUI/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="GUI/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="GUI/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CreditsRichTextLabel/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]

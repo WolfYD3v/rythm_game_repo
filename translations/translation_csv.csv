@@ -1,7 +1,9 @@
 keys,fr,en
-PLAY,"JOUER","PLAY"
+"STORY MODE","MODE HISTOIRE","STORY MODE"
+"FREE PLAY", "MODE LIBRE", "FREE PLAY"
 SETTINGS,"REGLAGES","SETTINGS"
 CREDITS,"CREDITS","CREDITS"
+"Click to close","Cliquer pour fermer","Click to close"
 QUIT,"QUITTER","QUIT"
 [u][b]Settings[/b][/u],"[u][b]Réglages[/b][/u]","[u][b]Settings[/b][/u]"
 LANGUAGE,"LANGUE","LANGUAGE"

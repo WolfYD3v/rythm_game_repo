@@ -1,0 +1,1224 @@
+[gd_scene format=3 uid="uid://jvgivw0qeqp4"]
+
+[ext_resource type="Script" uid="uid://cm3q634p1b48l" path="res://scenes/hoyploma/building.gd" id="1_0llqg"]
+[ext_resource type="Texture2D" uid="uid://c7872k56ufytc" path="res://assets/models/buildings_B_C/page.png" id="1_mxx1n"]
+[ext_resource type="Texture2D" uid="uid://bv7wilnysyod7" path="res://assets/models/buildings_B_C/page_n.png" id="2_vkyem"]
+[ext_resource type="ArrayMesh" uid="uid://0sfgq0c5ai0e" path="res://assets/models/building_A/panelkakrslow.obj" id="3_0llqg"]
+[ext_resource type="Script" uid="uid://dd7i21b38it13" path="res://addons/mergingmeshes/MergingMeshes.gd" id="4_vkyem"]
+[ext_resource type="Texture2D" uid="uid://cjkwnl5tsa25w" path="res://assets/models/building_A/page1.5.png" id="5_e8qbq"]
+[ext_resource type="Texture2D" uid="uid://bd5uihiq3iv0q" path="res://assets/models/building_A/page1.5_n.png" id="6_yrrlr"]
+[ext_resource type="ArrayMesh" uid="uid://4tgp7r0vm4i3" path="res://assets/models/buildings_B_C/panelkaslow.obj" id="7_ugdif"]
+[ext_resource type="Material" uid="uid://61r1p6cdancc" path="res://assets/materials/bridge_material.tres" id="8_yrrlr"]
+[ext_resource type="Material" uid="uid://vfqt7stponxf" path="res://assets/materials/ground_map_material.tres" id="10_gis2f"]
+[ext_resource type="FontFile" uid="uid://b848uqxqp4j37" path="res://assets/fonts/Lugrasimo/Lugrasimo-Regular.ttf" id="10_ugdif"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01xcu"]
+albedo_texture = ExtResource("1_mxx1n")
+normal_enabled = true
+normal_scale = 16.0
+normal_texture = ExtResource("2_vkyem")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gis2f"]
+albedo_texture = ExtResource("5_e8qbq")
+normal_enabled = true
+normal_scale = 16.0
+normal_texture = ExtResource("6_yrrlr")
+
+[sub_resource type="BoxMesh" id="BoxMesh_e8qbq"]
+size = Vector3(5, 0.25, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cjkp7"]
+load_path = "res://.godot/imported/page.png-17cad49585614522328af9332dd07771.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mqu1e"]
+load_path = "res://.godot/imported/page_n.png-ad57356ad4b12c1c7aa03a72aad32310.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkyem"]
+albedo_texture = SubResource("CompressedTexture2D_cjkp7")
+normal_enabled = true
+normal_scale = 16.0
+normal_texture = SubResource("CompressedTexture2D_mqu1e")
+
+[sub_resource type="TextMesh" id="TextMesh_gis2f"]
+text = "Part 1"
+font = ExtResource("10_ugdif")
+font_size = 127
+pixel_size = 0.03
+depth = 0.5
+
+[node name="Building" type="Node3D" unique_id=140553632]
+script = ExtResource("1_0llqg")
+
+[node name="Sections" type="Node3D" parent="." unique_id=1095279904]
+visible = false
+
+[node name="Section1" type="Node3D" parent="Sections" unique_id=1594645009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="B_A_Tower_1" type="Node3D" parent="Sections/Section1" unique_id=2111409250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_1" unique_id=1035386075]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_1" unique_id=2019832613]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_1" unique_id=552023072]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_1" unique_id=1968165238]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_2" type="Node3D" parent="Sections/Section1" unique_id=91028723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_2" unique_id=393896873]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_2" unique_id=1847945997]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_2" unique_id=90274300]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_2" unique_id=1707554102]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_3" type="Node3D" parent="Sections/Section1" unique_id=1912313962]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.7, 0, 4)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_3" unique_id=60757164]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_3" unique_id=1763694197]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_3" unique_id=33085319]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_3" unique_id=1477559775]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_4" type="Node3D" parent="Sections/Section1" unique_id=811248117]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.7, 0, 3.9)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_4" unique_id=961830911]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_4" unique_id=419740482]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_4" unique_id=305584124]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_4" unique_id=539287130]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_5" type="Node3D" parent="Sections/Section1" unique_id=1164996501]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_5" unique_id=686563666]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_5" unique_id=1654598034]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_5" unique_id=837375558]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_5" unique_id=2099940667]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_6" type="Node3D" parent="Sections/Section1" unique_id=106277769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_6" unique_id=301849504]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_6" unique_id=1914208007]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_6" unique_id=805610873]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_6" unique_id=1057826927]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_7" type="Node3D" parent="Sections/Section1" unique_id=2024663596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_7" unique_id=970384889]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_7" unique_id=1963675227]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_7" unique_id=1198503713]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_7" unique_id=1884353596]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_8" type="Node3D" parent="Sections/Section1" unique_id=1314305879]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.7, 0, -4.5)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_8" unique_id=681488621]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_8" unique_id=1656167619]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_8" unique_id=1714779777]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_8" unique_id=1009948830]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_9" type="Node3D" parent="Sections/Section1" unique_id=162094794]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.7, 0, -4.5)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_9" unique_id=1473919075]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_9" unique_id=1912799099]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_9" unique_id=1891520830]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section1/B_A_Tower_9" unique_id=100345298]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="Section2" type="Node3D" parent="Sections" unique_id=621407998]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3, -1, 3)
+
+[node name="B_A_Tower_1" type="Node3D" parent="Sections/Section2" unique_id=1347539114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_1" unique_id=2032858600]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_1" unique_id=380237938]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_1" unique_id=1984765438]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_1" unique_id=1967871302]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_2" type="Node3D" parent="Sections/Section2" unique_id=17784487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_2" unique_id=1413278785]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_2" unique_id=1023441653]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_2" unique_id=269883055]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_2" unique_id=1129794597]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_3" type="Node3D" parent="Sections/Section2" unique_id=1394404072]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.7, 0, 4)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_3" unique_id=1063453852]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_3" unique_id=572457172]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_3" unique_id=44829467]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_3" unique_id=1883363129]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_4" type="Node3D" parent="Sections/Section2" unique_id=851645931]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.7, 0, 3.9)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_4" unique_id=1923784314]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_4" unique_id=1074048702]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_4" unique_id=2102636070]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_4" unique_id=1660887644]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_5" type="Node3D" parent="Sections/Section2" unique_id=227837211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_5" unique_id=1190260953]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_5" unique_id=573821997]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_5" unique_id=880017123]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_5" unique_id=696484568]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_6" type="Node3D" parent="Sections/Section2" unique_id=1820268107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_6" unique_id=287342763]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_6" unique_id=1978222764]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_6" unique_id=920058369]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_6" unique_id=1403093435]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_7" type="Node3D" parent="Sections/Section2" unique_id=583367651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_7" unique_id=2091012092]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_7" unique_id=1694033107]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_7" unique_id=1286436944]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_7" unique_id=1599248607]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_8" type="Node3D" parent="Sections/Section2" unique_id=946130646]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.7, 0, -4.5)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_8" unique_id=1440881946]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_8" unique_id=1590547144]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_8" unique_id=373189652]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_8" unique_id=1033102801]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_9" type="Node3D" parent="Sections/Section2" unique_id=1306968741]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.7, 0, -4.5)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_9" unique_id=1863922120]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_9" unique_id=1012742068]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_9" unique_id=576338927]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section2/B_A_Tower_9" unique_id=1388303448]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="Section3" type="Node3D" parent="Sections" unique_id=1101782054]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5, -1, 0)
+
+[node name="B_A_Tower_1" type="Node3D" parent="Sections/Section3" unique_id=1591985349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_1" unique_id=419322278]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_1" unique_id=429837657]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_1" unique_id=597067196]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_1" unique_id=1799654986]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_2" type="Node3D" parent="Sections/Section3" unique_id=2065091483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_2" unique_id=1647730403]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_2" unique_id=11743302]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_2" unique_id=1529342491]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_2" unique_id=1051349472]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_3" type="Node3D" parent="Sections/Section3" unique_id=101389281]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.7, 0, 4)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_3" unique_id=501349826]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_3" unique_id=1739887551]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_3" unique_id=1406253550]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_3" unique_id=885560068]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_4" type="Node3D" parent="Sections/Section3" unique_id=681937626]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.7, 0, 3.9)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_4" unique_id=1143251310]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_4" unique_id=409201664]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_4" unique_id=756793679]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_4" unique_id=1327981853]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_5" type="Node3D" parent="Sections/Section3" unique_id=22424479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_5" unique_id=786610228]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_5" unique_id=1043810823]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_5" unique_id=1774532602]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_5" unique_id=674169878]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_6" type="Node3D" parent="Sections/Section3" unique_id=964249917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_6" unique_id=1749320689]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_6" unique_id=217075486]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_6" unique_id=588117850]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_6" unique_id=1967308802]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_7" type="Node3D" parent="Sections/Section3" unique_id=2139831349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_7" unique_id=1383180888]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_7" unique_id=1674932401]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_7" unique_id=87836438]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_7" unique_id=603339033]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_8" type="Node3D" parent="Sections/Section3" unique_id=2080232623]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.7, 0, -4.5)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_8" unique_id=525689505]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_8" unique_id=973636596]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_8" unique_id=1712291807]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_8" unique_id=1535949139]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_9" type="Node3D" parent="Sections/Section3" unique_id=391087553]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.7, 0, -4.5)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_9" unique_id=1276685278]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_9" unique_id=1379548728]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_9" unique_id=214395412]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section3/B_A_Tower_9" unique_id=266688680]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="Section4" type="Node3D" parent="Sections" unique_id=1535436606]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, -1, -3)
+
+[node name="B_A_Tower_1" type="Node3D" parent="Sections/Section4" unique_id=1654993318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_1" unique_id=2011640385]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_1" unique_id=882726190]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_1" unique_id=411460841]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_1" unique_id=1428815716]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_2" type="Node3D" parent="Sections/Section4" unique_id=837046854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_2" unique_id=1333903136]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_2" unique_id=826518652]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_2" unique_id=994424015]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_2" unique_id=22878307]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_3" type="Node3D" parent="Sections/Section4" unique_id=2021921249]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.7, 0, 4)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_3" unique_id=895261039]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_3" unique_id=1085137350]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_3" unique_id=1412008658]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_3" unique_id=1674862182]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_4" type="Node3D" parent="Sections/Section4" unique_id=1314579350]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.7, 0, 3.9)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_4" unique_id=1853701169]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_4" unique_id=431848380]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_4" unique_id=1941674541]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_4" unique_id=570087630]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_5" type="Node3D" parent="Sections/Section4" unique_id=1527466233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_5" unique_id=1557004672]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_5" unique_id=515136636]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_5" unique_id=1714356841]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_5" unique_id=1540755828]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_6" type="Node3D" parent="Sections/Section4" unique_id=756183128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_6" unique_id=126503810]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_6" unique_id=460634835]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_6" unique_id=2126551964]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_6" unique_id=1607908869]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_7" type="Node3D" parent="Sections/Section4" unique_id=112811378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7, 0, -0.2)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_7" unique_id=1374293120]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_7" unique_id=1482379626]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_7" unique_id=1236408865]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_7" unique_id=320658189]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_8" type="Node3D" parent="Sections/Section4" unique_id=363154062]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.7, 0, -4.5)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_8" unique_id=2069874015]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_8" unique_id=1003020367]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_8" unique_id=769548487]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_8" unique_id=79264461]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A_Tower_9" type="Node3D" parent="Sections/Section4" unique_id=662310553]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.7, 0, -4.5)
+
+[node name="B_A" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_9" unique_id=830356923]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A2" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_9" unique_id=1245178054]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 1.6, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A3" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_9" unique_id=1461107408]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 3.2, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="B_A4" type="MeshInstance3D" parent="Sections/Section4/B_A_Tower_9" unique_id=914117076]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 4.8, 0)
+material_override = SubResource("StandardMaterial3D_01xcu")
+mesh = ExtResource("3_0llqg")
+skeleton = NodePath("../..")
+
+[node name="Section5" type="Node3D" parent="Sections" unique_id=1774677338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="Sections/Section5" unique_id=2022279678]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sections/Section5/Node3D" unique_id=1430456934]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Sections/Section5/Node3D" unique_id=1069059285]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Sections/Section5/Node3D" unique_id=448556424]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Sections/Section5/Node3D" unique_id=2140676416]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 3, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Sections/Section5/Node3D" unique_id=1429435715]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 4, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Sections/Section5/Node3D" unique_id=88614877]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 5, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="Node3D2" type="Node3D" parent="Sections/Section5" unique_id=150563660]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.7999992, 0, 1.7)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sections/Section5/Node3D2" unique_id=845580407]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Sections/Section5/Node3D2" unique_id=2032490420]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Sections/Section5/Node3D2" unique_id=1670616232]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Sections/Section5/Node3D2" unique_id=941618397]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 3, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Sections/Section5/Node3D2" unique_id=426439639]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 4, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Sections/Section5/Node3D2" unique_id=1529153543]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 5, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="Node3D3" type="Node3D" parent="Sections/Section5" unique_id=2016039333]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5999985, 0, 1.4000001)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sections/Section5/Node3D3" unique_id=725301323]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Sections/Section5/Node3D3" unique_id=185565167]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Sections/Section5/Node3D3" unique_id=864236903]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Sections/Section5/Node3D3" unique_id=1180760732]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 3, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Sections/Section5/Node3D3" unique_id=922431270]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 4, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Sections/Section5/Node3D3" unique_id=2082582786]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 5, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="Node3D4" type="Node3D" parent="Sections/Section5" unique_id=325700840]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -0.5999985, 0, -0.6999998)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sections/Section5/Node3D4" unique_id=1011082387]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Sections/Section5/Node3D4" unique_id=1222543274]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Sections/Section5/Node3D4" unique_id=1948570876]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Sections/Section5/Node3D4" unique_id=587131675]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 3, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Sections/Section5/Node3D4" unique_id=1595640642]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 4, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Sections/Section5/Node3D4" unique_id=1110351939]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 5, 1)
+material_override = SubResource("StandardMaterial3D_gis2f")
+mesh = ExtResource("7_ugdif")
+skeleton = NodePath("../..")
+
+[node name="Bridge" type="MeshInstance3D" parent="Sections" unique_id=29462541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.300001, 2, -1.6)
+material_override = ExtResource("8_yrrlr")
+mesh = SubResource("BoxMesh_e8qbq")
+
+[node name="Bridge2" type="MeshInstance3D" parent="Sections" unique_id=617899946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.300001, 4.1000004, -1.6)
+material_override = ExtResource("8_yrrlr")
+mesh = SubResource("BoxMesh_e8qbq")
+
+[node name="Bridge3" type="MeshInstance3D" parent="Sections" unique_id=764808295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.300001, 3.4000003, 1.8000001)
+material_override = ExtResource("8_yrrlr")
+mesh = SubResource("BoxMesh_e8qbq")
+
+[node name="Bridge4" type="MeshInstance3D" parent="Sections" unique_id=1422134061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.300001, 0.40000033, 1.8000001)
+material_override = ExtResource("8_yrrlr")
+mesh = SubResource("BoxMesh_e8qbq")
+
+[node name="MergingMeshes" type="MeshInstance3D" parent="." unique_id=779869093]
+script = ExtResource("4_vkyem")
+GeneralMaterial = SubResource("StandardMaterial3D_vkyem")
+metadata/_custom_type_script = "uid://dd7i21b38it13"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1276936948]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -33, 2, 0)
+material_override = ExtResource("10_gis2f")
+mesh = SubResource("TextMesh_gis2f")
