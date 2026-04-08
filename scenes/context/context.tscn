@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dpkc6y8gdqvqb"]
 
 [ext_resource type="Script" uid="uid://cs7fikchltbw4" path="res://scenes/context/context.gd" id="1_4swqa"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_haoga"]
 
 [node name="Context" type="Control" unique_id=1283927702]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_haoga")
 script = ExtResource("1_4swqa")
 
 [node name="Background" type="ColorRect" parent="." unique_id=359309106]
@@ -18,4 +20,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.21568628, 0.21568628, 0.21568628, 1)
+color = Color(0.039215688, 0.039215688, 0.039215688, 1)
+
+[node name="TextLabel" type="Label" parent="." unique_id=798456911]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CONTEXT_TEXT"
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=94236654]
+autoplay = true

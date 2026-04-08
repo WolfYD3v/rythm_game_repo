@@ -6,7 +6,7 @@ class_name MainMenu
 @onready var gui: Control = $GUI
 
 const SETTINGS_PACKED_SCENE: PackedScene = preload("res://scenes/settings/settings.tscn")
-const SONG_SELECTION_PACKED_SCENE: PackedScene = preload("res://scenes/song_selection/song_selection.tscn")
+const CONTEXT_PACKED_SCENE: PackedScene = preload("res://scenes/context/context.tscn")
 const HOYPLOMA_PACKED_SCENE: PackedScene = preload("res://scenes/hoyploma/hoyploma.tscn")
 
 func _ready() -> void:
@@ -28,8 +28,8 @@ func _on_settings_button_pressed() -> void:
 	SceneManager.replace_scene("Settings")
 
 func _on_play_button_pressed() -> void:
-	SceneManager.add_scene("SongSelection", SONG_SELECTION_PACKED_SCENE)
-	SceneManager.replace_scene("SongSelection")
+	SceneManager.add_scene("Context", CONTEXT_PACKED_SCENE)
+	SceneManager.replace_scene("Context")
 
 # TEMP
 func _on_credits_button_pressed() -> void:
