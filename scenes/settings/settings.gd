@@ -3,11 +3,17 @@ class_name Settings
 
 @onready var listen_sample_check_button: CheckButton = $InterfaceContainer/SettingsContainer/SectionsContainer/AudioSectionContainer/ListenSampleCheckButton
 @onready var hoyploma_sub_viewport: SubViewport = $HoyplomaSubViewport
+@onready var color_rect: ColorRect = $ColorRect
+
+@export var pause_menu_mode: bool = false
 
 func _ready() -> void:
-	hoyploma_sub_viewport.add_child(
+	color_rect.visible = not(pause_menu_mode)
+	get_node("HoyplomaBG").visible = not(pause_menu_mode)
+	if not pause_menu_mode: hoyploma_sub_viewport.add_child(
 		SceneManager.get_scene("Hoyploma").instantiate()
 	)
+	
 	setup_interface()
 
 func setup_interface() -> void:
@@ -23,7 +29,9 @@ func _on_listen_sample_check_button_toggled(toggled_on: bool) -> void:
 
 func _on_close_button_pressed() -> void:
 	SettingsManager.save_settings_file()
-	SceneManager.replace_scene("MainMenu")
+	
+	if not pause_menu_mode: SceneManager.replace_scene("MainMenu")
+	else: hide()
 
 func _on_save_button_pressed() -> void:
 	SettingsManager.save_settings_file()

@@ -8,6 +8,7 @@
 viewport_path = NodePath("HoyplomaSubViewport")
 
 [node name="Settings" type="Control" unique_id=1682957814]
+process_mode = 3
 custom_minimum_size = Vector2(400, 600)
 layout_mode = 3
 anchors_preset = 15
