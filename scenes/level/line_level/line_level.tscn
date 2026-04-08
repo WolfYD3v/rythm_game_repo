@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://8kn1f186cjhm" path="res://scenes/level/line_level/line_level.gd" id="1_f6k6l"]
 [ext_resource type="AudioStream" uid="uid://ca0o2aaghifnb" path="res://assets/songs/KAT-Pull-the-Trigger-ft.-Yi-Xi-_SynthV-Original-Song_.mp3" id="3_lhr4w"]
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="3_nt8ip"]
+[ext_resource type="PackedScene" uid="uid://cr8qhwmj0jva" path="res://scenes/pause_menu/pause_menu.tscn" id="4_v1pdo"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_i166f"]
 
@@ -99,6 +100,8 @@ offset_bottom = -0.24800491
 theme = ExtResource("3_nt8ip")
 theme_override_font_sizes/font_size = 35
 text = "INPUT: ???"
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=955880638 instance=ExtResource("4_v1pdo")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1003161702]
 bus = &"Music"
