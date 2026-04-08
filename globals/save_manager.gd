@@ -1,5 +1,8 @@
 extends Node
 
+signal game_saved
+signal save_loaded
+
 const BASE_SAVE_DATA: Dictionary = {
 	"context_seen": false
 }
@@ -30,6 +33,8 @@ func save_game() -> void:
 		var save_file_content: String = JSON.stringify(save_data_to_write, "    ")
 		save_file.store_string(save_file_content)
 		save_file.close()
+		
+		game_saved.emit()
 
 func load_save() -> void:
 	var save_file = FileAccess.open(save_file_path, FileAccess.READ)
@@ -41,6 +46,8 @@ func load_save() -> void:
 		print(_loaded_save_data)
 		print(get_save_data("context_seen"))
 		print(get_save_data("e"))
+		
+		game_saved.emit()
 
 func get_save_data(data: String) -> Variant:
 	if _loaded_save_data.is_empty(): return null
