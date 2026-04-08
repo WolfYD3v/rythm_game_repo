@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://ca0o2aaghifnb" path="res://assets/songs/KAT-Pull-the-Trigger-ft.-Yi-Xi-_SynthV-Original-Song_.mp3" id="6_67vlu"]
 [ext_resource type="AudioStream" uid="uid://cmav6vwdavfcu" path="res://assets/songs/Badly (feat. Camellia).mp3" id="7_7oj2g"]
 [ext_resource type="AudioStream" uid="uid://rebcva64gats" path="res://assets/songs/traian1984-ambience-wind-blowing-through-trees-01-186986_map_windy_ambiance.mp3" id="8_0x6m5"]
+[ext_resource type="PackedScene" uid="uid://cr8qhwmj0jva" path="res://scenes/pause_menu/pause_menu.tscn" id="9_367f4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j8mn7"]
 size = Vector3(300, 0.5, 1000)
@@ -95,6 +96,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "MAP"
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=955880638 instance=ExtResource("9_367f4")]
 
 [node name="MapSubViewport" type="SubViewport" parent="." unique_id=1360622392]
 size = Vector2i(1152, 648)

@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://cr8qhwmj0jva"]
+
+[ext_resource type="Script" uid="uid://dysasp1l5jby" path="res://scenes/pause_menu/pause_menu.gd" id="1_5bgjm"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_qcmsd"]
+[ext_resource type="PackedScene" uid="uid://1ntsanfb80w4" path="res://scenes/settings/settings.tscn" id="3_10tpt"]
+
+[node name="PauseMenu" type="Control" unique_id=955880638]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qcmsd")
+script = ExtResource("1_5bgjm")
+
+[node name="Menu" type="Control" parent="." unique_id=1186282556]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -250.0
+offset_right = 225.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backgroud" type="ColorRect" parent="Menu" unique_id=2044296882]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15686275, 0.019607844, 0, 1)
+
+[node name="CompositionContainer" type="VBoxContainer" parent="Menu" unique_id=1341747612]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="GamePausedLabel" type="Label" parent="Menu/CompositionContainer" unique_id=1963792128]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "GAME PAUSED"
+horizontal_alignment = 1
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="Menu/CompositionContainer" unique_id=337377536]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Menu/CompositionContainer/ButtonsContainer" unique_id=726231392]
+layout_mode = 2
+text = "Continue"
+
+[node name="SettingsButton" type="Button" parent="Menu/CompositionContainer/ButtonsContainer" unique_id=1679867166]
+layout_mode = 2
+text = "Settings"
+
+[node name="Settings" parent="." unique_id=1682957814 instance=ExtResource("3_10tpt")]
+layout_mode = 1
+pause_menu_mode = true
+
+[node name="Backgroud" type="ColorRect" parent="Settings" unique_id=1513621425]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15686275, 0.019607844, 0, 0.78431374)
+
+[connection signal="pressed" from="Menu/CompositionContainer/ButtonsContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Menu/CompositionContainer/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
