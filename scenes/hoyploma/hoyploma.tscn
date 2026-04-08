@@ -1,30 +1,14 @@
 [gd_scene format=3 uid="uid://ce37174r0wkkh"]
 
 [ext_resource type="Script" uid="uid://ko5vywd8tud2" path="res://scenes/hoyploma/hoyploma.gd" id="1_kygl1"]
-[ext_resource type="ArrayMesh" uid="uid://0sfgq0c5ai0e" path="res://assets/models/building_A/panelkakrslow.obj" id="2_gx3m4"]
-[ext_resource type="Texture2D" uid="uid://cjkwnl5tsa25w" path="res://assets/models/building_A/page1.5.png" id="3_0628w"]
-[ext_resource type="Texture2D" uid="uid://bd5uihiq3iv0q" path="res://assets/models/building_A/page1.5_n.png" id="4_cjkp7"]
+[ext_resource type="PackedScene" uid="uid://jvgivw0qeqp4" path="res://scenes/hoyploma/building.tscn" id="3_4prsh"]
 [ext_resource type="Material" uid="uid://vfqt7stponxf" path="res://assets/materials/ground_map_material.tres" id="5_cjkp7"]
-
-[sub_resource type="Environment" id="Environment_0628w"]
-background_mode = 1
-background_color = Color(0.11764706, 0.11764706, 0.11764706, 1)
-fog_enabled = true
-fog_light_color = Color(0, 0, 0, 1)
-fog_light_energy = 0.0
-fog_density = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kygl1"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_0628w"]
 radius = 0.2
 height = 0.4
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqu1e"]
-albedo_texture = ExtResource("3_0628w")
-normal_enabled = true
-normal_scale = 16.0
-normal_texture = ExtResource("4_cjkp7")
 
 [sub_resource type="BoxMesh" id="BoxMesh_mqu1e"]
 size = Vector3(500, 0.5, 500)
@@ -36,22 +20,21 @@ size = Vector3(500, 0.5, 500)
 script = ExtResource("1_kygl1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=16486517]
-environment = SubResource("Environment_0628w")
 
 [node name="TopCamera" type="Camera3D" parent="." unique_id=1801638791]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 25, 0)
 current = true
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1330911381]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
 
 [node name="Camera" type="Camera3D" parent="CameraPivot" unique_id=707719585]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, 10)
 current = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot/Camera" unique_id=300354816]
 light_energy = 16.0
-spot_range = 15.0
+spot_range = 30.0
 spot_angle = 70.0
 spot_angle_attenuation = 4.0000005
 
@@ -60,13 +43,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 material_override = SubResource("StandardMaterial3D_kygl1")
 mesh = SubResource("SphereMesh_0628w")
 skeleton = NodePath("../..")
-
-[node name="Building" type="Node3D" parent="." unique_id=182932912]
-
-[node name="Panelkakrslow" type="MeshInstance3D" parent="Building" unique_id=1709050441]
-mesh = ExtResource("2_gx3m4")
-skeleton = NodePath("../../CameraPivot")
-surface_material_override/0 = SubResource("StandardMaterial3D_mqu1e")
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=1048439896]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
@@ -77,3 +53,5 @@ surface_material_override/0 = ExtResource("5_cjkp7")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="Ground" unique_id=369232467]
 shape = SubResource("BoxShape3D_01xcu")
+
+[node name="Building" parent="." unique_id=140553632 instance=ExtResource("3_4prsh")]

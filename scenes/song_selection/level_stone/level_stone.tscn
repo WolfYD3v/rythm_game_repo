@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://ujsm1owousxg" path="res://assets/materials/level_stone_gameplay_icon_material.tres" id="3_fpsbj"]
 [ext_resource type="Material" uid="uid://bvh6tgeg5ij2c" path="res://assets/materials/level_stone_material.tres" id="3_jo572"]
 [ext_resource type="PackedScene" uid="uid://03k3fc4m3vdk" path="res://scenes/sound_wave/sound_wave.tscn" id="4_jo572"]
+[ext_resource type="PackedScene" uid="uid://bnbo14fxltjln" path="res://scenes/overlay/overlay.tscn" id="4_l25s0"]
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="5_vvrli"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vfdti"]
@@ -336,7 +337,12 @@ shape = SubResource("BoxShape3D_jo572")
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=2025595737]
 
+[node name="Overlay" parent="GUI" unique_id=2068804764 instance=ExtResource("4_l25s0")]
+top_level = false
+z_index = 0
+
 [node name="Control" type="Control" parent="GUI" unique_id=892586315]
+top_level = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

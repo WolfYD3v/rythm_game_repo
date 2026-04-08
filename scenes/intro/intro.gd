@@ -10,6 +10,7 @@ func _ready() -> void:
 	animation_player.play("start")
 	ambiance_audio_stream_player.play()
 	await animation_player.animation_finished
+	await get_tree().create_timer(5.0).timeout
 	
 	SceneManager.add_scene("MainMenu", MAIN_MENU_PACKED_SCENE)
 	SceneManager.remove_scene("Intro")

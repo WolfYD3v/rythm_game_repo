@@ -176,43 +176,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [24.0]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("PartLabel:visible")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("PartLabel:modulate")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("PartLabel:scale")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.5, 0.5)]
+"values": [-80.0]
 }
 
 [sub_resource type="Animation" id="Animation_qeukb"]
@@ -240,7 +204,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 6.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [1.6299399954733396e-09, 1.6299399954733396e-09, 0.005]
+"values": [1.6299399954733392e-09, 1.6299399954733392e-09, 0.005]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -369,46 +333,10 @@ tracks/12/path = NodePath("AmbianceAudioStreamPlayer:volume_db")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 1.5, 1.51, 5.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [24.0, 24.0, -80.0, 0.0]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("PartLabel:visible")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 1.51),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("PartLabel:modulate")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0, 1.5, 1.51),
-"transitions": PackedFloat32Array(0.5, 1, 2),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0.0066224933, 0.0066224933, 1), Color(1, 0, 0, 1)]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("PartLabel:scale")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0, 1.51),
-"transitions": PackedFloat32Array(0.5, 2),
-"update": 0,
-"values": [Vector2(1.5, 0.5), Vector2(2.5, 0.5)]
+"values": [-80.0, -80.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_teox7"]
@@ -489,17 +417,6 @@ texture = ExtResource("4_ir5dn")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="PartLabel" type="Label" parent="." unique_id=981811197]
-layout_mode = 0
-offset_left = 87.0
-offset_top = 8.0
-offset_right = 510.0
-offset_bottom = 145.0
-rotation = 1.5707964
-scale = Vector2(1.5, 0.5)
-theme_override_font_sizes/font_size = 100
-text = "PART 2"
-
 [node name="Overlay" type="ColorRect" parent="." unique_id=2068804764]
 top_level = true
 z_index = 999
@@ -513,8 +430,7 @@ mouse_filter = 2
 
 [node name="AmbianceAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=613644360]
 stream = ExtResource("6_1rrv8")
-volume_db = 24.0
-pitch_scale = 4.0
+volume_db = -80.0
 parameters/looping = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1882114895]
