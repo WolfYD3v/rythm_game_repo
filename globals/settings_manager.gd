@@ -2,18 +2,30 @@ extends Node
 
 const BASE_SETTINGS_FILE_CONTENT: Dictionary = {
 	"listen_samples": true,
-	"language": "en"
+	"language": "en",
+	"keybinds": {
+		"Tile1": KEY_A,
+		"Tile2": KEY_Z,
+		"Tile3": KEY_E,
+		"Tile4": KEY_R,
+		"Tile5": KEY_T,
+		"Tile6": KEY_Y,
+	}
 }
 var settings_file_path: String = ProjectSettings.globalize_path("user://settings_file.json")
 
 var listen_samples: bool = true
 var language: String = "en"
+var keybinds: Dictionary = {}
 
 
 
 func _ready() -> void:
 	delete_settings_file(true)
 	if not settings_file_exists(): save_settings_file()
+	
+	get_settings()
+	_load_settings_data()
 
 
 
@@ -47,3 +59,22 @@ func get_settings() -> void:
 			var value: Variant = settings_dictionnary[variable]
 			set(variable, value)
 			print("%s = %s" % [variable, value])
+
+func _load_settings_data() -> void:
+	TranslationServer.set_locale(language)
+	_load_saved_keybinds()
+
+func _load_saved_keybinds() -> void:
+	if keybinds.is_empty(): return
+	
+	for action: String in keybinds.keys():
+		if not InputMap.has_action(action): continue
+		
+		var _keybind: InputEventKey = InputEventKey.new()
+		_keybind.keycode = keybinds.get(action)
+		InputMap.action_erase_event(
+			action,
+			InputMap.action_get_events(action)[-1]
+		)
+		InputMap.action_add_event(action, _keybind)
+		print("Action '%s' -> %s" % [action, _keybind])
