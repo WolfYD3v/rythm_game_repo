@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cjc7pabf7vhqh"]
+
+[ext_resource type="Script" uid="uid://78ys3ab1fwq0" path="res://scenes/level/line_level/obstacles/obstacle.gd" id="1_ml765"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ml765"]
+radius = 2.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_ml765"]
+radius = 2.0
+height = 4.0
+
+[node name="Obstacle" type="Area3D" unique_id=216446869]
+script = ExtResource("1_ml765")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=612228595]
+shape = SubResource("SphereShape3D_ml765")
+
+[node name="MeshInstance" type="MeshInstance3D" parent="." unique_id=2090531093]
+mesh = SubResource("SphereMesh_ml765")

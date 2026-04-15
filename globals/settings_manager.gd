@@ -4,12 +4,12 @@ const BASE_SETTINGS_FILE_CONTENT: Dictionary = {
 	"listen_samples": true,
 	"language": "en",
 	"keybinds": {
-		"Tile1": KEY_A,
-		"Tile2": KEY_Z,
-		"Tile3": KEY_E,
-		"Tile4": KEY_R,
-		"Tile5": KEY_T,
-		"Tile6": KEY_Y,
+		"LinesLevel_Line1": KEY_A,
+		"LinesLevel_Line2": KEY_Z,
+		"LinesLevel_Line3": KEY_E,
+		"LinesLevel_Line4": KEY_R,
+		"LinesLevel_Line5": KEY_T,
+		"LinesLevel_Line6": KEY_Y,
 	}
 }
 var settings_file_path: String = ProjectSettings.globalize_path("user://settings_file.json")

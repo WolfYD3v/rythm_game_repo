@@ -19,3 +19,17 @@ mesh = SubResource("BoxMesh_qqr54")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1880516544]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 mesh = SubResource("BoxMesh_qqr54")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1276111028]
+transform = Transform3D(0.5, 0.7071068, -0.49999997, -0.49999997, 0.70710677, 0.5000001, 0.7071068, -6.322028e-08, 0.70710677, -8, 8, 30)
+light_energy = 5.0
+shadow_enabled = true
+spot_range = 50.0
+spot_angle = 75.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=131981388]
+transform = Transform3D(-0.7071068, 4.9378123e-08, -0.70710677, -0.49999994, 0.7071069, 0.49999997, 0.5000001, 0.7071067, -0.50000006, -8, 8, -25)
+light_energy = 5.0
+shadow_enabled = true
+spot_range = 50.0
+spot_angle = 75.0

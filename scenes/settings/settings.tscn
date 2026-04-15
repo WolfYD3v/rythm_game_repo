@@ -121,16 +121,103 @@ text = "VIDEO"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="ControlsSectionContainer" type="VBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer" unique_id=1804509826]
+[node name="KeybindsSectionContainer" type="VBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer" unique_id=1804509826]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ControlsRichTextLabel" type="RichTextLabel" parent="InterfaceContainer/SettingsContainer/SectionsContainer/ControlsSectionContainer" unique_id=1105425244]
+[node name="KeybindsRichTextLabel" type="RichTextLabel" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer" unique_id=1105425244]
 layout_mode = 2
 bbcode_enabled = true
-text = "CONTROLS"
+text = "KEYBINDS"
 fit_content = true
 horizontal_alignment = 1
+
+[node name="KeyboardLabel" type="Label" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer" unique_id=924493742]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "keyboard"
+horizontal_alignment = 1
+
+[node name="KeyboardBindingContainer" type="VBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer" unique_id=1672871280]
+layout_mode = 2
+
+[node name="LineBindingContainer" type="HBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer" unique_id=1690720456]
+layout_mode = 2
+
+[node name="LineBindingLabel" type="Label" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer" unique_id=799065740]
+layout_mode = 2
+text = "Line 1"
+
+[node name="LineBindingLineEdit" type="LineEdit" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer" unique_id=1819232076]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "A"
+alignment = 1
+
+[node name="LineBindingContainer2" type="HBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer" unique_id=1447759212]
+layout_mode = 2
+
+[node name="LineBindingLabel" type="Label" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer2" unique_id=432649720]
+layout_mode = 2
+text = "Line 2"
+
+[node name="LineBindingLineEdit" type="LineEdit" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer2" unique_id=1801894296]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Z"
+alignment = 1
+
+[node name="LineBindingContainer3" type="HBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer" unique_id=820142067]
+layout_mode = 2
+
+[node name="LineBindingLabel" type="Label" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer3" unique_id=150268085]
+layout_mode = 2
+text = "Line 3"
+
+[node name="LineBindingLineEdit" type="LineEdit" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer3" unique_id=342780114]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "E"
+alignment = 1
+
+[node name="LineBindingContainer4" type="HBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer" unique_id=1689058093]
+layout_mode = 2
+
+[node name="LineBindingLabel" type="Label" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer4" unique_id=676247832]
+layout_mode = 2
+text = "Line 4"
+
+[node name="LineBindingLineEdit" type="LineEdit" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer4" unique_id=973109072]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "R"
+alignment = 1
+
+[node name="LineBindingContainer5" type="HBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer" unique_id=87057716]
+layout_mode = 2
+
+[node name="LineBindingLabel" type="Label" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer5" unique_id=992204193]
+layout_mode = 2
+text = "Line 5"
+
+[node name="LineBindingLineEdit" type="LineEdit" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer5" unique_id=1732480879]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "T"
+alignment = 1
+
+[node name="LineBindingContainer6" type="HBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer" unique_id=1811296221]
+layout_mode = 2
+
+[node name="LineBindingLabel" type="Label" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer6" unique_id=1906666449]
+layout_mode = 2
+text = "Line 6"
+
+[node name="LineBindingLineEdit" type="LineEdit" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer6" unique_id=274551260]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Y"
+alignment = 1
 
 [node name="DownButtons" type="HBoxContainer" parent="InterfaceContainer" unique_id=1485530958]
 layout_mode = 2

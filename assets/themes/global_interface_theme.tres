@@ -16,6 +16,16 @@ border_width_bottom = 1
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uri8"]
 bg_color = Color(0.15686275, 0.019607844, 0, 0.39215687)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50n3q"]
+bg_color = Color(0.15686275, 0.019607844, 0, 0.39215687)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8p07"]
+bg_color = Color(0.15686275, 0.019607844, 0, 0.39215687)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2wwp"]
 bg_color = Color(0.15686275, 0.019607844, 0, 0.39215687)
 
@@ -29,6 +39,10 @@ Button/styles/pressed = SubResource("StyleBoxEmpty_n8mu6")
 Label/font_sizes/font_size = 20
 Label/fonts/font = ExtResource("1_0uri8")
 Label/styles/normal = SubResource("StyleBoxFlat_0uri8")
+LineEdit/font_sizes/font_size = 10
+LineEdit/fonts/font = ExtResource("1_0uri8")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_50n3q")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_j8p07")
 RichTextLabel/font_sizes/bold_font_size = 20
 RichTextLabel/font_sizes/normal_font_size = 20
 RichTextLabel/fonts/bold_font = ExtResource("1_0uri8")

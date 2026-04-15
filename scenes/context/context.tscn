@@ -126,7 +126,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_haoga")
 script = ExtResource("1_4swqa")
-force_play = true
 
 [node name="Background" type="ColorRect" parent="." unique_id=359309106]
 layout_mode = 1

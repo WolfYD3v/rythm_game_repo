@@ -11,7 +11,6 @@ class_name LevelStone
 @export_range(5.0, 10.0, 0.1, "prefer_slider") var sample_duration: float = 5.0
 enum GAMEPLAY_TYPES {
 	LINES,
-	REVERSED_LINES,
 	BOSS_FIGHT
 }
 @export var gameplay_type: GAMEPLAY_TYPES = GAMEPLAY_TYPES.LINES
@@ -44,7 +43,7 @@ func set_gameplay_type_icon() -> void:
 	var icon_path: String = ""
 	match gameplay_type:
 		GAMEPLAY_TYPES.LINES: icon_path = "res://WolfY_D3vPP.jpeg"
-		GAMEPLAY_TYPES.REVERSED_LINES: icon_path = "res://icon.svg"
+		GAMEPLAY_TYPES.BOSS_FIGHT: icon_path = "res://icon.svg"
 	
 	if icon_path != "":
 		print(icon_path)
@@ -72,28 +71,6 @@ func play_animation(animation_name: String) -> void:
 	if animation_name in animation_player.get_animation_list():
 		animation_player.play(animation_name)
 
-func change_scene_to_correct() -> void:
-	var next_scene_name: String = ""
-	var next_scene: PackedScene = null
-	match gameplay_type:
-		GAMEPLAY_TYPES.LINES:
-			next_scene_name = "LinesLevel"
-			next_scene = LINE_LEVEL
-			LevelManager.level_data_to_be_used = {
-				"env_scene": load("res://scenes/level/envs/test_env.tscn"),
-				"song": music_sample
-			}
-		GAMEPLAY_TYPES.REVERSED_LINES:
-			next_scene_name = "ReversedLinesLevel"
-			next_scene = null # TEMP
-		GAMEPLAY_TYPES.BOSS_FIGHT:
-			next_scene_name = "BossFightLevel"
-			next_scene = null # TEMP
-	
-	if next_scene:
-		SceneManager.add_scene(next_scene_name, next_scene)
-		SceneManager.replace_scene(next_scene_name)
-
 func _on_player_detection_area_area_shape_entered(_area_rid: RID, _area: Area3D, _area_shape_index: int, _local_shape_index: int) -> void:
 	play_music_sample()
 	play_animation("open")
@@ -106,4 +83,5 @@ func _on_player_detection_area_area_shape_exited(_area_rid: RID, _area: Area3D, 
 	gui.hide()
 
 func _on_play_button_pressed() -> void:
-	change_scene_to_correct()
+	LevelManager.set_level_data(self)
+	LevelManager.go_to_level(self)

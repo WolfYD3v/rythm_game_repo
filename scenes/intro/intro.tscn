@@ -385,7 +385,7 @@ alignment = 1
 [node name="MeInfoLabel" type="Label" parent="CompositionContainer/InfosContainer" unique_id=520387916]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Developped by WolfY_D3v"
+text = "A WolfY_D3v production"
 horizontal_alignment = 1
 
 [node name="StudioInfoContainer" type="VBoxContainer" parent="CompositionContainer/InfosContainer" unique_id=573796238]
@@ -393,7 +393,7 @@ layout_mode = 2
 
 [node name="StudioInfoLabel" type="Label" parent="CompositionContainer/InfosContainer/StudioInfoContainer" unique_id=616374277]
 layout_mode = 2
-text = "A Dragon Heart Studios 🔥 production"
+text = "In association with Dragon Heart Studios 🔥"
 horizontal_alignment = 1
 
 [node name="StudioLogoTextureRect" type="TextureRect" parent="CompositionContainer/InfosContainer/StudioInfoContainer" unique_id=1103971334]

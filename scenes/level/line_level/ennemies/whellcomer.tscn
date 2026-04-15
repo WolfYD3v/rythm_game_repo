@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bjnm71tkhmkdh"]
+
+[ext_resource type="Script" uid="uid://buw2am4tpca0n" path="res://scenes/level/line_level/ennemies/whellcomer.gd" id="1_4wv1r"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_4wv1r"]
+
+[node name="Whellcomer" type="Node3D" unique_id=1318378318]
+script = ExtResource("1_4wv1r")
+
+[node name="Model" type="Node3D" parent="." unique_id=151832195]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model" unique_id=1290359083]
+mesh = SubResource("PrismMesh_4wv1r")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Model/MeshInstance3D" unique_id=1343892450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Model/MeshInstance3D/MeshInstance3D2" unique_id=1066628519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Model/MeshInstance3D/MeshInstance3D2/MeshInstance3D3" unique_id=678889935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Model/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4" unique_id=1221373578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../../../../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Model/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5" unique_id=516339644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../../../../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Model/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6" unique_id=1308593432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../../../../../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Model/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6/MeshInstance3D2" unique_id=1640589968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../../../../../../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Model/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6/MeshInstance3D2/MeshInstance3D2" unique_id=2069703842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../../../../../../../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Model/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6/MeshInstance3D2/MeshInstance3D2/MeshInstance3D3" unique_id=273341772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../../../../../../../../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Model/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6/MeshInstance3D2/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4" unique_id=1245785672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../../../../../../../../../../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Model/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6/MeshInstance3D2/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5" unique_id=529175837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../../../../../../../../../../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Model/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6/MeshInstance3D2/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6" unique_id=1936092111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../../../../../../../../../../../../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Model/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6/MeshInstance3D2/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6/MeshInstance3D4" unique_id=1080345186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../../../../../../../../../../../../../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Model/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6/MeshInstance3D2/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6/MeshInstance3D4/MeshInstance3D4" unique_id=1940884287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../../../../../../../../../../../../../../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Model/MeshInstance3D/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6/MeshInstance3D2/MeshInstance3D2/MeshInstance3D3/MeshInstance3D4/MeshInstance3D5/MeshInstance3D6/MeshInstance3D4/MeshInstance3D4/MeshInstance3D5" unique_id=700307887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PrismMesh_4wv1r")
+skeleton = NodePath("../../../../../../../../../../../../../../../..")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=2069680931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
