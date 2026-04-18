@@ -1,24 +1,65 @@
 extends Node3D
+class_name Whellcomer
 
-@export var rotation_value: float = -100
+signal dialog_line_finished
+
+@onready var dialog_text_mesh: MeshInstance3D = $DialogSection/DialogTextMesh
+@onready var dialog_voice_audio_stream_player: AudioStreamPlayer = $DialogSection/DialogVoiceAudioStreamPlayer
+@onready var model: Node3D = $Model
+@onready var head: Node3D = $Model/MetalPlate/MetalPlate2/MetalPlate3/MetalPlate4/MetalPlate5/MetalPlate6/MetalPlate7/MetalPlate8/MetalPlate9/MetalPlate10/MetalPlate11/Head
+
+@export_range(2, 3, 1, "or_greater") var rotation_steps_count: int = 15
+@export var rotation_value: float = -5
 @export var min_rot_random_value: float = -20.0
 @export var max_rot_random_value: float = 20.0
+@export var random_rotation: bool = false
 
 func _ready() -> void:
-	await get_tree().create_timer(3.5).timeout
-	rotate_body_part(get_child(0).get_child(0), rotation_value, false)
-
-func rotate_body_part(body_part: Node3D, rot: float, is_random: bool) -> void:
-	if is_random: rot = randf_range(min_rot_random_value, max_rot_random_value)
+	#say_dialog("res://dialogs/temp_dialog.json")
 	
-	for loop in range(15):
-		body_part.rotate_z(deg_to_rad(rot / 15))
+	await get_tree().create_timer(3.5).timeout
+	call_deferred("rotate_body_part", model.get_child(0), rotation_value, "z", true, rotation_steps_count, random_rotation)
+	call_deferred("rotate_body_part", head.get_child(0), 350.0, "z", false, 200, false)
+
+func _process(_delta: float) -> void:
+	for model_element: Node3D in $ModelElements.get_children():
+		model_element.rotate_y(deg_to_rad(0.5))
+		model_element.rotate_x(deg_to_rad(0.5))
+
+func rotate_body_part(body_part: Node3D, rot: float, axis: String, recursive: bool = true, steps_count: int = rotation_steps_count, random_rot: bool = random_rotation) -> void:
+	if body_part == null: return
+	
+	if random_rot: rot = randf_range(min_rot_random_value, max_rot_random_value)
+	print("Rotating %s in %f degrees (random rotation: %s)..." % [body_part.name, rot, random_rot])
+	
+	var rot_value: float = deg_to_rad(rot / steps_count)
+	for loop in range(steps_count):
+		body_part.call("rotate_%s" % axis, rot_value)
 		await get_tree().create_timer(0.02).timeout
 	
-	if body_part.get_child_count() == 1:
+	if body_part.get_child_count() == 1 and recursive:
+		if body_part.get_child(0).name in ["Head", "Eye"]: return
+		
 		await get_tree().create_timer(0.03).timeout
-		call_deferred(
-			"rotate_body_part", body_part.get_child(0),
-			rot, is_random
-		)
-		#rotate_body_part(body_part.get_child(0), rot, is_random)
+		call_deferred("rotate_body_part", body_part.get_child(0), rot, axis, true, steps_count, random_rot)
+
+func say_dialog(dialog_file_path: String) -> void:
+	var dialog_file = FileAccess.open(dialog_file_path, FileAccess.READ)
+	var lines: Array = JSON.parse_string(
+		dialog_file.get_as_text()
+	)
+	dialog_file.close()
+	
+	for line: String in lines:
+		write_dialog_line(line)
+		await dialog_line_finished
+		await get_tree().create_timer(1.5).timeout
+	write_dialog_line(" ")
+
+func write_dialog_line(text: String) -> void:
+	dialog_text_mesh.mesh.text = ""
+	for text_character: String in text:
+		dialog_text_mesh.mesh.text += text_character
+		dialog_voice_audio_stream_player.play()
+		await get_tree().create_timer(0.05).timeout
+	dialog_line_finished.emit()
