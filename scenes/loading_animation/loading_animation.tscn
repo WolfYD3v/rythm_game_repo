@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://rgg3dod3xjhc"]
+
+[ext_resource type="Script" uid="uid://d1a0iy1eebgg0" path="res://scenes/loading_animation/loading_animation.gd" id="1_o8kf0"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_o8kf0"]
+viewport_path = NodePath("AnimationSubViewport")
+
+[sub_resource type="Curve2D" id="Curve2D_o8kf0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 50, 50, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_o8kf0"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6syrr"]
+gradient = SubResource("Gradient_o8kf0")
+width = 20
+height = 20
+
+[node name="LoadingAnimation" type="Control" unique_id=1751142630]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o8kf0")
+autoplay = true
+
+[node name="AnimationTextureRect" type="TextureRect" parent="." unique_id=710434747]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -75.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("ViewportTexture_o8kf0")
+stretch_mode = 3
+
+[node name="AnimationSubViewport" type="SubViewport" parent="." unique_id=35252460]
+size = Vector2i(50, 50)
+
+[node name="AnimationPath" type="Path2D" parent="AnimationSubViewport" unique_id=1392764593]
+curve = SubResource("Curve2D_o8kf0")
+
+[node name="AnimationPathFollow" type="PathFollow2D" parent="AnimationSubViewport/AnimationPath" unique_id=795246949]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimationSubViewport/AnimationPath/AnimationPathFollow" unique_id=196979709]
+texture = SubResource("GradientTexture2D_6syrr")

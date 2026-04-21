@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://64vmke2e6srp" path="res://scenes/_showcase/showcase.gd" id="1_qmytu"]
 [ext_resource type="PackedScene" uid="uid://bjnm71tkhmkdh" path="res://scenes/level/line_level/ennemies/whellcomer.tscn" id="2_sfimr"]
 
-[sub_resource type="Environment" id="Environment_qmytu"]
+[sub_resource type="Environment" id="Environment_sfimr"]
 
 [node name="Showcase" type="Node3D" unique_id=1318585835]
 script = ExtResource("1_qmytu")
 showcase_packed_scene = ExtResource("2_sfimr")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1726315526]
-environment = SubResource("Environment_qmytu")
+environment = SubResource("Environment_sfimr")
 
 [node name="CameraCenterRotMarker3D" type="Marker3D" parent="." unique_id=1617359276]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)

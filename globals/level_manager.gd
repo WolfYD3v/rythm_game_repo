@@ -5,6 +5,8 @@ const ENNEMIES_FOLDER_PATH: String = "res://scenes/level/line_level/ennemies/"
 
 const LINE_LEVEL_PACKED_SCENE: PackedScene = preload("res://scenes/level/line_level/line_level.tscn")
 
+var song_selection_scene: SongSelection = null
+
 var max_level_id: int = 1
 
 var song: AudioStream = null
@@ -18,10 +20,12 @@ var ennemies_collection: PackedStringArray = []
 func _ready() -> void:
 	envs_collection = _get_files_at(ENVS_FOLDER_PATH)
 	for eli in envs_collection:
-		if eli.ends_with(".gd") or eli.ends_with(".uid"): envs_collection.erase(eli)
+		print(eli)
+		if eli.ends_with(".gd"): envs_collection.erase(eli)
 	ennemies_collection = _get_files_at(ENNEMIES_FOLDER_PATH)
 	for el in ennemies_collection:
-		if el.ends_with(".gd") or el.ends_with(".uid"): ennemies_collection.erase(el)
+		print(el)
+		if el.ends_with(".gd"): ennemies_collection.erase(el)
 
 func set_level_data(level_stone: LevelStone) -> void:
 	var idx: int = max_level_id - 1
@@ -34,6 +38,8 @@ func set_level_data(level_stone: LevelStone) -> void:
 	obstacles_dict = {} # TEMP
 
 func go_to_level(level_stone: LevelStone) -> void:
+	await song_selection_scene.fading_back_in()
+	
 	var next_scene_name: String = ""
 	var next_packed_scene: PackedScene = null
 	

@@ -8,13 +8,7 @@ class_name Showcase
 @export var camara_rotate: bool = true
 
 func _ready() -> void:
-	if not showcase_packed_scene:
-		push_error("No showcase packed scene given")
-		await get_tree().create_timer(1.0).timeout
-		get_tree().quit()
-		return
-	
-	showcase_spot.add_child(
+	if showcase_packed_scene: showcase_spot.add_child(
 		showcase_packed_scene.instantiate()
 	)
 

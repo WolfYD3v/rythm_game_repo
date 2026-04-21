@@ -19,7 +19,8 @@ config/description="A Rythm Game That Plays On Multiple Windows."
 run/main_scene="uid://du02s2cxy4jtc"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="uid://jd5lbwo58yvt"
+config/windows_native_icon="res://exports/game_icon.ico"
 
 [audio]
 

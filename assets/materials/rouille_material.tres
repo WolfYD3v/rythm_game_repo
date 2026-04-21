@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dvvf0cpsk21ck"]
+
+[ext_resource type="Texture2D" uid="uid://b8rat4yxdnke0" path="res://assets/textures/rouille_noise_texture.tres" id="1_kwibf"]
+
+[resource]
+albedo_texture = ExtResource("1_kwibf")
+metallic = 1.0
+metallic_texture = ExtResource("1_kwibf")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true

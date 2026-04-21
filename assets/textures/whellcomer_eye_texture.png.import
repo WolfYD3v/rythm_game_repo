@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://busch51fhkoem"
-path.s3tc="res://.godot/imported/Icon.png-f73f52e8f536cad9fe9e47d3f385f646.s3tc.ctex"
+uid="uid://ot8bcd5eokqr"
+path.s3tc="res://.godot/imported/whellcomer_eye_texture.png-d6a6609b38a623f3fd2356d425edf7a3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/mergingmeshes/Icon.png"
-dest_files=["res://.godot/imported/Icon.png-f73f52e8f536cad9fe9e47d3f385f646.s3tc.ctex"]
+source_file="res://assets/textures/whellcomer_eye_texture.png"
+dest_files=["res://.godot/imported/whellcomer_eye_texture.png-d6a6609b38a623f3fd2356d425edf7a3.s3tc.ctex"]
 
 [params]
 

@@ -25,3 +25,18 @@ Blender render building A:
 - "Big Soviet Panel House [Lowpoly]" (https://skfb.ly/pzCZq) by irmich5546 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 Blender render buildings B/C:
 - "Soviet Panel House [Lowpoly]" (https://skfb.ly/pzwsQ) by irmich5546 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+Textures:
+- Wood: https://www.publicdomainpictures.net/pictures/30000/velka/wood-texture.jpg
+- Whellcomer Eye: https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b1c4657e-b27d-4457-8943-65f113d2759d/d7tgh6j-02d85b10-af68-4ac7-91cb-c7d589010906.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi9iMWM0NjU3ZS1iMjdkLTQ0NTctODk0My02NWYxMTNkMjc1OWQvZDd0Z2g2ai0wMmQ4NWIxMC1hZjY4LTRhYzctOTFjYi1jN2Q1ODkwMTA5MDYucG5nIn1dXX0.3vjDlDEOiX5KX4tOXaFuaPcVCWVtH6McKtqEupnUBE0
+
+SFXs:
+- Whellcomer metal sound: Metal_rattle_rustle_cracking [ https://pixabay.com/fr/sound-effects/films-et-effets-sp%c3%a9ciaux-metal-rattle-rustle-cracking-63419/ ]
+BY Dawnton (Freesound) [ https://pixabay.com/fr/users/freesound_community-46691455/ ]
+
+- Whellcomer voice sound: low pitch alien noise--person screaming [ https://pixabay.com/sound-effects/horror-low-pitch-alien-noise-person-screaming-499466/ ]
+BY flutie8211 [ https://pixabay.com/users/flutie8211-17475707/ ]
+
+- Whellcomer body sound: Burn Flesh 01 [ https://pixabay.com/sound-effects/film-special-effects-burn-flesh-01-266302/ ]
+BY u_xjrmmgxfru [ https://pixabay.com/users/u_xjrmmgxfru-47169417/ ]
+

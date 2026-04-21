@@ -13,6 +13,7 @@ class_name LineLevel
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var env_node: Node3D = $Env
 @onready var new_obstacle_marker: Marker3D = $NewObstacleMarker
+@onready var fading_black: ColorRect = $CanvasLayer/FadingBlack
 
 @onready var controls_indication: Control = $CanvasLayer/ControlsIndication
 
@@ -41,6 +42,9 @@ func _ready() -> void:
 	obstacles_count = obstacles_node.get_child_count()
 	setup_player_x_positions()
 	try_load_level_data()
+	
+	await fading_back_out()
+	fading_black.hide()
 	
 	audio_stream_player.play()
 	try_gen(0.0)
@@ -136,3 +140,14 @@ func change_player_x_position(new_x_pos: float) -> void:
 
 func _on_obstacle_destroy_area_area_entered(area: Area3D) -> void:
 	if area is Obstacle: try_destroy_obstacle(area)
+
+func fading_back_out() -> void:
+	fading_black.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	fading_black.show()
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(
+		fading_black, "modulate",
+		Color(1.0, 1.0, 1.0, 0.0), 10.0
+	)
+	await tween.finished

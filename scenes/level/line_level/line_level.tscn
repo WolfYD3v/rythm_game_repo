@@ -110,6 +110,14 @@ theme = ExtResource("3_nt8ip")
 bbcode_enabled = true
 text = "Controls: [b]AZERTY[/b]"
 
+[node name="FadingBlack" type="ColorRect" parent="CanvasLayer" unique_id=1145420330]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="PauseMenu" parent="CanvasLayer" unique_id=955880638 instance=ExtResource("4_v1pdo")]
 visible = false
 
