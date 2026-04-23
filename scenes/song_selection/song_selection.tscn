@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://ca0o2aaghifnb" path="res://assets/songs/KAT-Pull-the-Trigger-ft.-Yi-Xi-_SynthV-Original-Song_.mp3" id="6_67vlu"]
 [ext_resource type="AudioStream" uid="uid://cmav6vwdavfcu" path="res://assets/songs/Badly (feat. Camellia).mp3" id="7_7oj2g"]
 [ext_resource type="AudioStream" uid="uid://rebcva64gats" path="res://assets/songs/traian1984-ambience-wind-blowing-through-trees-01-186986_map_windy_ambiance.mp3" id="8_0x6m5"]
+[ext_resource type="PackedScene" uid="uid://bveucnbq4p8f2" path="res://scenes/gui_button/gui_button.tscn" id="9_2ismg"]
 [ext_resource type="PackedScene" uid="uid://cr8qhwmj0jva" path="res://scenes/pause_menu/pause_menu.tscn" id="9_367f4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j8mn7"]
@@ -16,14 +17,6 @@ size = Vector3(300, 0.5, 1000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wbaf4"]
 size = Vector3(300, 0.5, 1000)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_7oj2g"]
-viewport_path = NodePath("MapSubViewport")
-
-[sub_resource type="Environment" id="Environment_7oj2g"]
-background_mode = 1
-background_color = Color(1, 1, 1, 1)
-background_energy_multiplier = 16.0
 
 [node name="SongSelection" type="Node3D" unique_id=1418675258]
 script = ExtResource("2_d57ly")
@@ -49,6 +42,7 @@ shape = SubResource("BoxShape3D_wbaf4")
 [node name="LevelStone1" parent="LevelStones" unique_id=573061259 instance=ExtResource("5_we6td")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.4, 0.29999998, 700.1)
 music_sample = ExtResource("6_67vlu")
+sample_start = 0.0
 difficulty = 15
 
 [node name="LevelStone2" parent="LevelStones" unique_id=1536611193 instance=ExtResource("5_we6td")]
@@ -70,34 +64,14 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("5_0x6m5")
 
-[node name="GoBackButton" type="Button" parent="CanvasLayer/Control" unique_id=1276109105]
+[node name="GoBackGuiButton" parent="CanvasLayer/Control" unique_id=1786408275 instance=ExtResource("9_2ismg")]
 layout_mode = 0
-offset_right = 33.0
-offset_bottom = 31.0
-focus_mode = 0
+offset_right = 39.0
+offset_bottom = 35.0
 text = "<---"
 
-[node name="Map" type="TextureRect" parent="CanvasLayer/Control" unique_id=1967812363]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("ViewportTexture_7oj2g")
-
-[node name="MapLabel" type="Label" parent="CanvasLayer/Control/Map" unique_id=230668856]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "MAP"
-
 [node name="FadingBlack" type="ColorRect" parent="CanvasLayer" unique_id=835046505]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -107,17 +81,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=955880638 instance=ExtResource("9_367f4")]
 
-[node name="MapSubViewport" type="SubViewport" parent="." unique_id=1360622392]
-size = Vector2i(1152, 648)
-
-[node name="Camera" type="Camera3D" parent="MapSubViewport" unique_id=1709235602]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 15, 700)
-environment = SubResource("Environment_7oj2g")
-
 [node name="AmbianceAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=989608384]
 stream = ExtResource("8_0x6m5")
 volume_db = 24.0
 autoplay = true
 parameters/looping = true
 
-[connection signal="pressed" from="CanvasLayer/Control/GoBackButton" to="." method="_on_go_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/GoBackGuiButton" to="." method="_on_go_back_gui_button_pressed"]

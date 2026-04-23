@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dp8hxtpjxr6nw" path="res://scenes/main_menu/main_menu.gd" id="2_0ebjn"]
 [ext_resource type="AudioStream" uid="uid://rebcva64gats" path="res://assets/songs/traian1984-ambience-wind-blowing-through-trees-01-186986_map_windy_ambiance.mp3" id="3_ob46e"]
 [ext_resource type="PackedScene" uid="uid://bnbo14fxltjln" path="res://scenes/overlay/overlay.tscn" id="3_uqeha"]
+[ext_resource type="PackedScene" uid="uid://bveucnbq4p8f2" path="res://scenes/gui_button/gui_button.tscn" id="3_wem23"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0ebjn"]
 viewport_path = NodePath("HoyplomaSubViewport")
@@ -52,8 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("ViewportTexture_0ebjn")
 
-[node name="GUI" type="Control" parent="." unique_id=116819432]
-visible = false
+[node name="GUI" type="HBoxContainer" parent="." unique_id=1311781777]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,13 +62,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameNameLabel" type="Label" parent="GUI" unique_id=1004746467]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_right = -222.0094
-offset_bottom = 69.0
-grow_horizontal = 2
-rotation = 0.00020330088
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0ebjn")
 text = "Outside of Hoyploma"
@@ -76,43 +72,32 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI" unique_id=763781772]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 953.0
-offset_right = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
-[node name="PlayButton" type="Button" parent="GUI/VBoxContainer" unique_id=1913451719]
+[node name="StoryModeGuiButton" parent="GUI/VBoxContainer" unique_id=1786408275 instance=ExtResource("3_wem23")]
 layout_mode = 2
 size_flags_vertical = 3
-focus_mode = 0
 text = "STORY MODE"
 
-[node name="FreePlayButton" type="Button" parent="GUI/VBoxContainer" unique_id=677751326]
+[node name="FreePlayGuiButton" parent="GUI/VBoxContainer" unique_id=1629328300 instance=ExtResource("3_wem23")]
 layout_mode = 2
 size_flags_vertical = 3
-focus_mode = 0
+disabled = true
 text = "FREE PLAY"
 
-[node name="SettingsButton" type="Button" parent="GUI/VBoxContainer" unique_id=350043106]
+[node name="SettingsGuiButton" parent="GUI/VBoxContainer" unique_id=2091447333 instance=ExtResource("3_wem23")]
 layout_mode = 2
 size_flags_vertical = 3
-focus_mode = 0
 text = "SETTINGS"
 
-[node name="CreditsButton" type="Button" parent="GUI/VBoxContainer" unique_id=676333359]
+[node name="CreditsGuiButton" parent="GUI/VBoxContainer" unique_id=245022294 instance=ExtResource("3_wem23")]
 layout_mode = 2
 size_flags_vertical = 3
-focus_mode = 0
 text = "CREDITS"
 
-[node name="QuitButton" type="Button" parent="GUI/VBoxContainer" unique_id=1424442716]
+[node name="QuitGuiButton" parent="GUI/VBoxContainer" unique_id=1217957834 instance=ExtResource("3_wem23")]
 layout_mode = 2
 size_flags_vertical = 3
-focus_mode = 0
 text = "QUIT"
 
 [node name="CreditsRichTextLabel" type="RichTextLabel" parent="." unique_id=106784539]
@@ -157,8 +142,8 @@ stream = ExtResource("3_ob46e")
 volume_db = 24.0
 autoplay = true
 
-[connection signal="pressed" from="GUI/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="GUI/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="GUI/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="GUI/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="GUI/VBoxContainer/StoryModeGuiButton" to="." method="_on_story_mode_gui_button_pressed"]
+[connection signal="pressed" from="GUI/VBoxContainer/SettingsGuiButton" to="." method="_on_settings_gui_button_pressed"]
+[connection signal="pressed" from="GUI/VBoxContainer/CreditsGuiButton" to="." method="_on_credits_gui_button_pressed"]
+[connection signal="pressed" from="GUI/VBoxContainer/QuitGuiButton" to="." method="_on_quit_gui_button_pressed"]
 [connection signal="pressed" from="CreditsRichTextLabel/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]

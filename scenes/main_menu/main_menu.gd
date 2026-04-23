@@ -24,14 +24,14 @@ func set_credits_visibility(value: bool) -> void:
 	credits_rich_text_label.visible = value
 	gui.visible = not(value)
 
-func _on_quit_button_pressed() -> void:
+func _on_quit_gui_button_pressed() -> void:
 	get_tree().quit()
 
-func _on_settings_button_pressed() -> void:
+func _on_settings_gui_button_pressed() -> void:
 	SceneManager.add_scene("Settings", SETTINGS_PACKED_SCENE)
 	SceneManager.replace_scene("Settings")
 
-func _on_play_button_pressed() -> void:
+func _on_story_mode_gui_button_pressed() -> void:
 	gui.hide()
 	hoyploma_bg.hide()
 	await get_tree().create_timer(1.5).timeout
@@ -44,7 +44,7 @@ func _on_play_button_pressed() -> void:
 	SceneManager.replace_scene("Context")
 
 # TEMP
-func _on_credits_button_pressed() -> void:
+func _on_credits_gui_button_pressed() -> void:
 	var credits_file = FileAccess.open("res://credits.txt", FileAccess.READ)
 	if credits_file:
 		var credits: String = credits_file.get_as_text()

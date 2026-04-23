@@ -19,8 +19,8 @@ func set_pause(value: bool) -> void:
 	visible = value
 	if not value: settings.hide()
 
-func _on_continue_button_pressed() -> void:
+func _on_continue_gui_button_pressed() -> void:
 	set_pause(false)
 
-func _on_settings_button_pressed() -> void:
+func _on_settings_gui_button_pressed() -> void:
 	settings.show()

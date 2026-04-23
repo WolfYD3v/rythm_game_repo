@@ -21,6 +21,11 @@ const LINE_LEVEL = preload("res://scenes/level/line_level/line_level.tscn")
 var music_sample_can_repeat: bool = false
 
 func _ready() -> void:
+	GameManager.look_at_map_changed.connect(
+		func():
+			if GameManager.look_at_map: play_animation("close")
+			else: play_animation("open")
+	)
 	gui.hide()
 	set_gameplay_type_icon()
 	setup_gui()
@@ -83,5 +88,6 @@ func _on_player_detection_area_area_shape_exited(_area_rid: RID, _area: Area3D, 
 	gui.hide()
 
 func _on_play_button_pressed() -> void:
+	stop_music_sample()
 	LevelManager.set_level_data(self)
 	LevelManager.go_to_level(self)

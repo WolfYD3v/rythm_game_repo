@@ -27,11 +27,14 @@ func set_language(language: String) -> void:
 func _on_listen_sample_check_button_toggled(toggled_on: bool) -> void:
 	SettingsManager.listen_samples = toggled_on
 
-func _on_close_button_pressed() -> void:
+func _on_close_gui_button_pressed() -> void:
 	SettingsManager.save_settings_file()
 	
 	if not pause_menu_mode: SceneManager.replace_scene("MainMenu")
 	else: hide()
 
-func _on_save_button_pressed() -> void:
-	SettingsManager.save_settings_file()
+func _on_fullscreen_check_button_toggled(toggled_on: bool) -> void:
+	SettingsManager.fullscreen = toggled_on
+	
+	if toggled_on: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)

@@ -4,7 +4,7 @@ class_name LineLevel
 @export var ennemy_scene: PackedScene = null
 @export var env_scene: PackedScene = null
 @export var song: AudioStream = null
-@export var obstacles_dict: Dictionary[String, float] = {}
+@export var obstacles_dict: Dictionary[float, LineLevelObstacle] = {}
 
 @onready var ennemy_node: Node3D = $Ennemy
 @onready var lines: Node3D = $Lines
@@ -14,13 +14,13 @@ class_name LineLevel
 @onready var env_node: Node3D = $Env
 @onready var new_obstacle_marker: Marker3D = $NewObstacleMarker
 @onready var fading_black: ColorRect = $CanvasLayer/FadingBlack
-
-@onready var controls_indication: Control = $CanvasLayer/ControlsIndication
+@onready var line_level_controls_indication: LineLevelControlsIndication = $LineLevelControlsIndication
 
 var player_x_positions: Array[float] = []
 var player_x_positions_idx: int = -1
 
 var player_tween
+var line_level_controls_indication_tween
 
 var obstacles_count: int = 0
 var max_obstacles_count: int = 15
@@ -29,25 +29,27 @@ var obstacle_spawn_z_pos: float = 0.0
 var line_distance: float = 3.0
 
 func _ready() -> void:
-	controls_indication.get_node("ControlsIndicationRichTextLabel").text = "Controls: [b]%s%s%s%s%s%s[/b]" % [
-		InputMap.action_get_events("LinesLevel_Line1")[0].as_text(),
-		InputMap.action_get_events("LinesLevel_Line2")[0].as_text(),
-		InputMap.action_get_events("LinesLevel_Line3")[0].as_text(),
-		InputMap.action_get_events("LinesLevel_Line4")[0].as_text(),
-		InputMap.action_get_events("LinesLevel_Line5")[0].as_text(),
-		InputMap.action_get_events("LinesLevel_Line6")[0].as_text()
-	]
-	
-	obstacle_spawn_z_pos = new_obstacle_marker.global_position.z
-	obstacles_count = obstacles_node.get_child_count()
 	setup_player_x_positions()
 	try_load_level_data()
 	
-	await fading_back_out()
-	fading_black.hide()
+	obstacle_spawn_z_pos = new_obstacle_marker.global_position.z
+	obstacles_count = obstacles_node.get_child_count()
 	
+	# Black fading out transition
+	fading_back_out()
+	#fading_black.hide()
+	
+	move_lines_level_controls_indication(-10.0, 5.5)
+	await get_tree().create_timer(6.0).timeout
+	line_level_controls_indication.rotate_control_pads(0.0, true)
+	await get_tree().create_timer(3.5).timeout
+	line_level_controls_indication.rotate_control_pads(-180.0, false)
+	move_lines_level_controls_indication(-100.0, 15.0)
+	await get_tree().create_timer(3.5).timeout
+	
+	# Play the music, and start the recursive obstacles generation
 	audio_stream_player.play()
-	try_gen(0.0)
+	try_generate_obstacle(0.0)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
@@ -67,15 +69,26 @@ func _process(_delta: float) -> void:
 	for obstacle: Obstacle in obstacles_node.get_children():
 		obstacle.global_position.z += 1.0
 
-func try_gen(timer: float = 0.0) -> void:
-	timer = snappedf(timer + 0.05, 0.05)
+func move_lines_level_controls_indication(y_pos: float, duration: float) -> void:
+	if line_level_controls_indication_tween: line_level_controls_indication_tween.kill()
+	line_level_controls_indication_tween = get_tree().create_tween()
 	
-	if timer in obstacles_dict.values(): try_create_obstacle(
-		randi_range(1, 6)
+	line_level_controls_indication_tween.set_ease(Tween.EASE_OUT)
+	line_level_controls_indication_tween.set_trans(Tween.TRANS_CIRC)
+	line_level_controls_indication_tween.tween_property(
+		line_level_controls_indication, "position:y",
+		y_pos, duration
+	)
+
+func try_generate_obstacle(timer: float = 0.0) -> void:
+	timer = snappedf(timer + 0.05, 0.01)
+	
+	if timer in obstacles_dict.keys(): try_create_obstacle(
+		obstacles_dict.get(timer)
 	)
 	
 	await get_tree().create_timer(0.05).timeout
-	try_gen(timer)
+	try_generate_obstacle(timer)
 
 func setup_player_x_positions() -> void:
 	var x_position: float = player.position.x
@@ -84,7 +97,7 @@ func setup_player_x_positions() -> void:
 		player_x_positions.append(x_position)
 		x_position += line_distance
 
-func try_create_obstacle(at_line: int) -> void:
+func try_create_obstacle(obstacle_data: LineLevelObstacle) -> void:
 	if obstacles_count + 1 > max_obstacles_count: return
 	obstacles_count += 1
 	
@@ -92,16 +105,17 @@ func try_create_obstacle(at_line: int) -> void:
 	var packed_obstacle: PackedScene = load("res://scenes/level/line_level/obstacles/obstacle.tscn")
 	var new_obstacle: Obstacle = packed_obstacle.instantiate()
 	new_obstacle.name = "Obstacle%d" % [obstacles_node.get_child_count() + 1]
+	new_obstacle.obstacle_data = obstacle_data
 	
 	# Set the position of the obstacle
 	new_obstacle.position = Vector3(
-		line_distance * (at_line - 1), 0,
+		line_distance * (obstacle_data.line - 1), 0,
 		obstacle_spawn_z_pos
 	)
 	
 	# Add the obstacles to the scene tree
 	obstacles_node.add_child(new_obstacle)
-	$CanvasLayer/Label.text = "Obstacle created: %s at line %d" % [new_obstacle, at_line]
+	$CanvasLayer/Label.text = "Obstacle created: %s at line %d" % [new_obstacle, obstacle_data.line]
 
 func try_destroy_obstacle(obstacle: Node3D) -> void:
 	if obstacles_count - 1 < 0: return
@@ -119,11 +133,6 @@ func try_load_level_data() -> void:
 	if ennemy_scene: ennemy_node.add_child(ennemy_scene.instantiate())
 	if env_scene: env_node.add_child(env_scene.instantiate())
 	if song: audio_stream_player.stream = song
-	
-	# TEMP
-	if obstacles_dict.is_empty(): return
-	for obsctacle_name: String in obstacles_dict.keys():
-		print("Obstacle '%s' -> %f" % [obsctacle_name, obstacles_dict.get(obsctacle_name)])
 
 func change_player_x_position(new_x_pos: float) -> void:
 	var change_line_repetition: int = int((player.position.x - new_x_pos) / 3)

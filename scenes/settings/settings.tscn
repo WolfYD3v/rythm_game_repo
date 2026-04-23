@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_tt6xx"]
 [ext_resource type="Script" uid="uid://x7q3jm0qh63o" path="res://scenes/settings/settings.gd" id="2_vu5fi"]
+[ext_resource type="PackedScene" uid="uid://bveucnbq4p8f2" path="res://scenes/gui_button/gui_button.tscn" id="3_1slea"]
 [ext_resource type="PackedScene" uid="uid://bnbo14fxltjln" path="res://scenes/overlay/overlay.tscn" id="3_tt6xx"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_vu5fi"]
@@ -78,16 +79,16 @@ bbcode_enabled = true
 text = "LANGUAGE"
 fit_content = true
 
-[node name="FrenchButton" type="Button" parent="InterfaceContainer/SettingsContainer/LanguageSelectionContainer" unique_id=2076835203]
+[node name="FrenchGuiButton" parent="InterfaceContainer/SettingsContainer/LanguageSelectionContainer" unique_id=1786408275 instance=ExtResource("3_1slea")]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "French"
 alignment = 0
 
-[node name="EnglishButton" type="Button" parent="InterfaceContainer/SettingsContainer/LanguageSelectionContainer" unique_id=248959009]
+[node name="EnglishGuiButton" parent="InterfaceContainer/SettingsContainer/LanguageSelectionContainer" unique_id=2040092762 instance=ExtResource("3_1slea")]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-text = "English"
+text = "French"
 alignment = 0
 
 [node name="SectionsContainer" type="HBoxContainer" parent="InterfaceContainer/SettingsContainer" unique_id=613332690]
@@ -107,7 +108,6 @@ horizontal_alignment = 1
 
 [node name="ListenSampleCheckButton" type="CheckButton" parent="InterfaceContainer/SettingsContainer/SectionsContainer/AudioSectionContainer" unique_id=1505862054]
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Listen Sample"
 
 [node name="VideoSectionContainer" type="VBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer" unique_id=1017252465]
@@ -120,6 +120,10 @@ bbcode_enabled = true
 text = "VIDEO"
 fit_content = true
 horizontal_alignment = 1
+
+[node name="FullscreenCheckButton" type="CheckButton" parent="InterfaceContainer/SettingsContainer/SectionsContainer/VideoSectionContainer" unique_id=2069259821]
+layout_mode = 2
+text = "Fullscreen"
 
 [node name="KeybindsSectionContainer" type="VBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer" unique_id=1804509826]
 layout_mode = 2
@@ -222,10 +226,9 @@ alignment = 1
 [node name="DownButtons" type="HBoxContainer" parent="InterfaceContainer" unique_id=1485530958]
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="InterfaceContainer/DownButtons" unique_id=462753529]
+[node name="CloseGuiButton" parent="InterfaceContainer/DownButtons" unique_id=958306512 instance=ExtResource("3_1slea")]
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 0
 text = "SAVE AND CLOSE"
 
 [node name="Overlay" parent="." unique_id=2068804764 instance=ExtResource("3_tt6xx")]
@@ -239,7 +242,8 @@ grow_vertical = 1
 [node name="HoyplomaSubViewport" type="SubViewport" parent="." unique_id=995978748]
 size = Vector2i(1152, 648)
 
-[connection signal="pressed" from="InterfaceContainer/SettingsContainer/LanguageSelectionContainer/FrenchButton" to="." method="set_language" binds= ["fr"]]
-[connection signal="pressed" from="InterfaceContainer/SettingsContainer/LanguageSelectionContainer/EnglishButton" to="." method="set_language" binds= ["en"]]
+[connection signal="pressed" from="InterfaceContainer/SettingsContainer/LanguageSelectionContainer/FrenchGuiButton" to="." method="set_language" binds= ["fr"]]
+[connection signal="pressed" from="InterfaceContainer/SettingsContainer/LanguageSelectionContainer/EnglishGuiButton" to="." method="set_language" binds= ["en"]]
 [connection signal="toggled" from="InterfaceContainer/SettingsContainer/SectionsContainer/AudioSectionContainer/ListenSampleCheckButton" to="." method="_on_listen_sample_check_button_toggled"]
-[connection signal="pressed" from="InterfaceContainer/DownButtons/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="toggled" from="InterfaceContainer/SettingsContainer/SectionsContainer/VideoSectionContainer/FullscreenCheckButton" to="." method="_on_fullscreen_check_button_toggled"]
+[connection signal="pressed" from="InterfaceContainer/DownButtons/CloseGuiButton" to="." method="_on_close_gui_button_pressed"]

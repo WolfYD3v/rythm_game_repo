@@ -10,13 +10,15 @@ const BASE_SETTINGS_FILE_CONTENT: Dictionary = {
 		"LinesLevel_Line4": KEY_R,
 		"LinesLevel_Line5": KEY_T,
 		"LinesLevel_Line6": KEY_Y,
-	}
+	},
+	"fullscreen": false
 }
 var settings_file_path: String = ProjectSettings.globalize_path("user://settings_file.json")
 
 var listen_samples: bool = true
 var language: String = "en"
 var keybinds: Dictionary = {}
+var fullscreen: bool = false
 
 
 

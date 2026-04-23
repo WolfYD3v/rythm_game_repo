@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bveucnbq4p8f2"]
+
+[ext_resource type="Script" uid="uid://cc6wvu05p60wm" path="res://scenes/gui_button/gui_button.gd" id="1_cwhps"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_q3jrf"]
+[ext_resource type="AudioStream" uid="uid://wrql3i4wmyni" path="res://assets/sfxs/gui_button_hover_sfx.wav" id="3_msgcp"]
+[ext_resource type="AudioStream" uid="uid://c681df8tq4lg6" path="res://assets/sfxs/gui_button_click_sfx.wav" id="4_8fjtv"]
+
+[node name="GuiButton" type="Button" unique_id=1786408275]
+theme = ExtResource("1_q3jrf")
+text = "BUTTON TEXT"
+script = ExtResource("1_cwhps")
+hover_sfx = ExtResource("3_msgcp")
+click_sfx = ExtResource("4_8fjtv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1740631993]
+stream = ExtResource("4_8fjtv")
+volume_db = 24.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

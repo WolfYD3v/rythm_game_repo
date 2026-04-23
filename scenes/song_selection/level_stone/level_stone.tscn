@@ -412,6 +412,7 @@ focus_mode = 0
 text = "PLAY"
 
 [node name="MusicSampleAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=89161700]
+volume_db = -10.0
 bus = &"Music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1148316402]

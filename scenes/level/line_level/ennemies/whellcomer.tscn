@@ -3,12 +3,14 @@
 [ext_resource type="Script" uid="uid://buw2am4tpca0n" path="res://scenes/level/line_level/ennemies/whellcomer.gd" id="1_4wv1r"]
 [ext_resource type="Material" uid="uid://dvvf0cpsk21ck" path="res://assets/materials/rouille_material.tres" id="2_5y6et"]
 [ext_resource type="PackedScene" uid="uid://dpi1tty8ba3rv" path="res://assets/models/boxy_thing/boxy_thing.tscn" id="2_fpa2r"]
-[ext_resource type="Texture2D" uid="uid://dofnypdiltejm" path="res://assets/textures/yellow_noise_texture.tres" id="3_2q8n8"]
+[ext_resource type="Material" uid="uid://ct20lpyo600gn" path="res://assets/materials/light_material.tres" id="3_cj070"]
 [ext_resource type="Material" uid="uid://cclqdry4hymr" path="res://assets/materials/pillar_material.tres" id="3_si4ac"]
 [ext_resource type="Material" uid="uid://dss262p1cjuaj" path="res://assets/materials/metal_material.tres" id="3_ta7s2"]
-[ext_resource type="AudioStream" uid="uid://d0n6gtak5nlph" path="res://assets/sfxs/temp_wheelcomer_voice_sfx.mp3" id="4_0poab"]
 [ext_resource type="Material" uid="uid://blskf7qvbku74" path="res://assets/materials/optical_nerf_material.tres" id="5_p3rtc"]
 [ext_resource type="Material" uid="uid://bph8ycsyyfqen" path="res://assets/materials/eye_material.tres" id="6_t5nix"]
+[ext_resource type="AudioStream" uid="uid://plxga54k3wvg" path="res://assets/sfxs/whellcomer_voice_sfx.mp3" id="8_78fl7"]
+[ext_resource type="AudioStream" uid="uid://vfm3k13p8hxl" path="res://assets/sfxs/whellcomer_body_sfx.mp3" id="10_cj070"]
+[ext_resource type="AudioStream" uid="uid://c1kijkum8tiko" path="res://assets/sfxs/whellcomer_metal_sfx.mp3" id="11_cj070"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4wv1r"]
 top_radius = 0.2
@@ -48,13 +50,6 @@ radial_segments = 7
 
 [sub_resource type="BoxMesh" id="BoxMesh_4wv1r"]
 size = Vector3(0.5, 2.6, 0.4)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3rtc"]
-albedo_texture = ExtResource("3_2q8n8")
-emission_enabled = true
-emission = Color(1, 1, 0, 1)
-emission_operator = 1
-emission_texture = ExtResource("3_2q8n8")
 
 [sub_resource type="BoxMesh" id="BoxMesh_fpa2r"]
 size = Vector3(0.25, 1.5, 0.3)
@@ -147,7 +142,7 @@ _surfaces = [{
 "aabb": AABB(-0.19944076, -0.19111457, 0.34999993, 0.3856155, 0.38888073, 0.03000009),
 "attribute_data": PackedByteArray("JUkSPyUzMz+3bds+AACAP7dt2z4pMzM/JUkSPyUzMz8lSRI/AACAP7dt2z4AAIA/t23bPikzMz+3bds+AACAPyVJkj4pMzM/t23bPgAAgD8lSZI+AACAPyVJkj4pMzM/0NBKPQAAAAAAAAA/AAAAP+jQSj0AAAAA3AjHPgAAAAAAAAA/AAAAP9DQSj0AAAAAJUkSPyUzMz9u2zY/JzMzPyVJEj8AAIA/JUkSPwAAgD9u2zY/JzMzP27bNj8AAIA/3QjHPgAAAADo0Eo9AAAAAAAAAD8AAAA/AAAAPwAAAD+Gzk8/AAAAAN0Ixz4AAAAAbts2PyczMz8F/Us/JzMzP27bNj8AAIA/Bf1LPyczMz+3bVs/AACAP27bNj8AAIA/Bf1LPyczMz+3bVs/JzMzP7dtWz8AAIA/JUmSPikzMz8lSZI+AACAPyVJEj4pMzM/JUkSPikzMz8lSZI+AACAPyVJEj4AAIA/AAAAPwAAAD/cCMc+AAAAAIPOTz8AAAAAJUkSPikzMz8lSRI+AACAP74MqT0oMzM/SUi5PiczMz8AAAAAAACAP7dtWz8AAIA/SUi5PiczMz8AAAAAJzMzPwAAAAAAAIA/AAAAPwAAAD8AAIA/AAAAAIbOTz8AAAAAAAAAPwAAAD+Dzk8/AAAAAAAAgD8AAAAASUi5PiczMz+3bVs/AACAP7dtWz8nMzM/vgypPSgzMz8lSRI+AACAPwAAAAAAAIA/vgypPSgzMz8AAAAAAACAPwAAAAAnMzM/"),
 "format": 34359738391,
-"material": SubResource("StandardMaterial3D_p3rtc"),
+"material": ExtResource("3_cj070"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 72,
@@ -278,7 +273,7 @@ radius = 0.2
 height = 0.1
 sides = 7
 smooth_faces = false
-material = SubResource("StandardMaterial3D_p3rtc")
+material = ExtResource("3_cj070")
 
 [node name="CenterPiece3" type="CSGCylinder3D" parent="ModelElements/HeadRotationPart" unique_id=299173642]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.100000024)
@@ -466,8 +461,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1.5)
 mesh = SubResource("TextMesh_0poab")
 
 [node name="DialogVoiceAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="DialogSection" unique_id=334331338]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 7, 1)
-stream = ExtResource("4_0poab")
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 7, 1)
+stream = ExtResource("8_78fl7")
+emission_angle_enabled = true
 
 [node name="Model" type="Node3D" parent="." unique_id=1232149568]
 
@@ -550,9 +546,12 @@ skeleton = NodePath("../../../../../../../../../../../../../../ModelElements")
 opened = true
 
 [node name="BodyRotationAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1444124218]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 1)
-stream = ExtResource("4_0poab")
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 17, 1)
+stream = ExtResource("10_cj070")
+emission_angle_enabled = true
 
 [node name="HeadRotationAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=26288468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 1)
-stream = ExtResource("4_0poab")
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 17, 1)
+stream = ExtResource("11_cj070")
+volume_db = 10.0
+emission_angle_enabled = true

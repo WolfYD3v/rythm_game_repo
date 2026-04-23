@@ -2,12 +2,21 @@ extends StaticBody3D
 class_name Map_Player
 
 @onready var camera: Camera3D = $Camera
+@onready var map: MeshInstance3D = $Arm/Map
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
-	pass
+	GameManager.look_at_map_changed.connect(
+		func():
+			if GameManager.look_at_map: animation_player.play("yes_look_map")
+			else: animation_player.play("not_look_map")
+	)
+	map.hide()
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion: _rotate()
+	if event is InputEventKey and Input.is_action_just_pressed("ToggleMap"):
+		if not animation_player.is_playing(): GameManager.look_at_map = not(GameManager.look_at_map)
+	if event is InputEventMouseMotion and not GameManager.look_at_map: _rotate()
 
 func _rotate() -> void:
 	var viewport: Viewport = get_viewport()

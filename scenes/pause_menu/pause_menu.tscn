@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dysasp1l5jby" path="res://scenes/pause_menu/pause_menu.gd" id="1_5bgjm"]
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_qcmsd"]
+[ext_resource type="PackedScene" uid="uid://bveucnbq4p8f2" path="res://scenes/gui_button/gui_button.tscn" id="3_0a7io"]
 [ext_resource type="PackedScene" uid="uid://1ntsanfb80w4" path="res://scenes/settings/settings.tscn" id="3_10tpt"]
 
 [node name="PauseMenu" type="Control" unique_id=955880638]
@@ -68,11 +69,11 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="ContinueButton" type="Button" parent="Menu/CompositionContainer/ButtonsContainer" unique_id=726231392]
+[node name="ContinueGuiButton" parent="Menu/CompositionContainer/ButtonsContainer" unique_id=1786408275 instance=ExtResource("3_0a7io")]
 layout_mode = 2
 text = "Continue"
 
-[node name="SettingsButton" type="Button" parent="Menu/CompositionContainer/ButtonsContainer" unique_id=1679867166]
+[node name="SettingsGuiButton" parent="Menu/CompositionContainer/ButtonsContainer" unique_id=510271636 instance=ExtResource("3_0a7io")]
 layout_mode = 2
 text = "Settings"
 
@@ -92,5 +93,5 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.15686275, 0.019607844, 0, 0.78431374)
 
-[connection signal="pressed" from="Menu/CompositionContainer/ButtonsContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="Menu/CompositionContainer/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Menu/CompositionContainer/ButtonsContainer/ContinueGuiButton" to="." method="_on_continue_gui_button_pressed"]
+[connection signal="pressed" from="Menu/CompositionContainer/ButtonsContainer/SettingsGuiButton" to="." method="_on_settings_gui_button_pressed"]
