@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://rebcva64gats" path="res://assets/songs/traian1984-ambience-wind-blowing-through-trees-01-186986_map_windy_ambiance.mp3" id="8_0x6m5"]
 [ext_resource type="PackedScene" uid="uid://bveucnbq4p8f2" path="res://scenes/gui_button/gui_button.tscn" id="9_2ismg"]
 [ext_resource type="PackedScene" uid="uid://cr8qhwmj0jva" path="res://scenes/pause_menu/pause_menu.tscn" id="9_367f4"]
+[ext_resource type="PackedScene" uid="uid://rgg3dod3xjhc" path="res://scenes/loading_animation/loading_animation.tscn" id="10_f2qmr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j8mn7"]
 size = Vector3(300, 0.5, 1000)
@@ -78,6 +79,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="LoadingAnimation" parent="CanvasLayer/FadingBlack" unique_id=1751142630 instance=ExtResource("10_f2qmr")]
+layout_mode = 1
+autoplay = false
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=955880638 instance=ExtResource("9_367f4")]
 

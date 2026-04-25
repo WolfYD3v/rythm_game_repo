@@ -12,10 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_84atr")
-song_name = "test2"
 song_file = ExtResource("2_a4kuf")
-targeted_intensity = 0.05
-input_countdown_timer_duration = 0.1
 
 [node name="SoundWave" parent="." unique_id=1553094432 instance=ExtResource("3_a4kuf")]
 layout_mode = 1

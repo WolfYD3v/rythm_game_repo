@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ditwf33qr13m2"]
+
+[ext_resource type="Script" uid="uid://dls2iuvrt0cl3" path="res://scenes/level/line_level/player/lines_level_player.gd" id="1_tuif8"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_i166f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i166f"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7gb0d"]
+
+[node name="LinesLevelPlayer" type="CharacterBody3D" unique_id=776659763]
+script = ExtResource("1_tuif8")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=348210066]
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 2.3, 2)
+
+[node name="MeshInstance" type="MeshInstance3D" parent="." unique_id=1948258680]
+mesh = SubResource("CapsuleMesh_i166f")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_i166f")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=94482078]
+shape = SubResource("CapsuleShape3D_7gb0d")

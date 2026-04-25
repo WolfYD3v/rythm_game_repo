@@ -33,10 +33,10 @@ Textures:
 SFXs:
 - Whellcomer metal sound: Metal_rattle_rustle_cracking [ https://pixabay.com/fr/sound-effects/films-et-effets-sp%c3%a9ciaux-metal-rattle-rustle-cracking-63419/ ]
 BY Dawnton (Freesound) [ https://pixabay.com/fr/users/freesound_community-46691455/ ]
-
+MODIFIED WITH Audacity (shortened)
 - Whellcomer voice sound: low pitch alien noise--person screaming [ https://pixabay.com/sound-effects/horror-low-pitch-alien-noise-person-screaming-499466/ ]
 BY flutie8211 [ https://pixabay.com/users/flutie8211-17475707/ ]
-
+MODIFIED WITH Audacity (shortened)
 - Whellcomer body sound: Burn Flesh 01 [ https://pixabay.com/sound-effects/film-special-effects-burn-flesh-01-266302/ ]
 BY u_xjrmmgxfru [ https://pixabay.com/users/u_xjrmmgxfru-47169417/ ]
 - JSFXR [ https://sfxr.me/ ]

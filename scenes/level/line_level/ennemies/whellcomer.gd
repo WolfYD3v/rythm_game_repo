@@ -74,6 +74,9 @@ func write_dialog_line(text: String) -> void:
 	dialog_text_mesh.mesh.text = ""
 	for text_character: String in text:
 		dialog_text_mesh.mesh.text += text_character
+		dialog_voice_audio_stream_player_3d.pitch_scale = randf_range(
+			0.3, 0.5
+		)
 		dialog_voice_audio_stream_player_3d.play()
 		await get_tree().create_timer(0.05).timeout
 	dialog_line_finished.emit()

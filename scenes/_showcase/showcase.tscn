@@ -8,6 +8,7 @@
 [node name="Showcase" type="Node3D" unique_id=1318585835]
 script = ExtResource("1_qmytu")
 showcase_packed_scene = ExtResource("2_sfimr")
+camara_rotate = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1726315526]
 environment = SubResource("Environment_sfimr")

@@ -12,6 +12,9 @@ var _scenes : Dictionary = {}
 var _current_scene : Node = null
 var _current_scene_name : String = ""
 
+func has_scene(scene_name: String) -> bool:
+	return _scenes.has(scene_name)
+
 func add_scene(scene_name: String, scene: PackedScene) -> void :
 	_scenes.set(scene_name, scene)
 

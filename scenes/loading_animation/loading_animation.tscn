@@ -12,7 +12,7 @@ _data = {
 point_count = 5
 
 [sub_resource type="Gradient" id="Gradient_o8kf0"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6syrr"]
 gradient = SubResource("Gradient_o8kf0")
@@ -44,6 +44,7 @@ texture = SubResource("ViewportTexture_o8kf0")
 stretch_mode = 3
 
 [node name="AnimationSubViewport" type="SubViewport" parent="." unique_id=35252460]
+transparent_bg = true
 size = Vector2i(50, 50)
 
 [node name="AnimationPath" type="Path2D" parent="AnimationSubViewport" unique_id=1392764593]

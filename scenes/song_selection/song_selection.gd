@@ -3,6 +3,7 @@ class_name SongSelection
 
 @onready var fading_black: ColorRect = $CanvasLayer/FadingBlack
 @onready var ambiance_audio_stream_player: AudioStreamPlayer = $AmbianceAudioStreamPlayer
+@onready var loading_animation: LoadingAnimation = $CanvasLayer/FadingBlack/LoadingAnimation
 
 func _ready() -> void:
 	LevelManager.song_selection_scene = self
@@ -12,6 +13,8 @@ func _on_go_back_gui_button_pressed() -> void:
 	SceneManager.replace_scene("MainMenu")
 
 func fading_back_in() -> void:
+	loading_animation.play()
+	
 	var tween_duration: float = 5.0
 	fading_black.modulate = Color(1.0, 1.0, 1.0, 0.0)
 	fading_black.show()
