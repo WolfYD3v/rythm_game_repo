@@ -1,10 +1,9 @@
 [gd_scene format=4 uid="uid://bjnm71tkhmkdh"]
 
-[ext_resource type="Script" uid="uid://buw2am4tpca0n" path="res://scenes/level/line_level/ennemies/whellcomer.gd" id="1_4wv1r"]
+[ext_resource type="Script" uid="uid://buw2am4tpca0n" path="res://scenes/level/line_level/ennemies/whellcomer/whellcomer.gd" id="1_4wv1r"]
 [ext_resource type="Material" uid="uid://dvvf0cpsk21ck" path="res://assets/materials/rouille_material.tres" id="2_5y6et"]
 [ext_resource type="PackedScene" uid="uid://dpi1tty8ba3rv" path="res://assets/models/boxy_thing/boxy_thing.tscn" id="2_fpa2r"]
 [ext_resource type="Material" uid="uid://ct20lpyo600gn" path="res://assets/materials/light_material.tres" id="3_cj070"]
-[ext_resource type="Material" uid="uid://cclqdry4hymr" path="res://assets/materials/pillar_material.tres" id="3_si4ac"]
 [ext_resource type="Material" uid="uid://dss262p1cjuaj" path="res://assets/materials/metal_material.tres" id="3_ta7s2"]
 [ext_resource type="Material" uid="uid://blskf7qvbku74" path="res://assets/materials/optical_nerf_material.tres" id="5_p3rtc"]
 [ext_resource type="Material" uid="uid://bph8ycsyyfqen" path="res://assets/materials/eye_material.tres" id="6_t5nix"]
@@ -90,7 +89,6 @@ albedo_texture = SubResource("GradientTexture2D_t5nix")
 size = Vector3(2, 0.7, 0.3)
 
 [sub_resource type="TextMesh" id="TextMesh_0poab"]
-material = ExtResource("3_si4ac")
 text = "DIALOG HERE"
 font_size = 127
 horizontal_alignment = 0
@@ -453,11 +451,11 @@ sides = 50
 material = ExtResource("5_p3rtc")
 
 [node name="DialogSection" type="Node3D" parent="." unique_id=1257080912]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 10, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 10, 3)
 
 [node name="DialogTextMesh" type="MeshInstance3D" parent="DialogSection" unique_id=1615284930]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1.5)
+material_override = ExtResource("3_cj070")
 mesh = SubResource("TextMesh_0poab")
 
 [node name="DialogVoiceAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="DialogSection" unique_id=334331338]
@@ -536,7 +534,8 @@ skeleton = NodePath("../../../../../../../../../../../../../../ModelElements")
 [node name="SpotLight" type="SpotLight3D" parent="Model/MetalPlate1/MetalPlate2/MetalPlate3/MetalPlate4/MetalPlate5/MetalPlate6/MetalPlate7/MetalPlate8/MetalPlate9/MetalPlate10/MetalPlate11/Head/HeadRotationPart" unique_id=877227784]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0.19999999)
 light_color = Color(1, 1, 0, 1)
-light_energy = 5.0
+light_energy = 16.0
+shadow_enabled = true
 spot_range = 25.0
 spot_angle = 25.0
 
@@ -546,7 +545,6 @@ mesh = SubResource("ArrayMesh_78fl7")
 skeleton = NodePath("../../../../../../../../../../../../../../ModelElements")
 
 [node name="BoxyThing" parent="Model" unique_id=705546077 instance=ExtResource("2_fpa2r")]
-opened = true
 
 [node name="BodyRotationAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1444124218]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 17, 1)
@@ -556,5 +554,4 @@ emission_angle_enabled = true
 [node name="HeadRotationAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=26288468]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 17, 1)
 stream = ExtResource("11_cj070")
-volume_db = 10.0
 emission_angle_enabled = true

@@ -55,3 +55,9 @@ func _on_credits_gui_button_pressed() -> void:
 
 func _on_close_credits_button_pressed() -> void:
 	set_credits_visibility(false)
+
+
+func _on_reset_save_button_pressed() -> void:
+	SaveManager.delete_save()
+	SaveManager.save_game()
+	SaveManager.load_save()

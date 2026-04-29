@@ -13,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_84atr")
 song_file = ExtResource("2_a4kuf")
+very_fast = false
 
 [node name="SoundWave" parent="." unique_id=1553094432 instance=ExtResource("3_a4kuf")]
 layout_mode = 1
@@ -38,24 +39,6 @@ offset_left = -50.0
 offset_bottom = 31.0
 grow_horizontal = 0
 text = "Close"
-
-[node name="OutputLabel" type="Label" parent="." unique_id=1343591231]
-custom_minimum_size = Vector2(400, 400)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -23.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 25
-text = "OUTPUT HERE"
-horizontal_alignment = 2
-vertical_alignment = 2
-autowrap_mode = 3
 
 [node name="SongAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=708199680]
 bus = &"Music"

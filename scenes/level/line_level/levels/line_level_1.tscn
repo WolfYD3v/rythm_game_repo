@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dqtsd5ssy2gd6"]
+
+[ext_resource type="PackedScene" uid="uid://dym2fxaviggaa" path="res://scenes/level/line_level/line_level.tscn" id="1_ej180"]
+[ext_resource type="PackedScene" uid="uid://ty7e8sw35ypp" path="res://scenes/level/line_level/envs/level_1_env.tscn" id="2_jtpf5"]
+[ext_resource type="PackedScene" uid="uid://bjnm71tkhmkdh" path="res://scenes/level/line_level/ennemies/whellcomer/whellcomer.tscn" id="2_lmpcl"]
+[ext_resource type="AudioStream" uid="uid://ca0o2aaghifnb" path="res://assets/songs/KAT-Pull-the-Trigger-ft.-Yi-Xi-_SynthV-Original-Song_.mp3" id="3_lmpcl"]
+
+[node name="LineLevel1" unique_id=627335088 instance=ExtResource("1_ej180")]
+ennemy_scene = ExtResource("2_lmpcl")
+env_scene = ExtResource("2_jtpf5")
+song = ExtResource("3_lmpcl")

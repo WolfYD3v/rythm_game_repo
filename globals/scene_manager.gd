@@ -43,3 +43,6 @@ func get_current_scene() -> String:
 func get_scenes(with_values: bool = false) -> Variant:
 	if with_values: return _scenes
 	return _scenes.keys()
+
+func reload_current_scene() -> void:
+	replace_scene(get_current_scene())

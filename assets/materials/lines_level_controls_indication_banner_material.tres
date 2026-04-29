@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://31bhhwh2tipe"]
+
+[ext_resource type="Texture2D" uid="uid://c2u7b3le0noyf" path="res://assets/textures/lines_level_controls_indication_banner_texture.png" id="1_cpnsf"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_cpnsf")

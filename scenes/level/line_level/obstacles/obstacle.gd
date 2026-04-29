@@ -1,11 +1,15 @@
 extends Area3D
 class_name Obstacle
 
+signal player_touched
+
 enum TYPES {
 	BALL,
 	WALL,
 	LONG
 }
+
+const MATERIAL: StandardMaterial3D = preload("res://assets/materials/transparent_blue_material.tres")
 
 var _obstacle_data: LineLevelObstacle = null
 
@@ -32,7 +36,7 @@ func _create_mesh_instance(mesh: Mesh) -> MeshInstance3D:
 	var mesh_instance: MeshInstance3D = MeshInstance3D.new()
 	mesh_instance.name = "MeshInstance"
 	mesh_instance.mesh = mesh
-	#mesh_instance.material_override = load("res://assets/materials/transparent_blue_material.tres")
+	mesh_instance.material_override = MATERIAL
 	
 	return mesh_instance
 
@@ -96,4 +100,4 @@ func _set_long_obstacle(width: float) -> void:
 	add_child(collision_shape)
 
 func _on_body_entered(body: Node3D) -> void:
-	if body is LinesLevelPlayer: LevelManager.game_over()
+	if body is LinesLevelPlayer: player_touched.emit()

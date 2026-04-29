@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ty7e8sw35ypp"]
+
+[ext_resource type="Material" uid="uid://vfqt7stponxf" path="res://assets/materials/ground_map_material.tres" id="1_j7h31"]
+
+[sub_resource type="Environment" id="Environment_6enk2"]
+background_mode = 1
+background_color = Color(0.48110723, 0.19206789, 0.1490764, 1)
+fog_enabled = true
+fog_light_color = Color(0.9573869, 0.42697337, 0.31744707, 1)
+fog_depth_end = 25.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_6enk2"]
+size = Vector3(1000, 1, 1000)
+
+[node name="Level1Env" type="Node3D" unique_id=1717567]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=547287205]
+environment = SubResource("Environment_6enk2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=68958293]
+transform = Transform3D(-0.8157542, -0.40898973, 0.40898973, 0, 0.7071068, 0.7071068, -0.5783988, 0.5768253, -0.5768253, 0, 75, -150)
+light_color = Color(0.6952317, 0.6910712, 7.70092e-07, 1)
+light_energy = 0.5
+light_bake_mode = 1
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=833402937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, -100)
+material_override = ExtResource("1_j7h31")
+mesh = SubResource("BoxMesh_6enk2")

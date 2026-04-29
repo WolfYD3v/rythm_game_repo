@@ -15,6 +15,7 @@ func _ready() -> void:
 
 func set_opened(value: bool) -> void:
 	opened = value
+	_ready()
 
 func open() -> void:
 	if not locked:

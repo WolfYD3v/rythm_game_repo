@@ -4,11 +4,15 @@ class_name LineLevelControlsIndication
 @onready var control_pads: Node3D = $Bar/ControlPads
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var jump_indicator_control: Node3D = $JumpIndicatorControl
+@onready var lights: Node3D = $Lights
+@onready var light_audio_stream_player_3d: AudioStreamPlayer3D = $Lights/LightAudioStreamPlayer3D
 
 var tween
 var tween_duration: float = 0.5
 
 func _ready() -> void:
+	turn_light(false)
+	
 	# Setup the controls indications
 	var _line_count: int = 1
 	for control_indication: Node3D in control_pads.get_children():
@@ -33,3 +37,9 @@ func rotate_control_pads(rot_value: float, play_sfx: bool = true) -> void:
 	if play_sfx:
 		await get_tree().create_timer(0.1).timeout
 		audio_stream_player_3d.play()
+
+func turn_light(value: bool) -> void:
+	for node_3d: Node3D in lights.get_children():
+		if node_3d is SpotLight3D:
+			node_3d.visible = value
+			if value: light_audio_stream_player_3d.play()

@@ -9,6 +9,7 @@ signal dialog_line_finished
 @onready var head: Node3D = $Model/MetalPlate1/MetalPlate2/MetalPlate3/MetalPlate4/MetalPlate5/MetalPlate6/MetalPlate7/MetalPlate8/MetalPlate9/MetalPlate10/MetalPlate11/Head
 @onready var body_rotation_audio_stream_player_3d: AudioStreamPlayer3D = $BodyRotationAudioStreamPlayer3D
 @onready var head_rotation_audio_stream_player_3d: AudioStreamPlayer3D = $HeadRotationAudioStreamPlayer3D
+@onready var boxy_thing: BoxyThing = $Model/BoxyThing
 
 @export_range(2, 3, 1, "or_greater") var rotation_steps_count: int = 15
 @export var rotation_value: float = -5
@@ -17,16 +18,18 @@ signal dialog_line_finished
 @export var random_rotation: bool = false
 
 func _ready() -> void:
-	say_dialog("res://dialogs/temp_dialog.json")
-	
-	await get_tree().create_timer(3.5).timeout
-	call_deferred("rotate_body_part", model.get_child(0), rotation_value, "z", true, rotation_steps_count, random_rotation, true)
-	turn_head(350.0, false)
+	dialog_text_mesh.hide()
 
 func _process(_delta: float) -> void:
 	for model_element: Node3D in $ModelElements.get_children():
 		model_element.rotate_y(deg_to_rad(0.5))
 		model_element.rotate_x(deg_to_rad(0.5))
+
+func set_chest_opened(value: bool) -> void:
+	boxy_thing.set_opened(value)
+
+func turn_bp(rot: float, axis: String, random_rot: bool, shake: bool) -> void:
+	call_deferred("rotate_body_part", model.get_child(0), rot, axis, true, rotation_steps_count, random_rot, shake)
 
 func turn_head(rot: float, shaking: bool = false) -> void:
 	call_deferred("rotate_body_part", head.get_child(0), rot, "z", false, 200, false, shaking)
@@ -59,16 +62,24 @@ func rotate_body_part(body_part: Node3D, rot: float, axis: String, recursive: bo
 
 func say_dialog(dialog_file_path: String) -> void:
 	var dialog_file = FileAccess.open(dialog_file_path, FileAccess.READ)
-	var lines: Array = JSON.parse_string(
-		dialog_file.get_as_text()
-	)
-	dialog_file.close()
-	
-	for line: String in lines:
-		write_dialog_line(line)
-		await dialog_line_finished
-		await get_tree().create_timer(1.5).timeout
-	write_dialog_line(" ")
+	if dialog_file:
+		var lines: Array = JSON.parse_string(
+			dialog_file.get_as_text()
+		)
+		dialog_file.close()
+		
+		var rota: float = 0.0
+		dialog_text_mesh.show()
+		for line: String in lines:
+			write_dialog_line(line)
+			if rota >= 0.0: rota = -2.0
+			else: rota = 2.0
+			turn_bp(1.5 * rota, "z", false, true)
+			turn_head(50.0 * rota, true)
+			await dialog_line_finished
+			await get_tree().create_timer(1.5).timeout
+		write_dialog_line(" ")
+		dialog_text_mesh.hide()
 
 func write_dialog_line(text: String) -> void:
 	dialog_text_mesh.mesh.text = ""

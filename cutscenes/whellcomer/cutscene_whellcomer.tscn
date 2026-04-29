@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://bwinkgexdlq05"]
+
+[ext_resource type="Script" uid="uid://dqlr227sssr6o" path="res://cutscenes/whellcomer/cutscene_whellcomer.gd" id="1_4hf0s"]
+[ext_resource type="PackedScene" uid="uid://bjnm71tkhmkdh" path="res://scenes/level/line_level/ennemies/whellcomer/whellcomer.tscn" id="1_s6jr7"]
+[ext_resource type="Material" uid="uid://vfqt7stponxf" path="res://assets/materials/ground_map_material.tres" id="4_smhbs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_20h25"]
+size = Vector3(250, 1, 250)
+
+[sub_resource type="Animation" id="Animation_i57dv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Whellcomer/Model/MetalPlate1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xhsyq"]
+resource_name = "cutscene"
+length = 16.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335, 5.5, 10, 11.5),
+"transitions": PackedFloat32Array(1, 1, 2, -2),
+"update": 0,
+"values": [Vector3(0, 2, 100), Vector3(0, 2, 60), Vector3(0, 4.5, 20), Vector3(0, 4.5, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5.5, 10, 11.5),
+"transitions": PackedFloat32Array(1, 2, 0.5, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0.34906584, 0, 0), Vector3(0.34906584, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Whellcomer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(9.5, 11.3, 11.5, 14.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [true],
+"method": &"set_chest_opened"
+}, {
+"args": [2.0, "x", false, true],
+"method": &"turn_bp"
+}, {
+"args": [350.0, true],
+"method": &"turn_head"
+}, {
+"args": ["res://dialogs/temp_dialog.json"],
+"method": &"say_dialog"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Whellcomer/Model/MetalPlate1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(10.2, 11.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -19, 0), Vector3(0, -1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i57dv"]
+_data = {
+&"RESET": SubResource("Animation_i57dv"),
+&"cutscene": SubResource("Animation_xhsyq")
+}
+
+[node name="CutsceneWhellcomer" type="Node3D" unique_id=1134017654]
+script = ExtResource("1_4hf0s")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1994674142]
+
+[node name="Camera" type="Camera3D" parent="." unique_id=388237955]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 2, 100)
+
+[node name="Whellcomer" parent="." unique_id=1318378318 instance=ExtResource("1_s6jr7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=1034990706]
+material_override = ExtResource("4_smhbs")
+mesh = SubResource("BoxMesh_20h25")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1860159923]
+libraries/ = SubResource("AnimationLibrary_i57dv")
+
+[editable path="Whellcomer"]

@@ -6,7 +6,8 @@
 [ext_resource type="Material" uid="uid://61r1p6cdancc" path="res://assets/materials/bridge_material.tres" id="3_ckgfk"]
 [ext_resource type="Material" uid="uid://dvvf0cpsk21ck" path="res://assets/materials/rouille_material.tres" id="4_3p26m"]
 [ext_resource type="Material" uid="uid://ct20lpyo600gn" path="res://assets/materials/light_material.tres" id="5_2qajr"]
-[ext_resource type="Texture2D" uid="uid://c2u7b3le0noyf" path="res://assets/textures/lines_level_controls_indication_banner_texture.png" id="7_ktumc"]
+[ext_resource type="AudioStream" uid="uid://d0n6gtak5nlph" path="res://assets/sfxs/temp_wheelcomer_voice_sfx.mp3" id="7_7fqqw"]
+[ext_resource type="Material" uid="uid://31bhhwh2tipe" path="res://assets/materials/lines_level_controls_indication_banner_material.tres" id="7_yvmbf"]
 [ext_resource type="AudioStream" uid="uid://g0vsbrr33yo7" path="res://assets/sfxs/lines_level_controls_indication_sfx.mp3" id="8_xr6ru"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xr6ru"]
@@ -188,10 +189,6 @@ text = "Space"
 font_size = 35
 pixel_size = 0.03
 depth = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qajr"]
-cull_mode = 2
-albedo_texture = ExtResource("7_ktumc")
 
 [sub_resource type="QuadMesh" id="QuadMesh_2qajr"]
 size = Vector2(18, 4.5)
@@ -846,9 +843,162 @@ material_override = ExtResource("5_2qajr")
 mesh = SubResource("TextMesh_xr6ru")
 skeleton = NodePath("../../../..")
 
+[node name="Lights" type="Node3D" parent="." unique_id=1686020939]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights" unique_id=1830846866]
+transform = Transform3D(0.5000001, 0.29619813, -0.81379765, 0, 0.9396927, 0.34202012, 0.8660254, -0.1710101, 0.4698464, -1.5, 16, 2.8)
+light_energy = 10.0
+spot_range = 25.0
+
+[node name="LightBulbThingyCSGCombiner3D" type="CSGCombiner3D" parent="Lights" unique_id=1462464545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 16.1, 3)
+
+[node name="Body" type="CSGSphere3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=1733795249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09790611, 0)
+radial_segments = 20
+rings = 5
+smooth_faces = false
+material = ExtResource("2_ts7i1")
+
+[node name="Bar1" type="CSGCylinder3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=1983623197]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.10000038, -1.3)
+radius = 0.2
+height = 3.0
+sides = 7
+smooth_faces = false
+material = ExtResource("4_3p26m")
+
+[node name="Bar2" type="CSGCylinder3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=1666536076]
+transform = Transform3D(0.70710677, 3.090862e-08, 0.70710677, 0.70710677, -3.090862e-08, -0.70710677, 0, 1, -4.371139e-08, -0.18116689, 0.2844448, -1.3)
+radius = 0.05
+height = 1.6
+sides = 7
+smooth_faces = false
+material = ExtResource("2_ts7i1")
+
+[node name="Bar3" type="CSGCylinder3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=245964004]
+transform = Transform3D(0.70710677, 3.090862e-08, 0.70710677, 0.70710677, -3.090862e-08, -0.70710677, 0, 1, -4.371139e-08, 0.18116522, -0.07788849, -1.3)
+radius = 0.05
+height = 1.6
+sides = 7
+smooth_faces = false
+material = ExtResource("2_ts7i1")
+
+[node name="Bar4" type="CSGCylinder3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=823172175]
+transform = Transform3D(-0.7071068, 3.090862e-08, 0.7071067, 0.7071067, 3.090862e-08, 0.7071068, 0, 1, -4.371139e-08, -0.18116689, -0.07788849, -1.3)
+radius = 0.05
+height = 1.6
+sides = 7
+smooth_faces = false
+material = ExtResource("2_ts7i1")
+
+[node name="Bar5" type="CSGCylinder3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=321217230]
+transform = Transform3D(-0.7071068, 3.090862e-08, 0.7071067, 0.7071067, 3.090862e-08, 0.7071068, 0, 1, -4.371139e-08, 0.18116522, 0.2844429, -1.3)
+radius = 0.05
+height = 1.6
+sides = 7
+smooth_faces = false
+material = ExtResource("2_ts7i1")
+
+[node name="Ring1" type="CSGTorus3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=1862853262]
+transform = Transform3D(0.90630776, -1.8473232e-08, 0.42261827, -0.42261827, -3.961597e-08, 0.90630776, 0, -1, -4.371139e-08, 0, 0.10000038, -0.44855785)
+inner_radius = 0.2
+outer_radius = 0.35
+ring_sides = 7
+smooth_faces = false
+material = ExtResource("2_ts7i1")
+
+[node name="Ring4" type="CSGTorus3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=1142055930]
+transform = Transform3D(0.90630776, -1.8473232e-08, 0.42261827, -0.42261827, -3.961597e-08, 0.90630776, 0, -1, -4.371139e-08, 0, 0.10000038, -2.083474)
+inner_radius = 0.2
+outer_radius = 0.35
+ring_sides = 7
+smooth_faces = false
+material = ExtResource("2_ts7i1")
+
+[node name="Ring2" type="CSGTorus3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=177372223]
+transform = Transform3D(-0.30788803, 0.8940447, 0.3254056, -0.95142245, -0.28932017, -0.105303906, 1.4950174e-08, -0.34202006, 0.93969244, 0.41980696, -0.062351227, -0.1923492)
+inner_radius = 0.1
+outer_radius = 0.2
+ring_sides = 7
+smooth_faces = false
+material = ExtResource("2_ts7i1")
+
+[node name="LightPart" type="CSGCylinder3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=831681325]
+transform = Transform3D(-0.30788812, 0.8940449, 0.32540572, -0.9514226, -0.28932017, -0.10530391, 1.4950174e-08, -0.34202015, 0.93969274, 0.3643024, -0.028148651, -0.18395114)
+radius = 0.15
+height = 0.2
+sides = 7
+smooth_faces = false
+material = ExtResource("5_2qajr")
+
+[node name="Ring3" type="CSGTorus3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=1415679281]
+transform = Transform3D(0.9063079, -1.8473232e-08, 0.42261833, 1.8473232e-08, 1.0000001, 4.0954156e-09, -0.42261827, 4.0954156e-09, 0.90630776, 0, -0.3932829, -0.039499283)
+inner_radius = 0.2
+outer_radius = 0.35
+ring_sides = 7
+smooth_faces = false
+material = ExtResource("4_3p26m")
+
+[node name="Bar6" type="CSGCylinder3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=11810436]
+transform = Transform3D(0.9228339, 0, 0.3851974, 0, 1, 0, -0.3851974, 0, 0.9228339, 0, -0.45667648, -0.030436993)
+radius = 0.2
+height = 0.5
+sides = 7
+smooth_faces = false
+material = ExtResource("2_ts7i1")
+
+[node name="Ring5" type="CSGTorus3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=1912096651]
+transform = Transform3D(0.9063079, -1.8473232e-08, 0.42261833, 1.8473232e-08, 1.0000001, 4.0954156e-09, -0.42261827, 4.0954156e-09, 0.90630776, 0, -0.6932831, -0.039499283)
+inner_radius = 0.2
+outer_radius = 0.35
+ring_sides = 7
+smooth_faces = false
+material = ExtResource("4_3p26m")
+
+[node name="End2" type="CSGCylinder3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=265407016]
+transform = Transform3D(0.49999982, -2.1855692e-08, 0.8660251, -0.8660251, -3.785517e-08, 0.49999982, 2.1855687e-08, -0.99999994, -3.785516e-08, 0, -0.8566761, -2.5556488)
+radius = 0.3
+height = 0.6
+sides = 7
+smooth_faces = false
+material = ExtResource("2_ts7i1")
+
+[node name="SubPart" type="CSGCylinder3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=1380741652]
+transform = Transform3D(0.8660251, 4.916865e-15, 0.4999998, -0.4999998, -4.371139e-08, 0.8660251, 2.1855687e-08, -0.99999994, -3.7855163e-08, 0, -0.8566761, -2.255649)
+operation = 2
+radius = 0.25
+height = 0.4
+sides = 7
+smooth_faces = false
+material = ExtResource("2_ts7i1")
+
+[node name="Bar7" type="CSGCylinder3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=1066562274]
+transform = Transform3D(1.9106848e-15, -4.3711385e-08, 0.9999997, -0.9999997, -4.3711385e-08, 0, 4.3711374e-08, -0.99999994, -4.3711374e-08, 0, -0.8566761, -1.2304369)
+radius = 0.2
+height = 3.5
+sides = 7
+smooth_faces = false
+material = ExtResource("4_3p26m")
+
+[node name="End1" type="CSGCylinder3D" parent="Lights/LightBulbThingyCSGCombiner3D" unique_id=1786810485]
+transform = Transform3D(-0.70710653, -6.181723e-08, 0.70710653, -0.70710653, 0, -0.70710653, 4.3711374e-08, -0.99999994, -4.3711374e-08, 0, -0.8566761, 0.46956325)
+radius = 0.25
+height = 0.2
+sides = 7
+smooth_faces = false
+material = ExtResource("4_3p26m")
+
+[node name="LightAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Lights" unique_id=30639838]
+transform = Transform3D(0.258819, 0, -0.9659259, 0, 1, 0, 0.9659259, 0, 0.258819, -1.3, 16, 2.8)
+stream = ExtResource("7_7fqqw")
+max_db = 6.0
+pitch_scale = 4.0
+emission_angle_enabled = true
+
 [node name="Banner" type="MeshInstance3D" parent="." unique_id=622329653]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 12.9, 0)
-material_override = SubResource("StandardMaterial3D_2qajr")
+material_override = ExtResource("7_yvmbf")
 mesh = SubResource("QuadMesh_2qajr")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=80789510]

@@ -145,14 +145,14 @@ horizontal_alignment = 1
 [node name="KeyboardBindingContainer" type="VBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer" unique_id=1672871280]
 layout_mode = 2
 
-[node name="LineBindingContainer" type="HBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer" unique_id=1690720456]
+[node name="LineBindingContainer1" type="HBoxContainer" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer" unique_id=1690720456]
 layout_mode = 2
 
-[node name="LineBindingLabel" type="Label" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer" unique_id=799065740]
+[node name="LineBindingLabel" type="Label" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer1" unique_id=799065740]
 layout_mode = 2
 text = "Line 1"
 
-[node name="LineBindingLineEdit" type="LineEdit" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer" unique_id=1819232076]
+[node name="LineBindingLineEdit" type="LineEdit" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer/KeyboardBindingContainer/LineBindingContainer1" unique_id=1819232076]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "A"
@@ -222,6 +222,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Y"
 alignment = 1
+
+[node name="Label" type="Label" parent="InterfaceContainer/SettingsContainer/SectionsContainer/KeybindsSectionContainer" unique_id=955722690]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "The keybinding is not complete yet for this DEMO, please wait until WolfY finish the full support"
+autowrap_mode = 3
 
 [node name="DownButtons" type="HBoxContainer" parent="InterfaceContainer" unique_id=1485530958]
 layout_mode = 2

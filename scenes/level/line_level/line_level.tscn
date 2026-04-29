@@ -1,46 +1,14 @@
 [gd_scene format=3 uid="uid://dym2fxaviggaa"]
 
 [ext_resource type="Script" uid="uid://8kn1f186cjhm" path="res://scenes/level/line_level/line_level.gd" id="1_f6k6l"]
-[ext_resource type="PackedScene" uid="uid://d160tpf2agyfn" path="res://scenes/level/line_level/envs/test_env.tscn" id="2_ne7ra"]
-[ext_resource type="AudioStream" uid="uid://ca0o2aaghifnb" path="res://assets/songs/KAT-Pull-the-Trigger-ft.-Yi-Xi-_SynthV-Original-Song_.mp3" id="3_6enk2"]
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="3_nt8ip"]
-[ext_resource type="Script" uid="uid://bfoa66muvu5bh" path="res://resources/line_level_obstacles_set.gd" id="4_bwsh2"]
 [ext_resource type="PackedScene" uid="uid://cr8qhwmj0jva" path="res://scenes/pause_menu/pause_menu.tscn" id="4_v1pdo"]
-[ext_resource type="Script" uid="uid://d0cc1n8wive2p" path="res://resources/line_level_obstacle.gd" id="5_3fp7w"]
 [ext_resource type="Material" uid="uid://c05tns7m52iki" path="res://assets/materials/transparent_blue_material.tres" id="5_7gb0d"]
 [ext_resource type="PackedScene" uid="uid://ditwf33qr13m2" path="res://scenes/level/line_level/player/lines_level_player.tscn" id="5_t5eh5"]
 [ext_resource type="PackedScene" uid="uid://s7u4u0jjvoqs" path="res://scenes/level/line_level/line_level_controls_indication/line_level_controls_indication.tscn" id="5_td3t5"]
 [ext_resource type="PackedScene" uid="uid://dx867bf25o1ma" path="res://scenes/level/line_level/health_bar/lines_level_health_bar.tscn" id="8_ne7ra"]
 [ext_resource type="Script" uid="uid://c1m7jwwki2wq0" path="res://scenes/level/line_level/lines_level_obstacle_generation.gd" id="11_6enk2"]
-
-[sub_resource type="Resource" id="Resource_tqkal"]
-script = ExtResource("5_3fp7w")
-line = 2
-metadata/_custom_type_script = "uid://d0cc1n8wive2p"
-
-[sub_resource type="Resource" id="Resource_quhsp"]
-script = ExtResource("5_3fp7w")
-line = 4
-metadata/_custom_type_script = "uid://d0cc1n8wive2p"
-
-[sub_resource type="Resource" id="Resource_hp2d6"]
-script = ExtResource("4_bwsh2")
-at_time = 3.0
-obstacles = Array[ExtResource("5_3fp7w")]([SubResource("Resource_tqkal"), SubResource("Resource_quhsp")])
-metadata/_custom_type_script = "uid://bfoa66muvu5bh"
-
-[sub_resource type="Resource" id="Resource_hg8iv"]
-script = ExtResource("5_3fp7w")
-type = 1
-value = 30.0
-line = 6
-metadata/_custom_type_script = "uid://d0cc1n8wive2p"
-
-[sub_resource type="Resource" id="Resource_v5vlw"]
-script = ExtResource("4_bwsh2")
-at_time = 8.0
-obstacles = Array[ExtResource("5_3fp7w")]([SubResource("Resource_hg8iv")])
-metadata/_custom_type_script = "uid://bfoa66muvu5bh"
+[ext_resource type="PackedScene" uid="uid://cgqtgf5m2cyp2" path="res://scenes/loose_screen/loose_screen.tscn" id="13_tqkal"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t5eh5"]
 size = Vector3(20, 0.5, 20)
@@ -53,9 +21,6 @@ size = Vector3(75, 75, 15)
 
 [node name="LineLevel" type="Node3D" unique_id=627335088]
 script = ExtResource("1_f6k6l")
-env_scene = ExtResource("2_ne7ra")
-song = ExtResource("3_6enk2")
-obstacle_sets_array = Array[ExtResource("4_bwsh2")]([SubResource("Resource_hp2d6"), SubResource("Resource_v5vlw")])
 
 [node name="LinesLevelPlayer" parent="." unique_id=776659763 instance=ExtResource("5_t5eh5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -3)
@@ -68,7 +33,7 @@ shape = SubResource("BoxShape3D_t5eh5")
 debug_color = Color(0.55199724, 0, 0.037141923, 1)
 
 [node name="Ennemy" type="Node3D" parent="." unique_id=361697994]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -23.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -10, -55)
 
 [node name="Lines" type="Node3D" parent="." unique_id=1388533095]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -12)
@@ -125,11 +90,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 30)
 shape = SubResource("BoxShape3D_lhr4w")
 
 [node name="NewObstacleMarker" type="Marker3D" parent="." unique_id=875066005]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1935530707]
 
 [node name="LinesLevelHealthBar" parent="CanvasLayer" unique_id=802906064 instance=ExtResource("8_ne7ra")]
+
+[node name="LooseScreen" parent="CanvasLayer" unique_id=1347908115 instance=ExtResource("13_tqkal")]
 
 [node name="FadingBlack" type="ColorRect" parent="CanvasLayer" unique_id=1145420330]
 visible = false
@@ -138,6 +105,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=955880638 instance=ExtResource("4_v1pdo")]

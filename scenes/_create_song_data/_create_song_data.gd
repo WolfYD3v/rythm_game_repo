@@ -1,52 +1,58 @@
 extends Control
 
+signal scan_finished
+
 @export var song_file: AudioStream = null
+@export var very_fast: bool = true
 
 @onready var song_audio_stream_player: AudioStreamPlayer = $SongAudioStreamPlayer
-@onready var output_label: Label = $OutputLabel
 
-var base_song_data_file_content: Dictionary[float, LineLevelObstacle] = {}
+var base_song_data_file_content: Array[LineLevelBbstaclesSet] = []
 
-func create_song_data_file() -> void:
+func _ready() -> void:
+	if song_file: song_audio_stream_player.stream = song_file
+	else:
+		push_warning("No song file imputed")
+		await get_tree().create_timer(0.1).timeout
+		get_tree().quit()
+
+func create_song_data_resource() -> void:
 	if song_file:
 		var song_name: String = song_file.resource_path.get_file()
-		var file_path: String = "res://%s_song_data.json" % song_name
-		if FileAccess.file_exists(file_path): DirAccess.remove_absolute(file_path)
+		var resource_path: String = "res://%s_song_data.json" % "e"
+		if FileAccess.file_exists(resource_path): DirAccess.remove_absolute(resource_path)
 		
-		var song_data_file = FileAccess.open(file_path, FileAccess.WRITE)
-		var data_to_write = base_song_data_file_content.duplicate()
+		song_audio_stream_player.play()
+		get_inputs()
+		await scan_finished
 		
-		data_to_write["song"] = song_file.resource_path
-		data_to_write["inputs"] = await get_inputs()
-		
-		song_data_file.store_string(
-			JSON.stringify(data_to_write, "    ", false)
-		)
+		var resource: LineLevelAllObstacleSets = LineLevelAllObstacleSets.new()
+		resource.obstacle_sets = base_song_data_file_content
+		var error = ResourceSaver.save(resource, resource_path)
+		if error != OK: print("echec")
 		
 		await get_tree().create_timer(5.0).timeout
-	get_tree().quit()
+		get_tree().quit()
 
-func play_song() -> void:
-	song_audio_stream_player.stream = song_file
-	song_audio_stream_player.play()
-	print(song_audio_stream_player.stream)
-
-func get_inputs() -> Dictionary:
-	var inputs: Dictionary = {}
-	play_song()
-	
+func get_inputs() -> void:
 	var song_lenght: float = song_audio_stream_player.stream.get_length()
-	var timer: float = 0.0
-	while timer < song_lenght:
-		inputs[timer] = snappedf(LevelManager.current_intensity, 0.01)
-		timer = snappedf(timer + 0.01, 0.01)
-		#output_label.text = str(cur_song_time) + " | " + str(LevelManager.current_intensity)
 	
-	return inputs
+	for timer: float in range(song_lenght):
+		var obstacles_set: LineLevelBbstaclesSet = LineLevelBbstaclesSet.new()
+		obstacles_set.at_time = timer
+		var obstacle: LineLevelObstacle = LineLevelObstacle.new()
+		obstacles_set.obstacles.append(obstacle)
+		base_song_data_file_content.append(obstacles_set)
+		print(timer)
+		timer += 1.0
+		#await get_tree().create_timer(0.1).timeout
+	scan_finished.emit()
 
 func _on_create_file_button_pressed() -> void:
-	Engine.time_scale = 20.0
-	create_song_data_file()
+	if very_fast:
+		Engine.time_scale = 20.0
+		song_audio_stream_player.pitch_scale = 20.0
+	create_song_data_resource()
 
 func _on_close_button_pressed() -> void:
 	get_tree().quit()

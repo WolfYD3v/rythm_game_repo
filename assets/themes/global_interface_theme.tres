@@ -26,6 +26,22 @@ border_width_bottom = 1
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8p07"]
 bg_color = Color(0.15686275, 0.019607844, 0, 0.39215687)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8mu6"]
+bg_color = Color(0.5511417, 0.19505474, 0.14656541, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bussk"]
+bg_color = Color(0.30749208, 0.04806298, 9.62615e-08, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.17698777, 0.014443534, 0.0009926726, 1)
+border_blend = true
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2wwp"]
 bg_color = Color(0.15686275, 0.019607844, 0, 0.39215687)
 
@@ -43,6 +59,9 @@ LineEdit/font_sizes/font_size = 10
 LineEdit/fonts/font = ExtResource("1_0uri8")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_50n3q")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_j8p07")
+ProgressBar/constants/outline_size = 5
+ProgressBar/styles/background = SubResource("StyleBoxFlat_n8mu6")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_bussk")
 RichTextLabel/font_sizes/bold_font_size = 20
 RichTextLabel/font_sizes/normal_font_size = 20
 RichTextLabel/fonts/bold_font = ExtResource("1_0uri8")

@@ -5,7 +5,11 @@ class_name LevelStone
 @onready var gameplay_icon_mesh: MeshInstance3D = $GameplayIconMesh
 @onready var gui: CanvasLayer = $GUI
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var pos_marker_3d: Marker3D = $PosMarker3D
+@onready var play_button: Button = $GUI/Control/PlayButton
 
+@export var level_packed_scene: PackedScene = null
+@export var locked: bool = false
 @export var music_sample: AudioStream = null
 @export var sample_start: float = 0.0
 @export_range(5.0, 10.0, 0.1, "prefer_slider") var sample_duration: float = 5.0
@@ -21,6 +25,7 @@ const LINE_LEVEL = preload("res://scenes/level/line_level/line_level.tscn")
 var music_sample_can_repeat: bool = false
 
 func _ready() -> void:
+	play_button.disabled = locked
 	GameManager.look_at_map_changed.connect(
 		func():
 			if GameManager.look_at_map: play_animation("close")
@@ -88,6 +93,7 @@ func _on_player_detection_area_area_shape_exited(_area_rid: RID, _area: Area3D, 
 	gui.hide()
 
 func _on_play_button_pressed() -> void:
+	if locked or not level_packed_scene: return
+	
 	stop_music_sample()
-	LevelManager.set_level_data(self)
-	LevelManager.go_to_level(self)
+	LevelManager.go_to_level(level_packed_scene)

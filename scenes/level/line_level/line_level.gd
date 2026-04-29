@@ -17,12 +17,15 @@ class_name LineLevel
 @onready var line_level_controls_indication: LineLevelControlsIndication = $LineLevelControlsIndication
 @onready var lines_level_health_bar: LinesLevelHealthBar = $CanvasLayer/LinesLevelHealthBar
 @onready var lines_level_obstacle_generation: LinesLevelObstacleGeneration = $LinesLevelObstacleGeneration
+@onready var loose_screen: LooseScreen = $CanvasLayer/LooseScreen
 
 var line_level_controls_indication_tween
 
 var obstacles_count: int = 0
 var max_obstacles_count: int = 15
 var obstacle_spawn_z_pos: float = 0.0
+
+var ending: bool = false
 
 func _ready() -> void:
 	try_load_level_data()
@@ -33,6 +36,9 @@ func _ready() -> void:
 			for _obstacle: LineLevelObstacle in obstacles:
 				try_create_obstacle(_obstacle)
 	)
+	lines_level_health_bar.empty.connect(
+		func(): trigger_end(false)
+	)
 	
 	obstacle_spawn_z_pos = new_obstacle_marker.global_position.z
 	obstacles_count = obstacles_node.get_child_count()
@@ -42,10 +48,14 @@ func _ready() -> void:
 	
 	move_lines_level_controls_indication(-10.0, 5.5)
 	await get_tree().create_timer(6.0).timeout
+	line_level_controls_indication.turn_light(true)
 	line_level_controls_indication.rotate_control_pads(0.0, true)
 	await get_tree().create_timer(3.5).timeout
+	line_level_controls_indication.turn_light(false)
 	line_level_controls_indication.rotate_control_pads(-180.0, false)
+	await get_tree().create_timer(0.1).timeout
 	move_lines_level_controls_indication(-100.0, 15.0)
+	lines_level_health_bar.popup()
 	await get_tree().create_timer(3.5).timeout
 	
 	# Play the music, and start the recursive obstacles generation
@@ -54,7 +64,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	for obstacle: Obstacle in obstacles_node.get_children():
-		obstacle.global_position.z += 1.0
+		obstacle.global_position.z += 0.5
 
 func move_lines_level_controls_indication(y_pos: float, duration: float) -> void:
 	if line_level_controls_indication_tween: line_level_controls_indication_tween.kill()
@@ -75,6 +85,9 @@ func try_create_obstacle(obstacle_data: LineLevelObstacle) -> void:
 	var packed_obstacle: PackedScene = load("res://scenes/level/line_level/obstacles/obstacle.tscn")
 	var new_obstacle: Obstacle = packed_obstacle.instantiate()
 	new_obstacle.name = "Obstacle%d" % [obstacles_node.get_child_count() + 1]
+	new_obstacle.player_touched.connect(
+		func(): trigger_end(true)
+	)
 	
 	# Set the position of the obstacle
 	new_obstacle.position = Vector3(
@@ -93,17 +106,15 @@ func try_destroy_obstacle(obstacle: Node3D) -> void:
 	obstacle.call_deferred("queue_free")
 
 func try_load_level_data() -> void:
-	if LevelManager.ennemy_scene: ennemy_scene = LevelManager.ennemy_scene
-	if LevelManager.env_scene: env_scene = LevelManager.env_scene
-	if LevelManager.song: song = LevelManager.song
-	if not LevelManager.obstacle_sets_array.is_empty(): obstacle_sets_array = LevelManager.obstacle_sets_array
-	
 	if ennemy_scene: ennemy_node.add_child(ennemy_scene.instantiate())
 	if env_scene: env_node.add_child(env_scene.instantiate())
 	if song: audio_stream_player.stream = song
+	# Obstacle sets
 
 func _on_obstacle_destroy_area_area_entered(area: Area3D) -> void:
-	if area is Obstacle: try_destroy_obstacle(area)
+	if area is Obstacle:
+		try_destroy_obstacle(area)
+		lines_level_health_bar.empty.emit()
 
 func fading_back_out() -> void:
 	fading_black.modulate = Color(1.0, 1.0, 1.0, 1.0)
@@ -114,3 +125,26 @@ func fading_back_out() -> void:
 		fading_black, "modulate",
 		Color(1.0, 1.0, 1.0, 0.0), 10.0
 	)
+
+func fading_back_in() -> void:
+	fading_black.modulate = Color(1.0, 1.0, 1.0, 0.0)
+	fading_black.show()
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(
+		fading_black, "modulate",
+		Color(1.0, 1.0, 1.0, 1.0), 5.0
+	)
+
+func trigger_end(player_killed: bool) -> void:
+	if ending: return
+	if not player_killed and obstacles_count > 0: return
+	ending = true
+	
+	if player_killed:
+		loose_screen.show()
+		# Code ici ?
+	else:
+		fading_back_in()
+		await get_tree().create_timer(7.0).timeout
+		LevelManager.win()
