@@ -88,7 +88,7 @@ alignment = 0
 [node name="EnglishGuiButton" parent="InterfaceContainer/SettingsContainer/LanguageSelectionContainer" unique_id=2040092762 instance=ExtResource("3_1slea")]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-text = "French"
+text = "English"
 alignment = 0
 
 [node name="SectionsContainer" type="HBoxContainer" parent="InterfaceContainer/SettingsContainer" unique_id=613332690]
@@ -237,6 +237,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "SAVE AND CLOSE"
 
+[node name="ResetButton" parent="InterfaceContainer/DownButtons" unique_id=196692631 instance=ExtResource("3_1slea")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RESET"
+
 [node name="Overlay" parent="." unique_id=2068804764 instance=ExtResource("3_tt6xx")]
 layout_mode = 0
 anchors_preset = 0
@@ -253,3 +258,4 @@ size = Vector2i(1152, 648)
 [connection signal="toggled" from="InterfaceContainer/SettingsContainer/SectionsContainer/AudioSectionContainer/ListenSampleCheckButton" to="." method="_on_listen_sample_check_button_toggled"]
 [connection signal="toggled" from="InterfaceContainer/SettingsContainer/SectionsContainer/VideoSectionContainer/FullscreenCheckButton" to="." method="_on_fullscreen_check_button_toggled"]
 [connection signal="pressed" from="InterfaceContainer/DownButtons/CloseGuiButton" to="." method="_on_close_gui_button_pressed"]
+[connection signal="pressed" from="InterfaceContainer/DownButtons/ResetButton" to="." method="_on_reset_button_pressed"]

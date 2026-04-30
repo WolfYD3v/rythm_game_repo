@@ -5,6 +5,7 @@ class_name MainMenu
 @onready var credits_rich_text_label: RichTextLabel = $CreditsRichTextLabel
 @onready var gui: Control = $GUI
 @onready var hoyploma_bg: TextureRect = $HoyplomaBG
+@onready var reset_save_button: Button = $ResetSaveButton
 
 const SETTINGS_PACKED_SCENE: PackedScene = preload("res://scenes/settings/settings.tscn")
 const CONTEXT_PACKED_SCENE: PackedScene = preload("res://scenes/context/context.tscn")
@@ -13,6 +14,7 @@ const HOYPLOMA_PACKED_SCENE: PackedScene = preload("res://scenes/hoyploma/hoyplo
 func _ready() -> void:
 	gui.show()
 	hoyploma_bg.show()
+	reset_save_button.show()
 	
 	set_credits_visibility(false)
 	SceneManager.add_scene("Hoyploma", HOYPLOMA_PACKED_SCENE)
@@ -23,6 +25,7 @@ func _ready() -> void:
 func set_credits_visibility(value: bool) -> void:
 	credits_rich_text_label.visible = value
 	gui.visible = not(value)
+	reset_save_button.visible = not(value)
 
 func _on_quit_gui_button_pressed() -> void:
 	get_tree().quit()
@@ -34,6 +37,7 @@ func _on_settings_gui_button_pressed() -> void:
 func _on_story_mode_gui_button_pressed() -> void:
 	gui.hide()
 	hoyploma_bg.hide()
+	reset_save_button.hide()
 	await get_tree().create_timer(1.5).timeout
 	
 	var tween = get_tree().create_tween()

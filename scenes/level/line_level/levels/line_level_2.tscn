@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c1m27a65pf5kh"]
+
+[ext_resource type="PackedScene" uid="uid://dym2fxaviggaa" path="res://scenes/level/line_level/line_level.tscn" id="1_lgvib"]
+[ext_resource type="AudioStream" uid="uid://cmav6vwdavfcu" path="res://assets/songs/Badly (feat. Camellia).mp3" id="2_aq6rj"]
+
+[node name="LineLevel2" unique_id=627335088 instance=ExtResource("1_lgvib")]
+song = ExtResource("2_aq6rj")

@@ -4,6 +4,7 @@ class_name Settings
 @onready var listen_sample_check_button: CheckButton = $InterfaceContainer/SettingsContainer/SectionsContainer/AudioSectionContainer/ListenSampleCheckButton
 @onready var hoyploma_sub_viewport: SubViewport = $HoyplomaSubViewport
 @onready var color_rect: ColorRect = $ColorRect
+@onready var fullscreen_check_button: CheckButton = $InterfaceContainer/SettingsContainer/SectionsContainer/VideoSectionContainer/FullscreenCheckButton
 
 @export var pause_menu_mode: bool = false
 
@@ -19,6 +20,7 @@ func _ready() -> void:
 func setup_interface() -> void:
 	SettingsManager.get_settings()
 	listen_sample_check_button.button_pressed = SettingsManager.listen_samples
+	fullscreen_check_button.button_pressed = SettingsManager.fullscreen
 
 func set_language(language: String) -> void:
 	SettingsManager.language = language
@@ -38,3 +40,7 @@ func _on_fullscreen_check_button_toggled(toggled_on: bool) -> void:
 	
 	if toggled_on: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+
+func _on_reset_button_pressed() -> void:
+	SettingsManager.reset_settings()
+	setup_interface()

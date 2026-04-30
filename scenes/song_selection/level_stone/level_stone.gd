@@ -81,6 +81,9 @@ func play_animation(animation_name: String) -> void:
 	if animation_name in animation_player.get_animation_list():
 		animation_player.play(animation_name)
 
+func get_pos_marker_position() -> Vector3:
+	return pos_marker_3d.global_position
+
 func _on_player_detection_area_area_shape_entered(_area_rid: RID, _area: Area3D, _area_shape_index: int, _local_shape_index: int) -> void:
 	play_music_sample()
 	play_animation("open")

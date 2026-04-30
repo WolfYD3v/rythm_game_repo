@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dmv4l8gs86cqd"]
+
+[ext_resource type="Script" uid="uid://d15nmb0d2u21m" path="res://scenes/win_screen/win_screen.gd" id="1_2yi6y"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_misvs"]
+
+[node name="WinScreen" type="Control" unique_id=920305060]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_misvs")
+script = ExtResource("1_2yi6y")
+
+[node name="Background" type="ColorRect" parent="." unique_id=618422372]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15686275, 0.019607844, 0, 0.5882353)
+
+[node name="Menu" type="Control" parent="." unique_id=960438656]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Menu" unique_id=1727599019]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15686275, 0.019607844, 0, 0.19607843)
+
+[node name="NodesContainer" type="VBoxContainer" parent="Menu" unique_id=800909985]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="WinLabel" type="Label" parent="Menu/NodesContainer" unique_id=1056024987]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 35
+text = "You survived"
+horizontal_alignment = 1
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="Menu/NodesContainer" unique_id=666047317]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Menu/NodesContainer/ButtonsContainer" unique_id=1191635114]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "Continue"
+
+[connection signal="pressed" from="Menu/NodesContainer/ButtonsContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

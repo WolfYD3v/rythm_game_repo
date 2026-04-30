@@ -35,5 +35,25 @@ func fading_back_in() -> void:
 	await get_tree().create_timer(tween_duration).timeout
 
 func set_player_pos() -> void:
-	if level_stones.get_child_count() <= LevelManager.max_level_id:
-		map_player.position = level_stones.get_child(LevelManager.max_level_id - 1).pos_marker_3d.global_position
+	# Setup some variables
+	var new_player_position: Vector3 = Vector3.ZERO
+	var level_stone_idx: int = 0
+	
+	# Get the new player position
+	if LevelManager.max_level_id > 1: level_stone_idx = LevelManager.max_level_id - 1
+	else: level_stone_idx = 0
+	new_player_position = level_stones.get_child(level_stone_idx).get_pos_marker_position()
+	
+	# Change the player position
+	if level_stone_idx <= 0: map_player.position = new_player_position # No stones behind -> No walking animation
+	else:
+		# Stone behind the next one, start the walking animation
+		map_player.position = level_stones.get_child(level_stone_idx - 1).get_pos_marker_position()
+		await get_tree().create_timer(1.5).timeout
+		var tween = get_tree().create_tween()
+		tween.tween_property(
+			map_player, "position",
+			new_player_position, 5.0
+		)
+		await tween.finished
+		tween.kill()

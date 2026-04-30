@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://c05tns7m52iki" path="res://assets/materials/transparent_blue_material.tres" id="5_7gb0d"]
 [ext_resource type="PackedScene" uid="uid://ditwf33qr13m2" path="res://scenes/level/line_level/player/lines_level_player.tscn" id="5_t5eh5"]
 [ext_resource type="PackedScene" uid="uid://s7u4u0jjvoqs" path="res://scenes/level/line_level/line_level_controls_indication/line_level_controls_indication.tscn" id="5_td3t5"]
+[ext_resource type="PackedScene" uid="uid://dmv4l8gs86cqd" path="res://scenes/win_screen/win_screen.tscn" id="7_ne7ra"]
 [ext_resource type="PackedScene" uid="uid://dx867bf25o1ma" path="res://scenes/level/line_level/health_bar/lines_level_health_bar.tscn" id="8_ne7ra"]
 [ext_resource type="Script" uid="uid://c1m7jwwki2wq0" path="res://scenes/level/line_level/lines_level_obstacle_generation.gd" id="11_6enk2"]
 [ext_resource type="PackedScene" uid="uid://cgqtgf5m2cyp2" path="res://scenes/loose_screen/loose_screen.tscn" id="13_tqkal"]
@@ -97,6 +98,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
 [node name="LinesLevelHealthBar" parent="CanvasLayer" unique_id=802906064 instance=ExtResource("8_ne7ra")]
 
 [node name="LooseScreen" parent="CanvasLayer" unique_id=1347908115 instance=ExtResource("13_tqkal")]
+
+[node name="WinScreen" parent="CanvasLayer" unique_id=920305060 instance=ExtResource("7_ne7ra")]
 
 [node name="FadingBlack" type="ColorRect" parent="CanvasLayer" unique_id=1145420330]
 visible = false

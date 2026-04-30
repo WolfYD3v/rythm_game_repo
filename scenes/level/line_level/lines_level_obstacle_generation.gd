@@ -18,8 +18,8 @@ func timer_up() -> void:
 
 func start_generation(obstacle_sets: Array[LineLevelBbstaclesSet]) -> void:
 	if obstacle_sets.is_empty():
-		push_warning("Cannot generate obstales with a ampty collection")
-		return
+		push_warning("Cannot generate obstales with a ampty collection, the player automatically survived the level.")
+		get_parent().trigger_end(false)
 	
 	timer = 0.0
 	timer_up()

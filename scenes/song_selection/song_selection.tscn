@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dqtsd5ssy2gd6" path="res://scenes/level/line_level/levels/line_level_1.tscn" id="6_pclq7"]
 [ext_resource type="AudioStream" uid="uid://cmav6vwdavfcu" path="res://assets/songs/Badly (feat. Camellia).mp3" id="7_7oj2g"]
 [ext_resource type="AudioStream" uid="uid://rebcva64gats" path="res://assets/songs/traian1984-ambience-wind-blowing-through-trees-01-186986_map_windy_ambiance.mp3" id="8_0x6m5"]
+[ext_resource type="PackedScene" uid="uid://c1m27a65pf5kh" path="res://scenes/level/line_level/levels/line_level_2.tscn" id="8_pkxvu"]
 [ext_resource type="PackedScene" uid="uid://bveucnbq4p8f2" path="res://scenes/gui_button/gui_button.tscn" id="9_2ismg"]
 [ext_resource type="PackedScene" uid="uid://cr8qhwmj0jva" path="res://scenes/pause_menu/pause_menu.tscn" id="9_367f4"]
 [ext_resource type="PackedScene" uid="uid://rgg3dod3xjhc" path="res://scenes/loading_animation/loading_animation.tscn" id="10_f2qmr"]
@@ -45,6 +46,13 @@ text = "Press 'M' to check your map, a little but great animation will be played
 font_size = 30
 autowrap_mode = 3
 
+[sub_resource type="TextMesh" id="TextMesh_pkxvu"]
+text = "End of DEMO_V1.0
+More content coming soon when I want to publish an update"
+font_size = 20
+autowrap_mode = 3
+width = 300.0
+
 [node name="SongSelection" type="Node3D" unique_id=1418675258]
 script = ExtResource("2_d57ly")
 
@@ -75,7 +83,7 @@ difficulty = 15
 
 [node name="LevelStone2" parent="LevelStones" unique_id=1536611193 instance=ExtResource("5_we6td")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.9068727, 0.29999998, 692.9)
-level_packed_scene = ExtResource("6_pclq7")
+level_packed_scene = ExtResource("8_pkxvu")
 locked = true
 music_sample = ExtResource("7_7oj2g")
 gameplay_type = 1
@@ -97,6 +105,10 @@ mesh = SubResource("ArrayMesh_fpfjg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9000001, 0.5999999, 0.2999878)
 material_override = SubResource("StandardMaterial3D_fpfjg")
 mesh = SubResource("TextMesh_pclq7")
+
+[node name="DEMO_END_TEXT" type="MeshInstance3D" parent="." unique_id=1198028803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 690)
+mesh = SubResource("TextMesh_pkxvu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1570802297]
 layer = 2

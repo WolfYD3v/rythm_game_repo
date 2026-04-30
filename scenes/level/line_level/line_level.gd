@@ -18,6 +18,7 @@ class_name LineLevel
 @onready var lines_level_health_bar: LinesLevelHealthBar = $CanvasLayer/LinesLevelHealthBar
 @onready var lines_level_obstacle_generation: LinesLevelObstacleGeneration = $LinesLevelObstacleGeneration
 @onready var loose_screen: LooseScreen = $CanvasLayer/LooseScreen
+@onready var win_screen: WinScreen = $CanvasLayer/WinScreen
 
 var line_level_controls_indication_tween
 
@@ -141,10 +142,10 @@ func trigger_end(player_killed: bool) -> void:
 	if not player_killed and obstacles_count > 0: return
 	ending = true
 	
-	if player_killed:
-		loose_screen.show()
-		# Code ici ?
+	if player_killed: loose_screen.show()
 	else:
+		win_screen.show()
+		await win_screen.continuing
 		fading_back_in()
 		await get_tree().create_timer(7.0).timeout
 		LevelManager.win()

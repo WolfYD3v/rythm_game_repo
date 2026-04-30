@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://61r1p6cdancc" path="res://assets/materials/bridge_material.tres" id="3_ckgfk"]
 [ext_resource type="Material" uid="uid://dvvf0cpsk21ck" path="res://assets/materials/rouille_material.tres" id="4_3p26m"]
 [ext_resource type="Material" uid="uid://ct20lpyo600gn" path="res://assets/materials/light_material.tres" id="5_2qajr"]
-[ext_resource type="AudioStream" uid="uid://d0n6gtak5nlph" path="res://assets/sfxs/temp_wheelcomer_voice_sfx.mp3" id="7_7fqqw"]
+[ext_resource type="AudioStream" uid="uid://csmcyurh4isav" path="res://assets/sfxs/controls_indication_spotlight_sfx.mp3" id="7_7fqqw"]
 [ext_resource type="Material" uid="uid://31bhhwh2tipe" path="res://assets/materials/lines_level_controls_indication_banner_material.tres" id="7_yvmbf"]
 [ext_resource type="AudioStream" uid="uid://g0vsbrr33yo7" path="res://assets/sfxs/lines_level_controls_indication_sfx.mp3" id="8_xr6ru"]
 
@@ -60,6 +60,14 @@ uppercase = true
 pixel_size = 0.03
 depth = 0.5
 
+[sub_resource type="BoxMesh" id="BoxMesh_7fqqw"]
+size = Vector3(1.4, 1.1, 0.2)
+
+[sub_resource type="TextMesh" id="TextMesh_7fqqw"]
+text = "<-"
+font_size = 127
+depth = 0.1
+
 [sub_resource type="TextMesh" id="TextMesh_td3t5"]
 text = "A"
 font_size = 80
@@ -80,6 +88,11 @@ font_size = 80
 uppercase = true
 pixel_size = 0.03
 depth = 0.5
+
+[sub_resource type="TextMesh" id="TextMesh_d3au8"]
+text = "->"
+font_size = 127
+depth = 0.1
 
 [sub_resource type="TextMesh" id="TextMesh_ne7ra"]
 text = "A"
@@ -191,7 +204,7 @@ pixel_size = 0.03
 depth = 0.5
 
 [sub_resource type="QuadMesh" id="QuadMesh_2qajr"]
-size = Vector2(18, 4.5)
+size = Vector2(18, 4)
 
 [node name="ControlsIndication" type="Node3D" unique_id=1113859635]
 script = ExtResource("1_va681")
@@ -287,6 +300,24 @@ material_override = ExtResource("5_2qajr")
 mesh = SubResource("TextMesh_lhr4w")
 skeleton = NodePath("../../../..")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bar/ControlPads/ControlPad2" unique_id=1798947526]
+transform = Transform3D(0.97966653, -0.20063338, -1.7539929e-08, 0.20063338, 0.97966653, -1.7776145e-09, 1.7539929e-08, -1.7776145e-09, 1, -1.0266056, 1.6444893, -0.16672719)
+material_override = ExtResource("3_ckgfk")
+mesh = SubResource("BoxMesh_7fqqw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bar/ControlPads/ControlPad2/MeshInstance3D" unique_id=1003480268]
+transform = Transform3D(1, 5.9604645e-08, -7.1054274e-15, -5.9604645e-08, 1, 0, -1.065578e-15, 1.4210855e-14, 1, 0.036174774, 0.1766367, 0.12806082)
+material_override = ExtResource("5_2qajr")
+mesh = SubResource("TextMesh_7fqqw")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Bar/ControlPads/ControlPad2/MeshInstance3D" unique_id=870642678]
+transform = Transform3D(0.97937, 0.1421415, -0.14363085, 0.14214148, 0.020629767, 0.9896315, 0.14363088, -0.9896313, -4.3711367e-08, 0.21364653, -0.45205688, 0.100000024)
+radius = 0.15
+height = 0.6
+sides = 7
+smooth_faces = false
+material = ExtResource("2_ts7i1")
+
 [node name="ControlPad3" type="MeshInstance3D" parent="Bar/ControlPads" unique_id=1693051711]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1.2)
 mesh = SubResource("ArrayMesh_ktumc")
@@ -319,6 +350,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.2)
 material_override = ExtResource("5_2qajr")
 mesh = SubResource("TextMesh_t5eh5")
 skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bar/ControlPads/ControlPad5" unique_id=2120100310]
+transform = Transform3D(0.9896314, 0.14363088, 1.2556606e-08, -0.14363088, 0.9896314, -9.064536e-10, -1.2556606e-08, -9.064607e-10, 1, 1, 1.644, -0.16700006)
+material_override = ExtResource("3_ckgfk")
+mesh = SubResource("BoxMesh_7fqqw")
+skeleton = NodePath("../../ControlPad4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bar/ControlPads/ControlPad5/MeshInstance3D" unique_id=121242219]
+transform = Transform3D(1, 5.9604645e-08, -7.1054274e-15, -5.9604645e-08, 1, 0, -1.065578e-15, 1.4210855e-14, 1, 0.036174774, 0.1766367, 0.12806082)
+material_override = ExtResource("5_2qajr")
+mesh = SubResource("TextMesh_d3au8")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Bar/ControlPads/ControlPad5/MeshInstance3D" unique_id=496148133]
+transform = Transform3D(0.9793698, 0.1421415, -0.14363085, 0.14214154, 0.020629767, 0.9896313, 0.14363088, -0.9896313, -4.371139e-08, -0.33839893, -0.45330524, 0.100000024)
+radius = 0.15
+height = 0.6
+sides = 7
+smooth_faces = false
+material = ExtResource("2_ts7i1")
 
 [node name="ControlPad6" type="MeshInstance3D" parent="Bar/ControlPads" unique_id=357659390]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 1.2)
@@ -992,12 +1042,12 @@ material = ExtResource("4_3p26m")
 [node name="LightAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Lights" unique_id=30639838]
 transform = Transform3D(0.258819, 0, -0.9659259, 0, 1, 0, 0.9659259, 0, 0.258819, -1.3, 16, 2.8)
 stream = ExtResource("7_7fqqw")
+volume_db = 80.0
 max_db = 6.0
-pitch_scale = 4.0
 emission_angle_enabled = true
 
 [node name="Banner" type="MeshInstance3D" parent="." unique_id=622329653]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 12.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 12.599999, 0)
 material_override = ExtResource("7_yvmbf")
 mesh = SubResource("QuadMesh_2qajr")
 
