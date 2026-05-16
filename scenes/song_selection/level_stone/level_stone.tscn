@@ -70,7 +70,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("GUI/Control/PlayButton:scale")
+tracks/3/path = NodePath("GUI/PlayButton:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -158,7 +158,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("GUI/Control/PlayButton:scale")
+tracks/3/path = NodePath("GUI/PlayButton:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -245,7 +245,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("GUI/Control/PlayButton:scale")
+tracks/3/path = NodePath("GUI/PlayButton:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -334,7 +334,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20000002, 0.5, 0)
 shape = SubResource("BoxShape3D_jo572")
 
 [node name="PosMarker3D" type="Marker3D" parent="." unique_id=427760196]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20000002, 0.13333336, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26666668, 0.13333336, 0)
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=2025595737]
 
@@ -342,35 +342,41 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20000002, 0.13333336, 0)
 top_level = false
 z_index = 0
 
-[node name="Control" type="Control" parent="GUI" unique_id=892586315]
+[node name="PlayButton" type="Button" parent="GUI" unique_id=389023976]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(89, 43)
+focus_mode = 0
+theme = ExtResource("5_vvrli")
+text = "PLAY"
+
+[node name="Control" type="HBoxContainer" parent="GUI" unique_id=1543828801]
 top_level = true
-layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("5_vvrli")
+theme_override_constants/separation = 0
 
 [node name="SoundWave" parent="GUI/Control" unique_id=309628973 instance=ExtResource("4_jo572")]
-layout_mode = 1
-anchors_preset = 9
-anchor_right = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_vertical = 2
+layout_mode = 2
 background_color = Color(0.15686275, 0.019607844, 0, 1)
 num_bars = 15
 
 [node name="InfosContainer" type="VBoxContainer" parent="GUI/Control" unique_id=1794256404]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -852.0
-offset_right = 0.00048828125
-offset_bottom = 106.0
-grow_horizontal = 0
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="SongNameRichTextLabel" type="RichTextLabel" parent="GUI/Control/InfosContainer" unique_id=1656741165]
@@ -397,21 +403,6 @@ text = "{nb}  ★ "
 horizontal_alignment = 2
 autowrap_mode = 3
 
-[node name="PlayButton" type="Button" parent="GUI/Control" unique_id=389023976]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -89.0
-offset_top = -43.0
-grow_horizontal = 0
-grow_vertical = 0
-pivot_offset = Vector2(89, 43)
-focus_mode = 0
-text = "PLAY"
-
 [node name="MusicSampleAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=89161700]
 volume_db = -10.0
 bus = &"Music"
@@ -421,4 +412,4 @@ libraries/ = SubResource("AnimationLibrary_vpd7x")
 
 [connection signal="area_shape_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_shape_entered"]
 [connection signal="area_shape_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_shape_exited"]
-[connection signal="pressed" from="GUI/Control/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="GUI/PlayButton" to="." method="_on_play_button_pressed"]

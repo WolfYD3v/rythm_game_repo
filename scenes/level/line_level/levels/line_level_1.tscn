@@ -3,53 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://dym2fxaviggaa" path="res://scenes/level/line_level/line_level.tscn" id="1_ej180"]
 [ext_resource type="PackedScene" uid="uid://ty7e8sw35ypp" path="res://scenes/level/line_level/envs/level_1_env.tscn" id="2_jtpf5"]
 [ext_resource type="PackedScene" uid="uid://bjnm71tkhmkdh" path="res://scenes/level/line_level/ennemies/whellcomer/whellcomer.tscn" id="2_lmpcl"]
-[ext_resource type="AudioStream" uid="uid://ca0o2aaghifnb" path="res://assets/songs/KAT-Pull-the-Trigger-ft.-Yi-Xi-_SynthV-Original-Song_.mp3" id="3_lmpcl"]
-[ext_resource type="Script" uid="uid://bfoa66muvu5bh" path="res://resources/line_level_obstacles_set.gd" id="5_gpxj5"]
-[ext_resource type="Script" uid="uid://d0cc1n8wive2p" path="res://resources/line_level_obstacle.gd" id="6_dvt1m"]
-
-[sub_resource type="Resource" id="Resource_ebfsx"]
-script = ExtResource("6_dvt1m")
-line = 3
-metadata/_custom_type_script = "uid://d0cc1n8wive2p"
-
-[sub_resource type="Resource" id="Resource_yf1ug"]
-script = ExtResource("5_gpxj5")
-at_time = 1.0
-obstacles = Array[ExtResource("6_dvt1m")]([SubResource("Resource_ebfsx")])
-metadata/_custom_type_script = "uid://bfoa66muvu5bh"
-
-[sub_resource type="Resource" id="Resource_j0ppj"]
-script = ExtResource("6_dvt1m")
-type = 1
-value = 5.0
-metadata/_custom_type_script = "uid://d0cc1n8wive2p"
-
-[sub_resource type="Resource" id="Resource_n8xbg"]
-script = ExtResource("6_dvt1m")
-line = 6
-metadata/_custom_type_script = "uid://d0cc1n8wive2p"
-
-[sub_resource type="Resource" id="Resource_7yslq"]
-script = ExtResource("5_gpxj5")
-at_time = 3.5
-obstacles = Array[ExtResource("6_dvt1m")]([SubResource("Resource_j0ppj"), SubResource("Resource_n8xbg")])
-metadata/_custom_type_script = "uid://bfoa66muvu5bh"
-
-[sub_resource type="Resource" id="Resource_sq67k"]
-script = ExtResource("6_dvt1m")
-type = 2
-value = 20.0
-line = 3
-metadata/_custom_type_script = "uid://d0cc1n8wive2p"
-
-[sub_resource type="Resource" id="Resource_vk03b"]
-script = ExtResource("5_gpxj5")
-at_time = 5.0
-obstacles = Array[ExtResource("6_dvt1m")]([SubResource("Resource_sq67k")])
-metadata/_custom_type_script = "uid://bfoa66muvu5bh"
+[ext_resource type="AudioStream" uid="uid://droqfim8cm2wo" path="res://assets/songs/Debris & Jonth - Game Time _ Bass House _ NCS - Copyright Free Music.mp3" id="4_gpxj5"]
+[ext_resource type="Resource" uid="uid://cua4py2mym3f3" path="res://resources/levels/lines/lines_level_1_all_obstacles.tres" id="5_uc7n4"]
 
 [node name="LineLevel1" unique_id=627335088 instance=ExtResource("1_ej180")]
 ennemy_scene = ExtResource("2_lmpcl")
 env_scene = ExtResource("2_jtpf5")
-song = ExtResource("3_lmpcl")
-obstacle_sets_array = Array[ExtResource("5_gpxj5")]([SubResource("Resource_yf1ug"), SubResource("Resource_7yslq"), SubResource("Resource_vk03b")])
+song = ExtResource("4_gpxj5")
+all_obstacle_sets = ExtResource("5_uc7n4")
+
+[node name="ObstacleDestroyArea" parent="." index="7" unique_id=317588595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 80)

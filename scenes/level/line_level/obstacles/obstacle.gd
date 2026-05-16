@@ -9,7 +9,7 @@ enum TYPES {
 	LONG
 }
 
-const MATERIAL: StandardMaterial3D = preload("res://assets/materials/transparent_blue_material.tres")
+const MATERIAL: StandardMaterial3D = preload("res://assets/materials/light_material.tres")
 
 var _obstacle_data: LineLevelObstacle = null
 

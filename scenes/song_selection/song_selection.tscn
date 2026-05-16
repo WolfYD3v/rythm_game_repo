@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://btivdjqcejx7y" path="res://scenes/song_selection/map_player.tscn" id="3_3hfiv"]
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="5_0x6m5"]
 [ext_resource type="PackedScene" uid="uid://viya0fha5sqc" path="res://scenes/song_selection/level_stone/level_stone.tscn" id="5_we6td"]
-[ext_resource type="AudioStream" uid="uid://ca0o2aaghifnb" path="res://assets/songs/KAT-Pull-the-Trigger-ft.-Yi-Xi-_SynthV-Original-Song_.mp3" id="6_67vlu"]
 [ext_resource type="PackedScene" uid="uid://dqtsd5ssy2gd6" path="res://scenes/level/line_level/levels/line_level_1.tscn" id="6_pclq7"]
-[ext_resource type="AudioStream" uid="uid://cmav6vwdavfcu" path="res://assets/songs/Badly (feat. Camellia).mp3" id="7_7oj2g"]
+[ext_resource type="Script" uid="uid://dkvvd2umwtb25" path="res://resources/song_data/song_data.gd" id="7_joawi"]
+[ext_resource type="AudioStream" uid="uid://droqfim8cm2wo" path="res://assets/songs/Debris & Jonth - Game Time _ Bass House _ NCS - Copyright Free Music.mp3" id="7_pkxvu"]
 [ext_resource type="AudioStream" uid="uid://rebcva64gats" path="res://assets/songs/traian1984-ambience-wind-blowing-through-trees-01-186986_map_windy_ambiance.mp3" id="8_0x6m5"]
 [ext_resource type="PackedScene" uid="uid://c1m27a65pf5kh" path="res://scenes/level/line_level/levels/line_level_2.tscn" id="8_pkxvu"]
 [ext_resource type="PackedScene" uid="uid://bveucnbq4p8f2" path="res://scenes/gui_button/gui_button.tscn" id="9_2ismg"]
@@ -21,6 +21,18 @@ size = Vector3(300, 0.5, 1000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wbaf4"]
 size = Vector3(300, 0.5, 1000)
+
+[sub_resource type="Resource" id="Resource_fdww2"]
+script = ExtResource("7_joawi")
+song = ExtResource("7_pkxvu")
+artist_name = "Debris & Jonth"
+metadata/_custom_type_script = "uid://dkvvd2umwtb25"
+
+[sub_resource type="Resource" id="Resource_cafa2"]
+script = ExtResource("7_joawi")
+song = ExtResource("7_pkxvu")
+artist_name = "Debris & Jonth"
+metadata/_custom_type_script = "uid://dkvvd2umwtb25"
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fpfjg"]
 _surfaces = [{
@@ -36,8 +48,8 @@ _surfaces = [{
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpfjg"]
 
-[sub_resource type="TextMesh" id="TextMesh_fpfjg"]
-text = "This is the level selection menu, and mouse your mouse around to look around"
+[sub_resource type="TextMesh" id="TextMesh_joawi"]
+text = "This is the level selection menu, and press the left/right arrow to look around"
 font_size = 35
 autowrap_mode = 3
 
@@ -77,16 +89,17 @@ shape = SubResource("BoxShape3D_wbaf4")
 [node name="LevelStone1" parent="LevelStones" unique_id=573061259 instance=ExtResource("5_we6td")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.4, 0.29999998, 700.1)
 level_packed_scene = ExtResource("6_pclq7")
-music_sample = ExtResource("6_67vlu")
+song_data = SubResource("Resource_fdww2")
 sample_duration = 10.0
-difficulty = 15
 
 [node name="LevelStone2" parent="LevelStones" unique_id=1536611193 instance=ExtResource("5_we6td")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.9068727, 0.29999998, 692.9)
 level_packed_scene = ExtResource("8_pkxvu")
 locked = true
-music_sample = ExtResource("7_7oj2g")
+song_data = SubResource("Resource_cafa2")
+sample_duration = 10.0
 gameplay_type = 1
+difficulty = 15
 
 [node name="InfoBoard1" type="MeshInstance3D" parent="." unique_id=1341899314]
 transform = Transform3D(0.71565616, 0, 0.69845283, 0, 1, 0, -0.69845283, 0, 0.71565616, -6.601731, 1.5, 694.8875)
@@ -95,7 +108,7 @@ mesh = SubResource("ArrayMesh_fpfjg")
 [node name="TextInfo" type="MeshInstance3D" parent="InfoBoard1" unique_id=1492322239]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9000001, 0.5999999, 0.2999878)
 material_override = SubResource("StandardMaterial3D_fpfjg")
-mesh = SubResource("TextMesh_fpfjg")
+mesh = SubResource("TextMesh_joawi")
 
 [node name="InfoBoard2" type="MeshInstance3D" parent="." unique_id=196153056]
 transform = Transform3D(0.27723098, 0, -0.96080345, 0, 1, 0, 0.96080345, 0, 0.27723098, 4.5834293, 1.5, 693.97156)
@@ -107,7 +120,7 @@ material_override = SubResource("StandardMaterial3D_fpfjg")
 mesh = SubResource("TextMesh_pclq7")
 
 [node name="DEMO_END_TEXT" type="MeshInstance3D" parent="." unique_id=1198028803]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 690)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 685)
 mesh = SubResource("TextMesh_pkxvu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1570802297]

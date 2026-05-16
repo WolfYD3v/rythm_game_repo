@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://nu612hqr2ff8"]
+
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_0vd5g"]
+[ext_resource type="Script" uid="uid://cc4tosr6q4s47" path="res://scenes/content_warning/content_warning.gd" id="1_nk2ol"]
+[ext_resource type="Shader" uid="uid://dc7w8m7uaq8ur" path="res://scenes/overlay/overlay.gdshader" id="2_oe0dv"]
+[ext_resource type="AudioStream" uid="uid://4ikvs21fen8r" path="res://assets/songs/INTRO_cold-wind-ambience-404245.mp3" id="4_h7apo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vd5g"]
+shader = ExtResource("2_oe0dv")
+shader_parameter/smearing = 0.5
+shader_parameter/color_offset = 0.005
+shader_parameter/sharpening = 0.4
+shader_parameter/static_noise = 0.08
+shader_parameter/crack_center = Vector2(0.15, 0.85)
+shader_parameter/crack_intensity = 0.0
+shader_parameter/crack_size = 0.0
+shader_parameter/vertical_jitter = 0.002
+shader_parameter/scanline_opacity = 0.1
+shader_parameter/vignette_intensity = 0.3
+
+[node name="ContentWarning" type="Control" unique_id=444311521]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0vd5g")
+script = ExtResource("1_nk2ol")
+
+[node name="Background" type="ColorRect" parent="." unique_id=886487461]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ContentWarningRichTextLabel" type="RichTextLabel" parent="." unique_id=1703753356]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[b][u]Content Warning:[/u][/b]
+This game contains content that may seems kinda not okay... like...
+
+- Copyrighted songs
+- My best hand-made 3D models so far
+- Immersion breaking things
+- A Work In Progress experience
+
+If one of theses items disturbs you in any ways possible, well you've been warned.
+Have fun :)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=645741061]
+top_level = true
+z_index = 999
+material = SubResource("ShaderMaterial_0vd5g")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AmbianceAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=926412332]
+stream = ExtResource("4_h7apo")
+parameters/looping = true

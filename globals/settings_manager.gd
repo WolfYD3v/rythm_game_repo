@@ -67,7 +67,7 @@ func get_settings() -> void:
 		for variable: String in settings_dictionnary.keys():
 			var value: Variant = settings_dictionnary[variable]
 			set(variable, value)
-			print("%s = %s" % [variable, value])
+			#print("%s = %s" % [variable, value])
 
 func reset_settings() -> void:
 	delete_settings_file(true)
@@ -99,4 +99,4 @@ func _load_saved_keybinds() -> void:
 			InputMap.action_get_events(action)[-1]
 		)
 		InputMap.action_add_event(action, _keybind)
-		print("Action '%s' -> %s" % [action, _keybind])
+		#print("Action '%s' -> %s" % [action, _keybind])

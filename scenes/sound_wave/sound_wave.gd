@@ -1,6 +1,8 @@
 extends Control
 class_name SoundWave
 
+signal intensity_calculated(data: Array)
+
 @export var background_color: Color = Color(0.0, 0.0, 0.0)
 @export_range(5, 45, 1, "prefer_slider") var num_bars: int = 30  # Number of frequency bands to display
 @export var shuffle_freq = false
@@ -13,6 +15,7 @@ const MAX_FREQ = 1000  # Frequency range to analyze
 var spectrum_instance
 var bars = []
 var color_gradient := Gradient.new()  # Dynamic color transitions
+var timer: float
 
 func _ready():
 	background.color = background_color
@@ -24,6 +27,11 @@ func _ready():
 	color_gradient.add_point(1.0, Color(0.939, 0.319, 0.237, 1.0))
 	spectrum_instance = AudioServer.get_bus_effect_instance(1, 0)
 	create_bars()
+
+func up_timer() -> void:
+	timer = snappedf(timer + 0.05, 0.01)
+	await get_tree().create_timer(0.05).timeout
+	up_timer()
 
 func create_bars():
 	var bar_width: float = 0.0
@@ -50,6 +58,10 @@ func _process(_delta):
 		var intensity = (magnitude*1000) / (max_freq_amp * 1000.0) if max_freq_amp > 0 else 0.0
 		intensity *= 1000
 		intensity = clamp(intensity, 0.0, 1.0)  # Keep within valid range
+		intensity = snappedf(intensity, 0.01)
+		intensity_calculated.emit(
+			[timer, intensity]
+		)
 
 		# Get dynamic color from gradient
 		var new_color = color_gradient.sample(intensity)

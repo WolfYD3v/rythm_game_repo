@@ -2,7 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dqlr227sssr6o" path="res://cutscenes/whellcomer/cutscene_whellcomer.gd" id="1_4hf0s"]
 [ext_resource type="PackedScene" uid="uid://bjnm71tkhmkdh" path="res://scenes/level/line_level/ennemies/whellcomer/whellcomer.tscn" id="1_s6jr7"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="4_20h25"]
 [ext_resource type="Material" uid="uid://vfqt7stponxf" path="res://assets/materials/ground_map_material.tres" id="4_smhbs"]
+
+[sub_resource type="Environment" id="Environment_i57dv"]
+background_color = Color(0.094487034, 0.026704011, 0.008472546, 1)
+fog_enabled = true
+fog_light_color = Color(0.15686275, 0.05882353, 0.019607844, 1)
+fog_density = 0.1
+fog_depth_curve = 0.0061557153
 
 [sub_resource type="BoxMesh" id="BoxMesh_20h25"]
 size = Vector3(250, 1, 250)
@@ -119,6 +127,7 @@ _data = {
 script = ExtResource("1_4hf0s")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1994674142]
+environment = SubResource("Environment_i57dv")
 
 [node name="Camera" type="Camera3D" parent="." unique_id=388237955]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 2, 100)
@@ -132,5 +141,18 @@ mesh = SubResource("BoxMesh_20h25")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1860159923]
 libraries/ = SubResource("AnimationLibrary_i57dv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=966756611]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=404452801]
+modulate = Color(1, 1, 1, 0.39215687)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+offset_right = 387.0
+grow_vertical = 0
+theme = ExtResource("4_20h25")
+text = "THIS CUTSCENE IS COMING SOON"
 
 [editable path="Whellcomer"]

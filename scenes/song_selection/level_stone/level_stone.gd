@@ -6,11 +6,11 @@ class_name LevelStone
 @onready var gui: CanvasLayer = $GUI
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var pos_marker_3d: Marker3D = $PosMarker3D
-@onready var play_button: Button = $GUI/Control/PlayButton
+@onready var play_button: Button = $GUI/PlayButton
 
 @export var level_packed_scene: PackedScene = null
 @export var locked: bool = false
-@export var music_sample: AudioStream = null
+@export var song_data: SongData = null
 @export var sample_start: float = 0.0
 @export_range(5.0, 10.0, 0.1, "prefer_slider") var sample_duration: float = 5.0
 enum GAMEPLAY_TYPES {
@@ -35,18 +35,18 @@ func _ready() -> void:
 	set_gameplay_type_icon()
 	setup_gui()
 	
-	music_sample_audio_stream_player.stream = music_sample
-	if music_sample: 
-		if sample_start >= music_sample.get_length(): sample_start = 0.0
+	music_sample_audio_stream_player.stream = song_data.song
+	if song_data.song: 
+		if sample_start >= song_data.song.get_length(): sample_start = 0.0
 
 func setup_gui() -> void:
-	if music_sample:
-		var music_sample_file_extension: String = ".%s" % music_sample.resource_path.get_extension()
-		var music_sample_file_name: String = music_sample.resource_path.get_file().replace(
+	if song_data.song:
+		var music_sample_file_extension: String = ".%s" % song_data.song.resource_path.get_extension()
+		var music_sample_file_name: String = song_data.song.resource_path.get_file().replace(
 			music_sample_file_extension, ""
 		)
 		gui.get_node("Control/InfosContainer/SongNameRichTextLabel").text = "[u][b]%s[/b][/u]" % music_sample_file_name
-	gui.get_node("Control/InfosContainer/ArtistsNameLabel").text = "artist(s) name(s) | TEMP"
+	gui.get_node("Control/InfosContainer/ArtistsNameLabel").text = song_data.artist_name
 	gui.get_node("Control/InfosContainer/DifficultyLabel").text = "%d  ★ " % difficulty
 
 func set_gameplay_type_icon() -> void:
@@ -55,15 +55,14 @@ func set_gameplay_type_icon() -> void:
 		GAMEPLAY_TYPES.LINES: icon_path = "res://WolfY_D3vPP.jpeg"
 		GAMEPLAY_TYPES.BOSS_FIGHT: icon_path = "res://icon.svg"
 	
+	# Load the related icon of the gameplay
 	if icon_path != "":
-		print(icon_path)
-		# Load the related icon of the gameplay
 		var gameplay_icon_mesh_material: StandardMaterial3D = gameplay_icon_mesh.get_surface_override_material(0).duplicate()
 		gameplay_icon_mesh_material.albedo_texture = load(icon_path)
 		gameplay_icon_mesh.set_surface_override_material(0, gameplay_icon_mesh_material)
 
 func play_music_sample() -> void:
-	if not music_sample or not SettingsManager.listen_samples: return
+	if not song_data.song or not SettingsManager.listen_samples: return
 	
 	music_sample_can_repeat = true
 	music_sample_audio_stream_player.play(sample_start)

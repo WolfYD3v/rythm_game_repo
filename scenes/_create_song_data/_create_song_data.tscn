@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xlt6gejtwbjq"]
 
 [ext_resource type="Script" uid="uid://haygm2obhd3t" path="res://scenes/_create_song_data/_create_song_data.gd" id="1_84atr"]
-[ext_resource type="AudioStream" uid="uid://ca0o2aaghifnb" path="res://assets/songs/KAT-Pull-the-Trigger-ft.-Yi-Xi-_SynthV-Original-Song_.mp3" id="2_a4kuf"]
+[ext_resource type="AudioStream" uid="uid://droqfim8cm2wo" path="res://assets/songs/Debris & Jonth - Game Time _ Bass House _ NCS - Copyright Free Music.mp3" id="2_a4kuf"]
 [ext_resource type="PackedScene" uid="uid://03k3fc4m3vdk" path="res://scenes/sound_wave/sound_wave.tscn" id="3_a4kuf"]
 
 [node name="CreateSongData" type="Control" unique_id=1287627703]
@@ -43,5 +43,9 @@ text = "Close"
 [node name="SongAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=708199680]
 bus = &"Music"
 
+[node name="Timer" type="Timer" parent="." unique_id=344328258]
+one_shot = true
+
+[connection signal="intensity_calculated" from="SoundWave" to="." method="_on_sound_wave_intensity_calculated"]
 [connection signal="pressed" from="CreateFileButton" to="." method="_on_create_file_button_pressed"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

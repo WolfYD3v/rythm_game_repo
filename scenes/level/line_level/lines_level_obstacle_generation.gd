@@ -10,7 +10,7 @@ var current_obstacle_set: LineLevelBbstaclesSet = null
 func timer_up() -> void:
 	timer = snappedf(timer + generation_timeout_duration, 0.01)
 	if current_obstacle_set:
-		if current_obstacle_set.at_time == timer:
+		if current_obstacle_set.at_time - 0.5 == timer:
 			create_obstacles_call.emit(current_obstacle_set.obstacles)
 	
 	await get_tree().create_timer(generation_timeout_duration).timeout

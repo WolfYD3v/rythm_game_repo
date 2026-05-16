@@ -7,7 +7,11 @@ class_name SongSelection
 @onready var level_stones: Node3D = $LevelStones
 @onready var map_player: Map_Player = $Map_Player
 
+@export var to_last_level: bool = false
+
 func _ready() -> void:
+	if to_last_level: LevelManager.max_level_id = LevelManager.max_levels_count
+	
 	LevelManager.song_selection_scene = self
 	fading_black.hide()
 	set_player_pos()

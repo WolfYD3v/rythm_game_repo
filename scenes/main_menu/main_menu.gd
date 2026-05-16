@@ -62,6 +62,4 @@ func _on_close_credits_button_pressed() -> void:
 
 
 func _on_reset_save_button_pressed() -> void:
-	SaveManager.delete_save()
-	SaveManager.save_game()
-	SaveManager.load_save()
+	SaveManager.reset()

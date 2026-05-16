@@ -14,9 +14,21 @@ func _ready() -> void:
 	map.hide()
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey and Input.is_action_just_pressed("ToggleMap"):
-		if not animation_player.is_playing(): GameManager.look_at_map = not(GameManager.look_at_map)
-	if event is InputEventMouseMotion and not GameManager.look_at_map: _rotate()
+	if event is InputEventKey:
+		if Input.is_action_just_pressed("ToggleMap"):
+			if not animation_player.is_playing(): GameManager.look_at_map = not(GameManager.look_at_map)
+		if not GameManager.look_at_map:
+			if Input.is_key_pressed(KEY_LEFT): turn_around(0.05, "y")
+			if Input.is_key_pressed(KEY_RIGHT): turn_around(-0.05, "y")
+			#if Input.is_key_pressed(KEY_UP): turn_around(0.05, "x")
+			#if Input.is_key_pressed(KEY_DOWN): turn_around(-0.05, "x")
+	#if event is InputEventMouseMotion and not GameManager.look_at_map: _rotate()
+
+func turn_around(rotation_value: float, axis: String) -> void:
+	call("rotate_%s" % axis, rotation_value)
+	rotation_degrees.x = clampf(rotation_degrees.x, 0.0, 10.0)
+	rotation_degrees.y = clampf(rotation_degrees.y, -50.0, 50.0)
+	rotation_degrees.z = clampf(rotation_degrees.z, -5.0, 5.0)
 
 func _rotate() -> void:
 	var viewport: Viewport = get_viewport()
@@ -34,7 +46,8 @@ func _rotate() -> void:
 	
 	if result.has("position"):
 		look_at(result.position / 1.05)
-		
-		rotation_degrees.x = clampf(rotation_degrees.x, 0.0, 10.0)
-		rotation_degrees.y = clampf(rotation_degrees.y, -50.0, 50.0)
-		#camera.fov = clampf(camera.fov, 115.0, 130.0)
+		turn_around(rotation_degrees.y / 10, "z")
+		#camera.fov = clampf(
+			#camera.fov + rotation_degrees.y / 10,
+			#110.0, 80.0
+		#)

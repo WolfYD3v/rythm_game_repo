@@ -22,8 +22,6 @@ func _ready() -> void:
 		delete_save()
 		save_game(_loaded_save_data)
 		load_save()
-	
-	print(_loaded_save_data)
 
 func save_file_up_to_date() -> bool:
 	var base_save_data_size: int = BASE_SAVE_DATA.size()
@@ -64,3 +62,7 @@ func load_save() -> void:
 func get_save_data(data: String) -> Variant:
 	if _loaded_save_data.is_empty(): return null
 	return _loaded_save_data.get(data)
+
+func reset() -> void:
+	save_game(BASE_SAVE_DATA)
+	load_save()

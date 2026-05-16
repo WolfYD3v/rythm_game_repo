@@ -5,6 +5,10 @@ Map Windy Ambiance: Ambience Wind Blowing Through Trees 01
 FROM https://pixabay.com/sound-effects/nature-ambience-wind-blowing-through-trees-01-186986/
 BY Traian1984 [ https://pixabay.com/users/traian1984-41907904/ ]
 
+Songs:
+- Level 1 song: Debris & Jonth - Game Time | Bass House | NCS - Copyright Free Music [https://youtu.be/yDTvvOTie0w?si=Jvh61godtAZ2GBNX ]
+FROM NoCopyrightSounds [ https://www.youtube.com/@NoCopyrightSounds ]
+
 Inspirations:
 -> Beat Saber/JSAB [ Obstacles to avoid , Music Idea ]
 -> Inscryption [ World Map Like ]

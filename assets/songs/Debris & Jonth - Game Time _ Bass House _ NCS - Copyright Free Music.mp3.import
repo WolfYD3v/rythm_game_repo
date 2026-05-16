@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://droqfim8cm2wo"
+path="res://.godot/imported/Debris & Jonth - Game Time _ Bass House _ NCS - Copyright Free Music.mp3-50db250fc569bdd9b945f5b09ed28617.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/Debris & Jonth - Game Time _ Bass House _ NCS - Copyright Free Music.mp3"
+dest_files=["res://.godot/imported/Debris & Jonth - Game Time _ Bass House _ NCS - Copyright Free Music.mp3-50db250fc569bdd9b945f5b09ed28617.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
