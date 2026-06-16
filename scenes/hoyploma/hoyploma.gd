@@ -13,7 +13,9 @@ const NEW_TSCN_RESOURCE_PATH: String = "user://hoyploma.tscn"
 
 func _ready() -> void:
 	top_camera.current = top_camera_view
-	SceneManager.replacing_scene.connect(pack_scene)
+	SceneManager.scene_changed.connect(
+		func(_useless_variable_for_this_case): pack_scene()
+	)
 
 func _physics_process(delta: float) -> void:
 	camera_pivot.rotate_y(camera_rotation_speed * delta)
@@ -31,5 +33,5 @@ func pack_scene() -> void:
 		var error = ResourceSaver.save(scene, NEW_TSCN_RESOURCE_PATH)
 		if error == OK:
 			SceneManager.remove_scene("Hoyploma")
-			SceneManager.add_scene("Hoyploma", load(NEW_TSCN_RESOURCE_PATH))
+			SceneManager.add_scene("Hoyploma", NEW_TSCN_RESOURCE_PATH)
 		else: push_error("An error occurred while saving the scene to disk.")

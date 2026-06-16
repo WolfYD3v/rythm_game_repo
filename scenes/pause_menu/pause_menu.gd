@@ -10,9 +10,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if Input.is_key_pressed(KEY_ESCAPE):
-			set_pause(
-				not(get_tree().paused)
-			)
+			set_pause(not(get_tree().paused))
 
 func set_pause(value: bool) -> void:
 	get_tree().paused = value
@@ -24,3 +22,6 @@ func _on_continue_gui_button_pressed() -> void:
 
 func _on_settings_gui_button_pressed() -> void:
 	settings.show()
+
+func _on_go_back_gui_button_2_pressed() -> void:
+	SceneManager.replace_scene("MainMenu")

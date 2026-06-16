@@ -34,6 +34,7 @@ SceneManager="*uid://bdt1n6sacetmx"
 SettingsManager="*uid://df1nxoogmmaaj"
 SaveManager="*uid://b6cyc3jtx2rjj"
 GameManager="*uid://37g33d5osc8c"
+GuisManager="*uid://dkerqpvt2u35f"
 
 [display]
 

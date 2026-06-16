@@ -8,9 +8,9 @@ class_name MainMenu
 @onready var reset_save_button: Button = $ResetSaveButton
 @onready var blue_bg: ColorRect = $BlueBG
 
-const SETTINGS_PACKED_SCENE: PackedScene = preload("res://scenes/settings/settings.tscn")
-const CONTEXT_PACKED_SCENE: PackedScene = preload("res://scenes/context/context.tscn")
-const HOYPLOMA_PACKED_SCENE: PackedScene = preload("res://scenes/hoyploma/hoyploma.tscn")
+const SETTINGS_SCENE_PATH: String = "res://scenes/settings/settings.tscn"
+const CONTEXT_SCENE_PATH: String = "res://scenes/context/context.tscn"
+const HOYPLOMA_SCENE_PATH: String = "res://scenes/hoyploma/hoyploma.tscn"
 
 func _ready() -> void:
 	gui.show()
@@ -18,10 +18,9 @@ func _ready() -> void:
 	reset_save_button.show()
 	
 	set_credits_visibility(false)
-	SceneManager.add_scene("Hoyploma", HOYPLOMA_PACKED_SCENE)
-	hoyploma_sub_viewport.add_child(
-		SceneManager.get_scene("Hoyploma").instantiate()
-	)
+	SceneManager.add_scene("Hoyploma", HOYPLOMA_SCENE_PATH)
+	var ss = SceneManager.get_scene("Hoyploma")
+	if not ss.is_empty(): hoyploma_sub_viewport.add_child(load(ss).instantiate())
 
 func set_credits_visibility(value: bool) -> void:
 	credits_rich_text_label.visible = value
@@ -32,7 +31,7 @@ func _on_quit_gui_button_pressed() -> void:
 	get_tree().quit()
 
 func _on_settings_gui_button_pressed() -> void:
-	SceneManager.add_scene("Settings", SETTINGS_PACKED_SCENE)
+	SceneManager.add_scene("Settings", SETTINGS_SCENE_PATH)
 	SceneManager.replace_scene("Settings")
 
 func _on_story_mode_gui_button_pressed() -> void:
@@ -45,7 +44,7 @@ func _on_story_mode_gui_button_pressed() -> void:
 	tween.tween_property(blue_bg, "modulate", Color(0.0, 0.0, 0.0, 0.0), 5.0)
 	await tween.finished
 	
-	SceneManager.add_scene("Context", CONTEXT_PACKED_SCENE)
+	SceneManager.add_scene("Context", CONTEXT_SCENE_PATH)
 	SceneManager.replace_scene("Context")
 
 # TEMP

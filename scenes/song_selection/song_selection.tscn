@@ -4,15 +4,12 @@
 [ext_resource type="Script" uid="uid://dqpur1yecjdub" path="res://scenes/song_selection/song_selection.gd" id="2_d57ly"]
 [ext_resource type="Material" uid="uid://vfqt7stponxf" path="res://assets/materials/ground_map_material.tres" id="2_wbaf4"]
 [ext_resource type="PackedScene" uid="uid://dg3ayk0uub7ip" path="res://scenes/players/player/player.tscn" id="4_joawi"]
-[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="5_0x6m5"]
 [ext_resource type="PackedScene" uid="uid://viya0fha5sqc" path="res://scenes/level_stone/level_stone.tscn" id="5_we6td"]
 [ext_resource type="PackedScene" uid="uid://dqtsd5ssy2gd6" path="res://scenes/level/line_level/levels/line_level_1.tscn" id="6_pclq7"]
 [ext_resource type="Script" uid="uid://dkvvd2umwtb25" path="res://resources/song_data/song_data.gd" id="7_joawi"]
 [ext_resource type="AudioStream" uid="uid://droqfim8cm2wo" path="res://assets/songs/Debris & Jonth - Game Time _ Bass House _ NCS - Copyright Free Music.mp3" id="7_pkxvu"]
 [ext_resource type="AudioStream" uid="uid://rebcva64gats" path="res://assets/songs/traian1984-ambience-wind-blowing-through-trees-01-186986_map_windy_ambiance.mp3" id="8_0x6m5"]
 [ext_resource type="PackedScene" uid="uid://c1m27a65pf5kh" path="res://scenes/level/line_level/levels/line_level_2.tscn" id="8_pkxvu"]
-[ext_resource type="PackedScene" uid="uid://bveucnbq4p8f2" path="res://scenes/gui_button/gui_button.tscn" id="9_2ismg"]
-[ext_resource type="PackedScene" uid="uid://cr8qhwmj0jva" path="res://scenes/pause_menu/pause_menu.tscn" id="9_367f4"]
 [ext_resource type="PackedScene" uid="uid://rgg3dod3xjhc" path="res://scenes/loading_animation/loading_animation.tscn" id="10_f2qmr"]
 [ext_resource type="PackedScene" uid="uid://ds3ubgkr8vg1t" path="res://scenes/tablet/tablet.tscn" id="15_pkxvu"]
 [ext_resource type="VideoStream" uid="uid://x2nyplmhe11a" path="res://assets/videos/tutorial_video.ogv" id="16_joawi"]
@@ -74,25 +71,12 @@ sample_duration = 10.0
 gameplay_type = 1
 difficulty = 15
 
+[node name="TutorialTablet" parent="." unique_id=488564798 instance=ExtResource("15_pkxvu")]
+transform = Transform3D(0.5658164, -0.8245313, -3.6041406e-08, 0, -4.371139e-08, 1, -0.8245313, -0.5658164, -2.4732618e-08, -1.6128953, 0.33992863, 695.433)
+video = ExtResource("16_joawi")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1570802297]
 layer = 2
-
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=1803637525]
-clip_contents = true
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("5_0x6m5")
-
-[node name="GoBackGuiButton" parent="CanvasLayer/Control" unique_id=1786408275 instance=ExtResource("9_2ismg")]
-layout_mode = 0
-offset_right = 39.0
-offset_bottom = 35.0
-text = "<---"
 
 [node name="FadingBlack" type="ColorRect" parent="CanvasLayer" unique_id=835046505]
 modulate = Color(1, 1, 1, 0)
@@ -107,16 +91,8 @@ color = Color(0, 0, 0, 1)
 layout_mode = 1
 autoplay = false
 
-[node name="PauseMenu" parent="CanvasLayer" unique_id=955880638 instance=ExtResource("9_367f4")]
-
 [node name="AmbianceAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=989608384]
 stream = ExtResource("8_0x6m5")
 volume_db = 15.0
 autoplay = true
 parameters/looping = true
-
-[node name="TutorialTablet" parent="." unique_id=488564798 instance=ExtResource("15_pkxvu")]
-transform = Transform3D(0.5658164, -0.8245313, -3.6041406e-08, 0, -4.371139e-08, 1, -0.8245313, -0.5658164, -2.4732618e-08, -1.6128953, 0.33992863, 695.433)
-video = ExtResource("16_joawi")
-
-[connection signal="pressed" from="CanvasLayer/Control/GoBackGuiButton" to="." method="_on_go_back_gui_button_pressed"]

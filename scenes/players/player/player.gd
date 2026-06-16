@@ -19,15 +19,21 @@ var look_at_map: bool = false:
 		look_at_map = value
 		look_at_map_changed.emit()
 var animation_played: bool = false
+var watching_tablet: bool = false
 
 func _ready() -> void:
 	GameManager.ground_tablet_clicked.connect(
 		func(video: VideoStream):
 			tablet.set_video(video)
 			animation_played = not(animation_played)
+			watching_tablet = not(watching_tablet)
 			tablet.visible = animation_played
-			if animation_played: animation_player.play("tablet_on")
-			else: animation_player.play("tablet_on")
+			if watching_tablet:
+				animation_player.play("tablet_on")
+				GuisManager.gui_call_method("LevelStoneGUI", "play_animation", ["close"])
+			else:
+				animation_player.play("tablet_on")
+				GuisManager.gui_call_method("LevelStoneGUI", "play_animation", ["open"])
 	)
 	tablet.hide()
 	map.hide()

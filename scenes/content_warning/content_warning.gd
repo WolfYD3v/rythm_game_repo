@@ -5,7 +5,7 @@ class_name ContentWarning
 @onready var ambiance_audio_stream_player: AudioStreamPlayer = $AmbianceAudioStreamPlayer
 @onready var text_audio_stream_player: AudioStreamPlayer = $TextAudioStreamPlayer
 
-const MAIN_MENU_PACKED_SCENE: PackedScene = preload("res://scenes/main_menu/main_menu.tscn")
+const MAIN_MENU_SCENE_PATH: String = "res://scenes/main_menu/main_menu.tscn"
 
 var tween
 
@@ -33,6 +33,6 @@ func play_text_sfx() -> void:
 	text_audio_stream_player.play()
 
 func leave_content_warning_scene() -> void:
-	SceneManager.add_scene("MainMenu", MAIN_MENU_PACKED_SCENE)
+	SceneManager.add_scene("MainMenu", MAIN_MENU_SCENE_PATH)
 	SceneManager.remove_scene("ContentWarning")
 	SceneManager.replace_scene("MainMenu")

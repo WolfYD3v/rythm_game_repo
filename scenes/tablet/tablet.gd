@@ -1,7 +1,6 @@
 extends Node3D
 class_name Tablet
 
-@onready var video_player: VideoPlayer = $CanvasLayer/VideoPlayer
 @onready var mouse_hovering: MeshInstance3D = $MouseHovering
 @onready var pickup_audio_stream_player: AudioStreamPlayer = $PickupAudioStreamPlayer
 
@@ -12,8 +11,12 @@ var mouse_hover: bool = false
 
 func _ready() -> void:
 	mouse_hovering.hide()
-	video_player.hide()
+	GuisManager.hide_gui("TabletVideoPlayer")
 	set_video(video)
+	
+	GameManager.video_player_video_finished.connect(
+		func(): GuisManager.hide_gui("TabletVideoPlayer")
+	)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and mouse_hover:
@@ -24,15 +27,11 @@ func _input(event: InputEvent) -> void:
 			queue_free()
 
 func set_video(_video: VideoStream) -> void:
-	video_player.video_stream = _video
+	video = _video
 
 func play_video() -> void:
-	video_player.show()
-	video_player.play()
-
-func _on_video_player_video_finished() -> void:
-	video_player.hide()
-
+	GuisManager.show_gui("TabletVideoPlayer")
+	GuisManager.gui_call_method("TabletVideoPlayer", "play", [video])
 
 func _on_mouse_detection_area_mouse_entered() -> void:
 	if allow_mouse_hover:

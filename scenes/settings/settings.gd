@@ -11,9 +11,11 @@ class_name Settings
 func _ready() -> void:
 	color_rect.visible = not(pause_menu_mode)
 	get_node("HoyplomaBG").visible = not(pause_menu_mode)
-	if not pause_menu_mode: hoyploma_sub_viewport.add_child(
-		SceneManager.get_scene("Hoyploma").instantiate()
-	)
+	if not pause_menu_mode:
+		var ss = SceneManager.get_scene("Hoyploma")
+		if not ss.is_empty(): hoyploma_sub_viewport.add_child(
+			load(ss).instantiate()
+		)
 	
 	setup_interface()
 

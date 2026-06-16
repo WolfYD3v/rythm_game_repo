@@ -1,8 +1,6 @@
 extends Control
 class_name VideoPlayer
 
-signal video_finished
-
 @onready var video_stream_player: VideoStreamPlayer = $VideoStreamPlayer
 @onready var black_overlay: ColorRect = $BlackOverlay
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
@@ -18,11 +16,11 @@ enum BLACK_OVERLAY_FADING_MODES {
 var black_overlay_fading_tween
 
 func _ready() -> void:
-	if auto_play: play()
+	if auto_play: play(video_stream)
 
-func play() -> void:
-	if video_stream:
-		video_stream_player.stream = video_stream
+func play(_video_stream: VideoStream) -> void:
+	if _video_stream:
+		video_stream_player.stream = _video_stream
 		video_stream_player.play()
 		await get_tree().create_timer(0.01).timeout
 		video_stream_player.paused = true
@@ -33,7 +31,7 @@ func play() -> void:
 		await get_tree().create_timer(0.5).timeout
 		await fade_black_fading(BLACK_OVERLAY_FADING_MODES.IN)
 		await get_tree().create_timer(1.5).timeout
-		video_finished.emit()
+		GameManager.video_player_video_finished.emit()
 
 func fade_black_fading(fade_mode: BLACK_OVERLAY_FADING_MODES) -> void:
 	if black_overlay_fading_tween: black_overlay_fading_tween.kill()

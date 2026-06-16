@@ -7,7 +7,7 @@ class_name Context
 
 @export var force_play: bool = false
 
-const SONG_SELECTION_PACKED_SCENE: PackedScene = preload("res://scenes/song_selection/song_selection.tscn")
+const SONG_SELECTION_SCENE_PATH: String = "res://scenes/song_selection/song_selection.tscn"
 
 var writing_duration: float = 0.0
 
@@ -29,7 +29,7 @@ func _ready() -> void:
 		
 		await get_tree().create_timer(5.0).timeout
 	
-	SceneManager.add_scene("SongSelection", SONG_SELECTION_PACKED_SCENE)
+	SceneManager.add_scene("SongSelection", SONG_SELECTION_SCENE_PATH)
 	SceneManager.replace_scene("SongSelection")
 
 func write_text() -> void:

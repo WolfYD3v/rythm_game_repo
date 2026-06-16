@@ -1,6 +1,33 @@
 [gd_scene format=3 uid="uid://du02s2cxy4jtc"]
 
 [ext_resource type="Script" uid="uid://bbkgxu68s6e25" path="res://scenes/game/game.gd" id="1_sul5r"]
+[ext_resource type="PackedScene" uid="uid://dfbci6m04qc1k" path="res://scenes/level_stone/level_stone_gui.tscn" id="2_7h61r"]
+[ext_resource type="PackedScene" uid="uid://bwybhby6h5met" path="res://scenes/video_player/video_player.tscn" id="3_0sr1o"]
+[ext_resource type="PackedScene" uid="uid://cr8qhwmj0jva" path="res://scenes/pause_menu/pause_menu.tscn" id="4_kelw5"]
 
 [node name="Game" type="Node" unique_id=1279768635]
 script = ExtResource("1_sul5r")
+
+[node name="CurrentScene" type="Node" parent="." unique_id=1063904552]
+
+[node name="GUIS" type="CanvasLayer" parent="." unique_id=547038290]
+
+[node name="Control" type="Control" parent="GUIS" unique_id=1544385670]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LevelStoneGUI" parent="GUIS/Control" unique_id=1458778896 instance=ExtResource("2_7h61r")]
+layout_mode = 1
+
+[node name="TabletVideoPlayer" parent="GUIS/Control" unique_id=1213292287 instance=ExtResource("3_0sr1o")]
+layout_mode = 1
+auto_play = false
+
+[node name="PauseMenu" parent="GUIS/Control" unique_id=955880638 instance=ExtResource("4_kelw5")]
+process_mode = 4
+layout_mode = 1

@@ -1,11 +1,9 @@
 [gd_scene format=3 uid="uid://bwybhby6h5met"]
 
 [ext_resource type="Script" uid="uid://b5e4ftykuyfs6" path="res://scenes/video_player/video_player.gd" id="1_p7u4k"]
-[ext_resource type="VideoStream" uid="uid://x2nyplmhe11a" path="res://assets/videos/tutorial_video.ogv" id="2_osjti"]
 [ext_resource type="AudioStream" uid="uid://cdd5d4n8r5ka3" path="res://assets/sfxs/video_bip.wav" id="3_cgb5f"]
 
 [node name="VideoPlayer" type="Control" unique_id=1213292287]
-z_index = 25
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p7u4k")
-video_stream = ExtResource("2_osjti")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1267600495]
 layout_mode = 1

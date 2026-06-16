@@ -12,12 +12,12 @@ class_name SongSelection
 func _ready() -> void:
 	if to_last_level: LevelManager.max_level_id = LevelManager.max_levels_count
 	
+	GuisManager.gui_call_method("PauseMenu", "set", [
+		"process_mode", Node.PROCESS_MODE_ALWAYS
+	])
 	LevelManager.song_selection_scene = self
 	fading_black.hide()
 	set_player_pos()
-
-func _on_go_back_gui_button_pressed() -> void:
-	SceneManager.replace_scene("MainMenu")
 
 func fading_back_in() -> void:
 	loading_animation.play()

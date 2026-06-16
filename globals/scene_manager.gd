@@ -6,7 +6,7 @@
 
 extends Node
 
-signal replacing_scene
+signal scene_changed(new_scene: Node)
 
 var _scenes : Dictionary = {}
 var _current_scene : Node = null
@@ -15,27 +15,26 @@ var _current_scene_name : String = ""
 func has_scene(scene_name: String) -> bool:
 	return _scenes.has(scene_name)
 
-func add_scene(scene_name: String, scene: PackedScene) -> void :
-	_scenes.set(scene_name, scene)
+func add_scene(scene_name: String, scene_path: String) -> void :
+	_scenes.set(scene_name, scene_path)
 
 func remove_scene(scene_name: String) -> void :
 	if _scenes.has(scene_name): _scenes.erase(scene_name)
 
 func replace_scene(scene_name: String) -> void :
-	if _scenes.has(scene_name):
-		replacing_scene.emit()
+	if has_scene(scene_name):
 		if _current_scene != null:
 			_current_scene.queue_free()
 			_current_scene = null
-		var new_packed_scene : PackedScene = _scenes[scene_name]
+		var new_packed_scene : PackedScene = load(_scenes[scene_name])
 		var new_scene = new_packed_scene.instantiate()
-		get_tree().root.call_deferred("add_child", new_scene)
 		_current_scene = new_scene
 		_current_scene_name = scene_name
+		scene_changed.emit(_current_scene)
 
-func get_scene(scene_name: String) -> PackedScene:
+func get_scene(scene_name: String) -> String:
 	if _scenes.has(scene_name): return _scenes.get(scene_name)
-	return null
+	return ""
 
 func get_current_scene() -> String:
 	return _current_scene_name

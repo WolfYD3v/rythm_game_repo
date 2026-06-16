@@ -77,6 +77,10 @@ text = "Continue"
 layout_mode = 2
 text = "Settings"
 
+[node name="GoBackGuiButton2" parent="Menu/CompositionContainer/ButtonsContainer" unique_id=201617650 instance=ExtResource("3_0a7io")]
+layout_mode = 2
+text = "<---"
+
 [node name="Settings" parent="." unique_id=1682957814 instance=ExtResource("3_10tpt")]
 visible = false
 layout_mode = 1
@@ -95,3 +99,4 @@ color = Color(0.15686275, 0.019607844, 0, 0.78431374)
 
 [connection signal="pressed" from="Menu/CompositionContainer/ButtonsContainer/ContinueGuiButton" to="." method="_on_continue_gui_button_pressed"]
 [connection signal="pressed" from="Menu/CompositionContainer/ButtonsContainer/SettingsGuiButton" to="." method="_on_settings_gui_button_pressed"]
+[connection signal="pressed" from="Menu/CompositionContainer/ButtonsContainer/GoBackGuiButton2" to="." method="_on_go_back_gui_button_2_pressed"]

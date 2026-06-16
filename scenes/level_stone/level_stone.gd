@@ -1,12 +1,8 @@
 extends Node3D
 class_name LevelStone
 
-@onready var music_sample_audio_stream_player: AudioStreamPlayer = $MusicSampleAudioStreamPlayer
 @onready var gameplay_icon_mesh: MeshInstance3D = $GameplayIconMesh
-@onready var gui: CanvasLayer = $GUI
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var pos_marker_3d: Marker3D = $PosMarker3D
-@onready var play_button: Button = $GUI/PlayButton
 
 @export var level_packed_scene: PackedScene = null
 @export var locked: bool = false
@@ -22,32 +18,8 @@ enum GAMEPLAY_TYPES {
 
 const LINE_LEVEL = preload("res://scenes/level/line_level/line_level.tscn")
 
-var music_sample_can_repeat: bool = false
-
 func _ready() -> void:
-	play_button.disabled = locked
-	#GameManager.look_at_map_changed.connect(
-		#func():
-			#if GameManager.look_at_map: play_animation("close")
-			#else: play_animation("open")
-	#)
-	gui.hide()
 	set_gameplay_type_icon()
-	setup_gui()
-	
-	music_sample_audio_stream_player.stream = song_data.song
-	if song_data.song: 
-		if sample_start >= song_data.song.get_length(): sample_start = 0.0
-
-func setup_gui() -> void:
-	if song_data.song:
-		var music_sample_file_extension: String = ".%s" % song_data.song.resource_path.get_extension()
-		var music_sample_file_name: String = song_data.song.resource_path.get_file().replace(
-			music_sample_file_extension, ""
-		)
-		gui.get_node("Control/InfosContainer/SongNameRichTextLabel").text = "[u][b]%s[/b][/u]" % music_sample_file_name
-	gui.get_node("Control/InfosContainer/ArtistsNameLabel").text = song_data.artist_name
-	gui.get_node("Control/InfosContainer/DifficultyLabel").text = "%d  ★ " % difficulty
 
 func set_gameplay_type_icon() -> void:
 	var icon_path: String = ""
@@ -61,43 +33,26 @@ func set_gameplay_type_icon() -> void:
 		gameplay_icon_mesh_material.albedo_texture = load(icon_path)
 		gameplay_icon_mesh.set_surface_override_material(0, gameplay_icon_mesh_material)
 
-func play_music_sample() -> void:
-	if not song_data.song or not SettingsManager.listen_samples: return
-	
-	music_sample_can_repeat = true
-	music_sample_audio_stream_player.play(sample_start)
-	await get_tree().create_timer(sample_duration).timeout
-	music_sample_audio_stream_player.stop()
-	if music_sample_can_repeat: play_music_sample()
-
-func stop_music_sample() -> void:
-	music_sample_can_repeat = false
-	music_sample_audio_stream_player.stop()
-
-func play_animation(animation_name: String) -> void:
-	if animation_player.is_playing(): animation_player.stop()
-	
-	if animation_name in animation_player.get_animation_list():
-		animation_player.play(animation_name)
-
 func get_pos_marker_position() -> Vector3:
 	return pos_marker_3d.global_position
 
 func _on_play_button_pressed() -> void:
 	if locked or not level_packed_scene: return
 	
-	stop_music_sample()
+	#stop_music_sample()
 	LevelManager.go_to_level(level_packed_scene)
 
 func _on_player_detection_area_body_entered(body: Node3D) -> void:
 	if body is Player:
-		play_music_sample()
-		play_animation("open")
-		gui.show()
+		GuisManager.gui_call_method("LevelStoneGUI", "setup", [
+			song_data, sample_start, difficulty, locked
+		])
+		GuisManager.show_gui("LevelStoneGUI")
+		GuisManager.gui_call_method("LevelStoneGUI", "play_music_sample")
+		GuisManager.gui_call_method("LevelStoneGUI", "play_animation", ["open"])
 
 func _on_player_detection_area_body_exited(body: Node3D) -> void:
 	if body is Player:
-		stop_music_sample()
-		play_animation("close")
-		await animation_player.animation_finished
-		gui.hide()
+		GuisManager.gui_call_method("LevelStoneGUI", "stop_music_sample")
+		GuisManager.gui_call_method("LevelStoneGUI", "play_animation", ["close"])
+		GuisManager.hide_gui("LevelStoneGUI")

@@ -1,6 +1,6 @@
 extends Node
 
-const SONG_SELECTION_PACKED_SCENE: PackedScene = preload("res://scenes/song_selection/song_selection.tscn")
+const SONG_SELECTION_SCENE_PATH: String = "res://scenes/song_selection/song_selection.tscn"
 
 var song_selection_scene: SongSelection = null
 var level_scene_name: String = "Level"
@@ -15,7 +15,7 @@ func go_to_level(level_packed_scene: PackedScene) -> void:
 	await song_selection_scene.fading_back_in()
 	
 	SceneManager.remove_scene(level_scene_name)
-	SceneManager.add_scene(level_scene_name, level_packed_scene)
+	SceneManager.add_scene(level_scene_name, level_packed_scene.resource_path)
 	SceneManager.replace_scene(level_scene_name)
 
 func _get_valid_files_at(location: String) -> Array[String]:
@@ -46,7 +46,6 @@ func win() -> void:
 
 func go_back_to_song_selection() -> void:
 	if not SceneManager.has_scene("SongSelection"): SceneManager.add_scene(
-		"SongSelection",
-		SONG_SELECTION_PACKED_SCENE
+		"SongSelection", SONG_SELECTION_SCENE_PATH
 	)
 	SceneManager.replace_scene("SongSelection")
