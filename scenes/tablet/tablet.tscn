@@ -68,7 +68,7 @@ shape = SubResource("BoxShape3D_anf26")
 
 [node name="PickupAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=543821400]
 stream = ExtResource("4_qtnin")
-pitch_scale = 2.5
+pitch_scale = 0.3
 
 [connection signal="mouse_entered" from="MouseDetectionArea" to="." method="_on_mouse_detection_area_mouse_entered"]
 [connection signal="mouse_exited" from="MouseDetectionArea" to="." method="_on_mouse_detection_area_mouse_exited"]

@@ -22,7 +22,7 @@ func play(_video_stream: VideoStream) -> void:
 	if _video_stream:
 		video_stream_player.stream = _video_stream
 		video_stream_player.play()
-		await get_tree().create_timer(0.01).timeout
+		await get_tree().create_timer(randf_range(0.15, 0.25)).timeout
 		video_stream_player.paused = true
 		await fade_black_fading(BLACK_OVERLAY_FADING_MODES.OUT)
 		await get_tree().create_timer(0.5).timeout

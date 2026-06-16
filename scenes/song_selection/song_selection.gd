@@ -18,6 +18,16 @@ func _ready() -> void:
 	LevelManager.song_selection_scene = self
 	fading_black.hide()
 	set_player_pos()
+	
+	if LevelManager.max_level_id == 1:
+		await GameManager.video_player_video_finished
+		$LevelStones/LevelStone1.locked = false
+		GuisManager.gui_call_method("LevelStoneGUI", "setup", [
+			$LevelStones/LevelStone1.song_data,
+			$LevelStones/LevelStone1.sample_start,
+			$LevelStones/LevelStone1.difficulty,
+			$LevelStones/LevelStone1.locked
+		])
 
 func fading_back_in() -> void:
 	loading_animation.play()

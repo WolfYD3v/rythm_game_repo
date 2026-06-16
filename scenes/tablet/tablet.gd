@@ -15,7 +15,9 @@ func _ready() -> void:
 	set_video(video)
 	
 	GameManager.video_player_video_finished.connect(
-		func(): GuisManager.hide_gui("TabletVideoPlayer")
+		func():
+			GuisManager.gui_call_method("LevelStoneGUI", "play_music_sample")
+			GuisManager.hide_gui("TabletVideoPlayer")
 	)
 
 func _input(event: InputEvent) -> void:
@@ -30,6 +32,7 @@ func set_video(_video: VideoStream) -> void:
 	video = _video
 
 func play_video() -> void:
+	GuisManager.gui_call_method("LevelStoneGUI", "stop_music_sample")
 	GuisManager.show_gui("TabletVideoPlayer")
 	GuisManager.gui_call_method("TabletVideoPlayer", "play", [video])
 

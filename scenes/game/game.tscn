@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bbkgxu68s6e25" path="res://scenes/game/game.gd" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://dfbci6m04qc1k" path="res://scenes/level_stone/level_stone_gui.tscn" id="2_7h61r"]
+[ext_resource type="PackedScene" uid="uid://dq61fchduiuyg" path="res://scenes/song_selection/song_selection.tscn" id="2_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://bwybhby6h5met" path="res://scenes/video_player/video_player.tscn" id="3_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://cr8qhwmj0jva" path="res://scenes/pause_menu/pause_menu.tscn" id="4_kelw5"]
 
 [node name="Game" type="Node" unique_id=1279768635]
 script = ExtResource("1_sul5r")
+dev_start_scene = ExtResource("2_lfrn8")
 
 [node name="CurrentScene" type="Node" parent="." unique_id=1063904552]
 
