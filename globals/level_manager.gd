@@ -1,10 +1,6 @@
 extends Node
 
 const SONG_SELECTION_PACKED_SCENE: PackedScene = preload("res://scenes/song_selection/song_selection.tscn")
-const ENVS_FOLDER_PATH: String = "res://scenes/level/line_level/envs/"
-const ENNEMIES_FOLDER_PATH: String = "res://scenes/level/line_level/ennemies/"
-
-const LINE_LEVEL_PACKED_SCENE: PackedScene = preload("res://scenes/level/line_level/line_level.tscn")
 
 var song_selection_scene: SongSelection = null
 var level_scene_name: String = "Level"
@@ -38,7 +34,7 @@ func _get_valid_files_at(location: String) -> Array[String]:
 			current_file = location_dir.get_next()
 		location_dir.list_dir_end()
 	else:
-		push_warning("ERROR: Cannot open directory '%s'" % location)
+		push_warning("ERROR: Cannot Open Directory '%s'" % location)
 	
 	return valid_files_array
 

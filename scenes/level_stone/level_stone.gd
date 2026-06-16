@@ -26,11 +26,11 @@ var music_sample_can_repeat: bool = false
 
 func _ready() -> void:
 	play_button.disabled = locked
-	GameManager.look_at_map_changed.connect(
-		func():
-			if GameManager.look_at_map: play_animation("close")
-			else: play_animation("open")
-	)
+	#GameManager.look_at_map_changed.connect(
+		#func():
+			#if GameManager.look_at_map: play_animation("close")
+			#else: play_animation("open")
+	#)
 	gui.hide()
 	set_gameplay_type_icon()
 	setup_gui()
@@ -83,19 +83,21 @@ func play_animation(animation_name: String) -> void:
 func get_pos_marker_position() -> Vector3:
 	return pos_marker_3d.global_position
 
-func _on_player_detection_area_area_shape_entered(_area_rid: RID, _area: Area3D, _area_shape_index: int, _local_shape_index: int) -> void:
-	play_music_sample()
-	play_animation("open")
-	gui.show()
-
-func _on_player_detection_area_area_shape_exited(_area_rid: RID, _area: Area3D, _area_shape_index: int, _local_shape_index: int) -> void:
-	stop_music_sample()
-	play_animation("close")
-	await animation_player.animation_finished
-	gui.hide()
-
 func _on_play_button_pressed() -> void:
 	if locked or not level_packed_scene: return
 	
 	stop_music_sample()
 	LevelManager.go_to_level(level_packed_scene)
+
+func _on_player_detection_area_body_entered(body: Node3D) -> void:
+	if body is Player:
+		play_music_sample()
+		play_animation("open")
+		gui.show()
+
+func _on_player_detection_area_body_exited(body: Node3D) -> void:
+	if body is Player:
+		stop_music_sample()
+		play_animation("close")
+		await animation_player.animation_finished
+		gui.hide()

@@ -1,10 +1,11 @@
 [gd_scene format=4 uid="uid://viya0fha5sqc"]
 
-[ext_resource type="Script" uid="uid://bptifhrmvmvcr" path="res://scenes/song_selection/level_stone/level_stone.gd" id="1_vfdti"]
+[ext_resource type="Script" uid="uid://bptifhrmvmvcr" path="res://scenes/level_stone/level_stone.gd" id="1_vfdti"]
 [ext_resource type="Material" uid="uid://ujsm1owousxg" path="res://assets/materials/level_stone_gameplay_icon_material.tres" id="3_fpsbj"]
 [ext_resource type="Material" uid="uid://bvh6tgeg5ij2c" path="res://assets/materials/level_stone_material.tres" id="3_jo572"]
 [ext_resource type="PackedScene" uid="uid://03k3fc4m3vdk" path="res://scenes/sound_wave/sound_wave.tscn" id="4_jo572"]
 [ext_resource type="PackedScene" uid="uid://bnbo14fxltjln" path="res://scenes/overlay/overlay.tscn" id="4_l25s0"]
+[ext_resource type="Shader" uid="uid://dc7w8m7uaq8ur" path="res://scenes/overlay/overlay.gdshader" id="5_36aaq"]
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="5_vvrli"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vfdti"]
@@ -28,6 +29,19 @@ _surfaces = [{
 size = Vector2(0.7, 0.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jo572"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_unyeo"]
+shader = ExtResource("5_36aaq")
+shader_parameter/smearing = 0.5
+shader_parameter/color_offset = 0.005
+shader_parameter/sharpening = 0.4
+shader_parameter/static_noise = 0.08
+shader_parameter/crack_center = Vector2(0.15, 0.85)
+shader_parameter/crack_intensity = 0.0
+shader_parameter/crack_size = 0.0
+shader_parameter/vertical_jitter = 0.002
+shader_parameter/scanline_opacity = 0.1
+shader_parameter/vignette_intensity = 0.3
 
 [sub_resource type="Animation" id="Animation_l25s0"]
 length = 0.001
@@ -341,6 +355,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26666668, 0.13333336, 0)
 [node name="Overlay" parent="GUI" unique_id=2068804764 instance=ExtResource("4_l25s0")]
 top_level = false
 z_index = 0
+material = SubResource("ShaderMaterial_unyeo")
 
 [node name="PlayButton" type="Button" parent="GUI" unique_id=389023976]
 anchors_preset = 3
@@ -410,6 +425,6 @@ bus = &"Music"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1148316402]
 libraries/ = SubResource("AnimationLibrary_vpd7x")
 
-[connection signal="area_shape_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_shape_entered"]
-[connection signal="area_shape_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_area_shape_exited"]
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_exited"]
 [connection signal="pressed" from="GUI/PlayButton" to="." method="_on_play_button_pressed"]

@@ -13,6 +13,9 @@ func _ready() -> void:
 	merged_mesh_instance.name = "MergedMeshInstance"
 	add_child(merged_mesh_instance)
 	merged_mesh_instance.mesh = merged_array_mesh
+	
+	meshes_nodes.clear()
+	sections.queue_free()
 
 func list_meshes_nodes_at(node: Node) -> void:
 	for child: Node in node.get_children():

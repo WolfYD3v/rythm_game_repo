@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://t00csh7iad4i" path="res://dragon_heart_studios_logo.webp" id="3_ir5dn"]
 [ext_resource type="Shader" uid="uid://dc7w8m7uaq8ur" path="res://scenes/overlay/overlay.gdshader" id="4_8twl8"]
 [ext_resource type="Texture2D" uid="uid://dr35ffjedh0dd" path="res://godot_logo.png" id="4_ir5dn"]
-[ext_resource type="AudioStream" uid="uid://4ikvs21fen8r" path="res://assets/songs/INTRO_cold-wind-ambience-404245.mp3" id="6_1rrv8"]
+[ext_resource type="AudioStream" uid="uid://ca0o2aaghifnb" path="res://assets/songs/KAT-Pull-the-Trigger-ft.-Yi-Xi-_SynthV-Original-Song_.mp3" id="6_1rrv8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ir5dn"]
 shader = ExtResource("4_8twl8")

@@ -6,6 +6,7 @@ class_name MainMenu
 @onready var gui: Control = $GUI
 @onready var hoyploma_bg: TextureRect = $HoyplomaBG
 @onready var reset_save_button: Button = $ResetSaveButton
+@onready var blue_bg: ColorRect = $BlueBG
 
 const SETTINGS_PACKED_SCENE: PackedScene = preload("res://scenes/settings/settings.tscn")
 const CONTEXT_PACKED_SCENE: PackedScene = preload("res://scenes/context/context.tscn")
@@ -41,7 +42,7 @@ func _on_story_mode_gui_button_pressed() -> void:
 	await get_tree().create_timer(1.5).timeout
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property($ColorRect, "modulate", Color(0.0, 0.0, 0.0, 0.0), 5.0)
+	tween.tween_property(blue_bg, "modulate", Color(0.0, 0.0, 0.0, 0.0), 5.0)
 	await tween.finished
 	
 	SceneManager.add_scene("Context", CONTEXT_PACKED_SCENE)

@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_0vd5g"]
 [ext_resource type="Script" uid="uid://cc4tosr6q4s47" path="res://scenes/content_warning/content_warning.gd" id="1_nk2ol"]
 [ext_resource type="Shader" uid="uid://dc7w8m7uaq8ur" path="res://scenes/overlay/overlay.gdshader" id="2_oe0dv"]
-[ext_resource type="AudioStream" uid="uid://4ikvs21fen8r" path="res://assets/songs/INTRO_cold-wind-ambience-404245.mp3" id="4_h7apo"]
+[ext_resource type="AudioStream" uid="uid://wrql3i4wmyni" path="res://assets/sfxs/gui_button_hover_sfx.wav" id="4_h7apo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0vd5g"]
 shader = ExtResource("2_oe0dv")
@@ -59,6 +59,12 @@ Have fun :)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SkipLabel" type="Label" parent="." unique_id=1052486912]
+layout_mode = 0
+offset_right = 146.0
+offset_bottom = 28.0
+text = "Click to skip..."
+
 [node name="Overlay" type="ColorRect" parent="." unique_id=645741061]
 top_level = true
 z_index = 999
@@ -72,5 +78,8 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="AmbianceAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=926412332]
+
+[node name="TextAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=87635055]
 stream = ExtResource("4_h7apo")
-parameters/looping = true
+volume_db = 5.0
+pitch_scale = 1.5

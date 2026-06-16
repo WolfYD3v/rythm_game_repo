@@ -18,8 +18,11 @@ https://fonts.google.com/specimen/Lugrasimo?categoryFilters=Feeling:%2FExpressiv
 
 Shaders:
 Overlay Shader: VHS Shader
-FROM https://godotshaders.com/shader/vhs-shader/
-BY vacation [ https://godotshaders.com/author/vacation/ ]
+- FROM https://godotshaders.com/shader/vhs-shader/
+- BY vacation [ https://godotshaders.com/author/vacation/ ]
+Static Shader: Static Overlay Shader
+- FROM https://godotshaders.com/shader/static-overlay-shader/
+- BY maaack [ https://godotshaders.com/author/maaack/ ]
 
 Dragon Heart Studios Logo: https://cdn.discordapp.com/icons/1166718999866916964/0efa46d2f7286d1d15df1cea0ba2495d.webp?size=160&quality=lossless
 Godot Logo: https://godotengine.org/assets/press/logo_vertical_monochrome_dark.png

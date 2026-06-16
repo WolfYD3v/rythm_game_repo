@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dvfxx4y8bhkd"]
+
+[ext_resource type="Environment" uid="uid://ox68mjsssu1o" path="res://assets/world_env/test_ground_environment.tres" id="1_n0beb"]
+[ext_resource type="Material" uid="uid://dvvf0cpsk21ck" path="res://assets/materials/rouille_material.tres" id="1_v11ao"]
+[ext_resource type="PackedScene" uid="uid://dg3ayk0uub7ip" path="res://scenes/players/player/player.tscn" id="3_w2skl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vnf86"]
+size = Vector3(350, 0.5, 350)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w2skl"]
+size = Vector3(350, 0.5, 350)
+
+[node name="TestGround" type="Node3D" unique_id=1971716311]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=614847235]
+environment = ExtResource("1_n0beb")
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=464211325]
+
+[node name="MeshInstance" type="MeshInstance3D" parent="Ground" unique_id=969322963]
+material_override = ExtResource("1_v11ao")
+mesh = SubResource("BoxMesh_vnf86")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Ground" unique_id=1970778107]
+shape = SubResource("BoxShape3D_w2skl")
+
+[node name="Player" parent="." unique_id=1568525091 instance=ExtResource("3_w2skl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

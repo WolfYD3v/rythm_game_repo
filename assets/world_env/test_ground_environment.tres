@@ -1,0 +1,17 @@
+[gd_resource type="Environment" format=3 uid="uid://ox68mjsssu1o"]
+
+[ext_resource type="Texture2D" uid="uid://ot8bcd5eokqr" path="res://assets/textures/whellcomer_eye_texture.png" id="1_qifmw"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w2skl"]
+panorama = ExtResource("1_qifmw")
+
+[sub_resource type="Sky" id="Sky_d7pbd"]
+sky_material = SubResource("PanoramaSkyMaterial_w2skl")
+
+[resource]
+background_mode = 2
+background_color = Color(0.094487034, 0.026704011, 0.008472546, 1)
+sky = SubResource("Sky_d7pbd")
+ambient_light_source = 3
+reflected_light_source = 2
+fog_depth_curve = 0.0061557153

@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="LineLevelAllObstacleSets" format=3 uid="uid://cmcaotwwwi8tq"]
-
-[ext_resource type="Script" uid="uid://jw3npnu0bbrl" path="res://resources/lines_level/line_level_all_obstacle_sets.gd" id="1_m7hoq"]
-[ext_resource type="Script" uid="uid://bfoa66muvu5bh" path="res://resources/lines_level/line_level_obstacles_set.gd" id="1_wuwjm"]
-
-[resource]
-script = ExtResource("1_m7hoq")

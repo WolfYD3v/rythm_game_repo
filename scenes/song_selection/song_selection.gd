@@ -5,7 +5,7 @@ class_name SongSelection
 @onready var ambiance_audio_stream_player: AudioStreamPlayer = $AmbianceAudioStreamPlayer
 @onready var loading_animation: LoadingAnimation = $CanvasLayer/FadingBlack/LoadingAnimation
 @onready var level_stones: Node3D = $LevelStones
-@onready var map_player: Map_Player = $Map_Player
+@onready var player: Player = $Player
 
 @export var to_last_level: bool = false
 
@@ -49,14 +49,14 @@ func set_player_pos() -> void:
 	new_player_position = level_stones.get_child(level_stone_idx).get_pos_marker_position()
 	
 	# Change the player position
-	if level_stone_idx <= 0: map_player.position = new_player_position # No stones behind -> No walking animation
+	if level_stone_idx <= 0: player.position = new_player_position # No stones behind -> No walking animation
 	else:
 		# Stone behind the next one, start the walking animation
-		map_player.position = level_stones.get_child(level_stone_idx - 1).get_pos_marker_position()
+		player.position = level_stones.get_child(level_stone_idx - 1).get_pos_marker_position()
 		await get_tree().create_timer(1.5).timeout
 		var tween = get_tree().create_tween()
 		tween.tween_property(
-			map_player, "position",
+			player, "position",
 			new_player_position, 5.0
 		)
 		await tween.finished

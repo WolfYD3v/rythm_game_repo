@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="LineLevelAllObstacleSets" format=3 uid="uid://cua4py2mym3f3"]
 
-[ext_resource type="Script" uid="uid://bfoa66muvu5bh" path="res://resources/lines_level/line_level_obstacles_set.gd" id="1_8rk8p"]
-[ext_resource type="Script" uid="uid://d0cc1n8wive2p" path="res://resources/lines_level/line_level_obstacle.gd" id="2_o8g6q"]
-[ext_resource type="Script" uid="uid://jw3npnu0bbrl" path="res://resources/lines_level/line_level_all_obstacle_sets.gd" id="3_1pkvk"]
+[ext_resource type="Script" uid="uid://bfoa66muvu5bh" path="res://resources/levels/lines_level/line_level_obstacles_set/line_level_obstacles_set.gd" id="1_8rk8p"]
+[ext_resource type="Script" uid="uid://d0cc1n8wive2p" path="res://resources/levels/lines_level/line_level_obstacle/line_level_obstacle.gd" id="2_o8g6q"]
+[ext_resource type="Script" uid="uid://jw3npnu0bbrl" path="res://resources/levels/lines_level/line_level_all_obstacle_sets/line_level_all_obstacle_sets.gd" id="3_1pkvk"]
 
 [sub_resource type="Resource" id="Resource_ebfsx"]
 script = ExtResource("2_o8g6q")

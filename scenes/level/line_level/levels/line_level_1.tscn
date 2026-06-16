@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ty7e8sw35ypp" path="res://scenes/level/line_level/envs/level_1_env.tscn" id="2_jtpf5"]
 [ext_resource type="PackedScene" uid="uid://bjnm71tkhmkdh" path="res://scenes/level/line_level/ennemies/whellcomer/whellcomer.tscn" id="2_lmpcl"]
 [ext_resource type="AudioStream" uid="uid://droqfim8cm2wo" path="res://assets/songs/Debris & Jonth - Game Time _ Bass House _ NCS - Copyright Free Music.mp3" id="4_gpxj5"]
-[ext_resource type="Resource" uid="uid://cua4py2mym3f3" path="res://resources/levels/lines/lines_level_1_all_obstacles.tres" id="5_uc7n4"]
+[ext_resource type="Resource" uid="uid://cua4py2mym3f3" path="res://resources/levels/lines_level/collection/lines_level_1_all_obstacles.tres" id="5_uc7n4"]
 
 [node name="LineLevel1" unique_id=627335088 instance=ExtResource("1_ej180")]
 ennemy_scene = ExtResource("2_lmpcl")
