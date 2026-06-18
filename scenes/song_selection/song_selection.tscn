@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://rgg3dod3xjhc" path="res://scenes/loading_animation/loading_animation.tscn" id="10_f2qmr"]
 [ext_resource type="Material" uid="uid://c7ktio2s5glt6" path="res://assets/materials/wood_material.tres" id="12_pclq7"]
 [ext_resource type="PackedScene" uid="uid://ds3ubgkr8vg1t" path="res://scenes/tablet/tablet.tscn" id="15_pkxvu"]
-[ext_resource type="VideoStream" uid="uid://v8idw61fplxh" path="res://assets/videos/tutorial_video.ogv" id="16_joawi"]
+[ext_resource type="VideoStream" uid="uid://v8idw61fplxh" path="res://assets/videos/new_tutorial_video.ogv" id="16_joawi"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j8mn7"]
 size = Vector3(300, 0.5, 1000)
