@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://nu612hqr2ff8"]
+
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_0vd5g"]
+[ext_resource type="Script" uid="uid://cc4tosr6q4s47" path="res://scenes/content_warning/content_warning.gd" id="1_nk2ol"]
+[ext_resource type="AudioStream" uid="uid://wrql3i4wmyni" path="res://assets/sfxs/gui_button_hover_sfx.wav" id="4_h7apo"]
+
+[node name="ContentWarning" type="Control" unique_id=444311521]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0vd5g")
+script = ExtResource("1_nk2ol")
+
+[node name="Background" type="ColorRect" parent="." unique_id=886487461]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ContentWarningRichTextLabel" type="RichTextLabel" parent="." unique_id=1703753356]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[b][u]Content Warning:[/u][/b]
+This game contains content that may seems kinda not okay... like...
+
+- Copyrighted songs
+- My best hand-made 3D models so far
+- A Work In Progress experience
+
+If one of theses items disturbs you in any ways possible, well you've been warned.
+Have fun :)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkipLabel" type="Label" parent="." unique_id=1052486912]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.5
+offset_top = -19.0
+offset_right = 48.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "Click to skip..."
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AmbianceAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=926412332]
+
+[node name="TextAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=87635055]
+stream = ExtResource("4_h7apo")
+volume_db = -5.0
+pitch_scale = 1.5

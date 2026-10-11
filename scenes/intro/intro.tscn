@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bo8mgx1mt82o4"]
+
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_ir5dn"]
+[ext_resource type="Script" uid="uid://0ym2bimhjwsq" path="res://scenes/intro/intro.gd" id="1_qeukb"]
+[ext_resource type="VideoStream" uid="uid://bfbdrx032dhb8" path="res://assets/videos/dev_intro.ogv" id="3_teox7"]
+
+[node name="Intro" type="Control" unique_id=380447341]
+custom_minimum_size = Vector2(1152, 648)
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ir5dn")
+script = ExtResource("1_qeukb")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1003965691]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("3_teox7")
+expand = true

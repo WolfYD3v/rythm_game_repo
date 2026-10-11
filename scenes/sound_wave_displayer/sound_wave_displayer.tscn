@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://we1yfcowafc8"]
+
+[ext_resource type="Script" uid="uid://yog4gn8p0m8o" path="res://scenes/sound_wave_displayer/bars_song_intensity_displayer.gd" id="1_qiiqk"]
+[ext_resource type="AudioStream" uid="uid://48mn5w1cs51e" path="res://assets/songs/Firework.wav" id="2_ersfc"]
+
+[node name="SoundWaveDisplayer" type="HBoxContainer" unique_id=1368629260]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("1_qiiqk")
+animation_ordering = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=324326975]
+stream = ExtResource("2_ersfc")
+autoplay = true
+bus = &"Music"

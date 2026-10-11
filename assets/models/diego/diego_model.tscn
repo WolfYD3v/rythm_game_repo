@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bmtm35lgi5jkr"]
+
+[ext_resource type="PackedScene" uid="uid://bjoedswphkhkb" path="res://assets/models/diego/BoneJamCharacter.fbx" id="1_kobds"]
+
+[node name="DiegoModel" unique_id=2102286300 instance=ExtResource("1_kobds")]
+
+[node name="Skeleton3D" parent="SkeletonArmature" parent_id_path=PackedInt32Array(854868079) index="0" unique_id=1260932210]
+bones/6/rotation = Quaternion(1, 1, 0, -0.059)
+bones/10/rotation = Quaternion(1, -1, 0, 0.059)

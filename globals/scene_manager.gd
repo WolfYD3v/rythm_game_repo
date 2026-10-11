@@ -1,0 +1,52 @@
+# This code comes from a collaborative Godot Project, where Healleu
+# added this autoload to the project.
+# I have modified the code to match his code with my coding style and my needs.
+# But all the credits for this code goes to him :)
+# https://github.com/WolfYD3v/Godot-Wild-Jam-91---Game-Project-Repository/blob/main/autoloads/SceneManager.gd
+
+extends Node
+
+var _scenes : Dictionary = {}
+var _current_scene : Node = null
+var _current_scene_name : String = ""
+
+
+func _ready() -> void:
+	_current_scene = get_tree().root.get_child(-1)
+	_current_scene_name = _current_scene.name
+
+
+
+func has_scene(scene_name: String) -> bool:
+	return _scenes.has(scene_name)
+
+func add_scene(scene_name: String, scene_path: String) -> void :
+	_scenes.set(scene_name, scene_path)
+
+func remove_scene(scene_name: String) -> void :
+	if _scenes.has(scene_name): _scenes.erase(scene_name)
+
+func replace_scene(scene_name: String) -> void :
+	if has_scene(scene_name):
+		if _current_scene:
+			_current_scene.queue_free.call_deferred()
+			_current_scene = null
+		var new_packed_scene : PackedScene = load(_scenes[scene_name])
+		var new_scene = new_packed_scene.instantiate()
+		_current_scene = new_scene
+		_current_scene_name = scene_name
+		get_tree().root.add_child.call_deferred(_current_scene)
+
+func get_scene(scene_name: String) -> String:
+	if _scenes.has(scene_name): return _scenes.get(scene_name)
+	return ""
+
+func get_current_scene() -> String:
+	return _current_scene_name
+
+func get_scenes(with_values: bool = false) -> Variant:
+	if with_values: return _scenes
+	return _scenes.keys()
+
+func reload_current_scene() -> void:
+	replace_scene(_current_scene_name)

@@ -1,0 +1,17 @@
+[gd_resource type="Environment" format=3 uid="uid://tiabclv3kvds"]
+
+[ext_resource type="Texture2D" uid="uid://b8rat4yxdnke0" path="res://assets/textures/rouille_noise_texture.tres" id="1_q2ll1"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_q2ll1"]
+panorama = ExtResource("1_q2ll1")
+
+[sub_resource type="Sky" id="Sky_iubjo"]
+sky_material = SubResource("PanoramaSkyMaterial_q2ll1")
+
+[resource]
+background_mode = 2
+background_color = Color(0.094487034, 0.026704011, 0.008472546, 1)
+sky = SubResource("Sky_iubjo")
+ambient_light_source = 3
+reflected_light_source = 2
+fog_depth_curve = 0.0061557153

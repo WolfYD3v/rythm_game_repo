@@ -1,0 +1,59 @@
+Visualizing Audio Waves: https://www.youtube.com/watch?v=jttL809UdnQ
+https://github.com/dannyboy1044/GodotAudioVisualizerExample/blob/main/basic_bars_example.gd
+
+Map Windy Ambiance: Ambience Wind Blowing Through Trees 01
+FROM https://pixabay.com/sound-effects/nature-ambience-wind-blowing-through-trees-01-186986/
+BY Traian1984 [ https://pixabay.com/users/traian1984-41907904/ ]
+
+Songs:
+- Level 1 song: Debris & Jonth - Game Time | Bass House | NCS - Copyright Free Music [https://youtu.be/yDTvvOTie0w?si=Jvh61godtAZ2GBNX ]
+FROM NoCopyrightSounds [ https://www.youtube.com/@NoCopyrightSounds ]
+
+Inspirations:
+-> Beat Saber/JSAB [ Obstacles to avoid , Music Idea ]
+-> Inscryption [ World Map Like ]
+
+Fonts:
+https://fonts.google.com/specimen/Lugrasimo?categoryFilters=Feeling:%2FExpressive%2FVintage&preview.script=Latn
+https://fonts.google.com/specimen/Pixelify+Sans?query=pixel
+
+Shaders:
+Overlay Shader: VHS Shader
+- FROM https://godotshaders.com/shader/vhs-shader/
+- BY vacation [ https://godotshaders.com/author/vacation/ ]
+Static Shader: Static Overlay Shader
+- FROM https://godotshaders.com/shader/static-overlay-shader/
+- BY maaack [ https://godotshaders.com/author/maaack/ ]
+
+Dragon Heart Studios Logo: https://cdn.discordapp.com/icons/1166718999866916964/0efa46d2f7286d1d15df1cea0ba2495d.webp?size=160&quality=lossless
+Godot Logo: https://godotengine.org/assets/press/logo_vertical_monochrome_dark.png
+
+3D Models:
+Blender render building A:
+- "Big Soviet Panel House [Lowpoly]" (https://skfb.ly/pzCZq) by irmich5546 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+Blender render buildings B/C:
+- "Soviet Panel House [Lowpoly]" (https://skfb.ly/pzwsQ) by irmich5546 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+Textures:
+- Wood: https://www.publicdomainpictures.net/pictures/30000/velka/wood-texture.jpg
+- Whellcomer Eye: https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b1c4657e-b27d-4457-8943-65f113d2759d/d7tgh6j-02d85b10-af68-4ac7-91cb-c7d589010906.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi9iMWM0NjU3ZS1iMjdkLTQ0NTctODk0My02NWYxMTNkMjc1OWQvZDd0Z2g2ai0wMmQ4NWIxMC1hZjY4LTRhYzctOTFjYi1jN2Q1ODkwMTA5MDYucG5nIn1dXX0.3vjDlDEOiX5KX4tOXaFuaPcVCWVtH6McKtqEupnUBE0
+
+SFXs:
+- Whellcomer metal sound: Metal_rattle_rustle_cracking [ https://pixabay.com/fr/sound-effects/films-et-effets-sp%c3%a9ciaux-metal-rattle-rustle-cracking-63419/ ]
+BY Dawnton (Freesound) [ https://pixabay.com/fr/users/freesound_community-46691455/ ]
+MODIFIED WITH Audacity (shortened)
+- Whellcomer voice sound: low pitch alien noise--person screaming [ https://pixabay.com/sound-effects/horror-low-pitch-alien-noise-person-screaming-499466/ ]
+BY flutie8211 [ https://pixabay.com/users/flutie8211-17475707/ ]
+MODIFIED WITH Audacity (shortened)
+- Whellcomer body sound: Burn Flesh 01 [ https://pixabay.com/sound-effects/film-special-effects-burn-flesh-01-266302/ ]
+BY u_xjrmmgxfru [ https://pixabay.com/users/u_xjrmmgxfru-47169417/ ]
+MODIFIED WITH Audacity (shortened)
+- JSFXR [ https://sfxr.me/ ]
+- Map Paper: paper [ https://pixabay.com/sound-effects/film-special-effects-paper-245786/ ]
+BY Makigai_MaiMai [ https://pixabay.com/users/makigai_maimai-46250777/ ]
+- Lines Level Controls Indications Ding: Family Feud YES Ding [ https://www.myinstants.com/en/instant/family-feud-yes-ding-24818/ ]
+BY Webdewd [ https://www.myinstants.com/en/profile/webdewd/uploaded/ ]
+- Controls Indication Spotlight Turn On: Spotlight [ https://pixabay.com/sound-effects/film-special-effects-spotlight-91359/ ]
+BY freesound_community [ https://pixabay.com/users/freesound_community-46691455/ ]
+- TV Static: Static [ https://www.myinstants.com/en/instant/static/ ]
+BY setro2 [ https://www.myinstants.com/en/profile/setro2/uploaded/ ]

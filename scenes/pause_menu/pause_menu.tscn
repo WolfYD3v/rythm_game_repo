@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://cr8qhwmj0jva"]
+
+[ext_resource type="Script" uid="uid://dysasp1l5jby" path="res://scenes/pause_menu/pause_menu.gd" id="1_5bgjm"]
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_qcmsd"]
+[ext_resource type="PackedScene" uid="uid://bveucnbq4p8f2" path="res://scenes/gui_button/gui_button.tscn" id="3_0a7io"]
+[ext_resource type="PackedScene" uid="uid://1ntsanfb80w4" path="res://scenes/settings/settings.tscn" id="3_10tpt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0a7io"]
+
+[node name="PauseMenu" type="Control" unique_id=955880638]
+process_mode = 3
+z_index = 999
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qcmsd")
+script = ExtResource("1_5bgjm")
+
+[node name="Backgroud" type="ColorRect" parent="." unique_id=2055242472]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.19607843, 0.19607843, 0.19607843, 0.78431374)
+
+[node name="Menu" type="Control" parent="." unique_id=1186282556]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -250.0
+offset_right = 225.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background1" type="ColorRect" parent="Menu" unique_id=1702528523]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.47058824, 0.47058824, 1)
+
+[node name="MarginContainer1" type="MarginContainer" parent="Menu" unique_id=1413487887]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="Background2" type="ColorRect" parent="Menu/MarginContainer1" unique_id=400849685]
+layout_mode = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
+[node name="MarginContainer2" type="MarginContainer" parent="Menu" unique_id=990274006]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Background3" type="ColorRect" parent="Menu/MarginContainer2" unique_id=769299826]
+layout_mode = 2
+color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+
+[node name="MarginContainer3" type="MarginContainer" parent="Menu/MarginContainer2" unique_id=145706099]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 0
+
+[node name="CompositionContainer" type="VBoxContainer" parent="Menu/MarginContainer2/MarginContainer3" unique_id=1341747612]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="GamePausedLabel" type="Label" parent="Menu/MarginContainer2/MarginContainer3/CompositionContainer" unique_id=1963792128]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0a7io")
+text = "GAME PAUSED"
+horizontal_alignment = 1
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="Menu/MarginContainer2/MarginContainer3/CompositionContainer" unique_id=337377536]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ContinueGuiButton" parent="Menu/MarginContainer2/MarginContainer3/CompositionContainer/ButtonsContainer" unique_id=1786408275 instance=ExtResource("3_0a7io")]
+layout_mode = 2
+text = "Continue"
+
+[node name="SettingsGuiButton" parent="Menu/MarginContainer2/MarginContainer3/CompositionContainer/ButtonsContainer" unique_id=510271636 instance=ExtResource("3_0a7io")]
+layout_mode = 2
+text = "Settings"
+
+[node name="GoBackGuiButton2" parent="Menu/MarginContainer2/MarginContainer3/CompositionContainer/ButtonsContainer" unique_id=201617650 instance=ExtResource("3_0a7io")]
+layout_mode = 2
+text = "<---"
+
+[node name="Settings" parent="." unique_id=1682957814 instance=ExtResource("3_10tpt")]
+visible = false
+layout_mode = 1
+pause_menu_mode = true
+
+[node name="Backgroud" type="ColorRect" parent="Settings" unique_id=1513621425]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.19607843, 0.19607843, 0.19607843, 0.78431374)
+
+[connection signal="pressed" from="Menu/MarginContainer2/MarginContainer3/CompositionContainer/ButtonsContainer/ContinueGuiButton" to="." method="_on_continue_gui_button_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer2/MarginContainer3/CompositionContainer/ButtonsContainer/SettingsGuiButton" to="." method="_on_settings_gui_button_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer2/MarginContainer3/CompositionContainer/ButtonsContainer/GoBackGuiButton2" to="." method="_on_go_back_gui_button_2_pressed"]

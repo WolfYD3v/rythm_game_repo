@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://1ntsanfb80w4"]
+
+[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_tt6xx"]
+[ext_resource type="Script" uid="uid://x7q3jm0qh63o" path="res://scenes/settings/settings.gd" id="2_vu5fi"]
+[ext_resource type="PackedScene" uid="uid://bveucnbq4p8f2" path="res://scenes/gui_button/gui_button.tscn" id="3_1slea"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vu5fi"]
+viewport_path = NodePath("HoyplomaSubViewport")
+
+[node name="Settings" type="Control" unique_id=1682957814]
+process_mode = 3
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tt6xx")
+script = ExtResource("2_vu5fi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1579086218]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.19607843, 1, 1)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1594015053]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "LOADING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoyplomaBG" type="TextureRect" parent="." unique_id=683150801]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_vu5fi")
+
+[node name="InterfaceContainer" type="VBoxContainer" parent="." unique_id=1260201572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsContainer" type="VBoxContainer" parent="InterfaceContainer" unique_id=2092061436]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsRichTextLabel" type="RichTextLabel" parent="InterfaceContainer/SettingsContainer" unique_id=1078566488]
+layout_mode = 2
+bbcode_enabled = true
+text = "[u][b]Settings[/b][/u]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="InterfaceContainer/SettingsContainer" unique_id=345733687]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InterfaceContainer/SettingsContainer/MarginContainer" unique_id=616655768]
+layout_mode = 2
+
+[node name="LanguageSelectionContainer" type="HBoxContainer" parent="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer" unique_id=411999801]
+layout_mode = 2
+
+[node name="LanguageRichTextLabel" type="RichTextLabel" parent="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/LanguageSelectionContainer" unique_id=1209439803]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "LANGUAGE"
+fit_content = true
+
+[node name="FrenchGuiButton" parent="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/LanguageSelectionContainer" unique_id=1786408275 instance=ExtResource("3_1slea")]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "French"
+alignment = 0
+
+[node name="EnglishGuiButton" parent="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/LanguageSelectionContainer" unique_id=2040092762 instance=ExtResource("3_1slea")]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "English"
+alignment = 0
+
+[node name="SectionsContainer" type="HBoxContainer" parent="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer" unique_id=613332690]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AudioSectionContainer" type="VBoxContainer" parent="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/SectionsContainer" unique_id=1272231268]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AudioRichTextLabel" type="RichTextLabel" parent="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/SectionsContainer/AudioSectionContainer" unique_id=574305021]
+layout_mode = 2
+bbcode_enabled = true
+text = "AUDIO"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ListenSampleCheckButton" type="CheckButton" parent="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/SectionsContainer/AudioSectionContainer" unique_id=1505862054]
+layout_mode = 2
+text = "Listen Sample"
+
+[node name="VideoSectionContainer" type="VBoxContainer" parent="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/SectionsContainer" unique_id=1017252465]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VideoRichTextLabel" type="RichTextLabel" parent="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/SectionsContainer/VideoSectionContainer" unique_id=1762328901]
+layout_mode = 2
+bbcode_enabled = true
+text = "VIDEO"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="FullscreenCheckButton" type="CheckButton" parent="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/SectionsContainer/VideoSectionContainer" unique_id=2069259821]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="DownButtons" type="HBoxContainer" parent="InterfaceContainer" unique_id=1485530958]
+layout_mode = 2
+
+[node name="CloseGuiButton" parent="InterfaceContainer/DownButtons" unique_id=958306512 instance=ExtResource("3_1slea")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SAVE AND CLOSE"
+
+[node name="ResetButton" parent="InterfaceContainer/DownButtons" unique_id=196692631 instance=ExtResource("3_1slea")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RESET"
+
+[node name="ResetSaveButton" parent="InterfaceContainer/DownButtons" unique_id=1324084138 instance=ExtResource("3_1slea")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "RESET SAVE"
+
+[node name="HoyplomaSubViewport" type="SubViewport" parent="." unique_id=995978748]
+size = Vector2i(1152, 648)
+
+[connection signal="pressed" from="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/LanguageSelectionContainer/FrenchGuiButton" to="." method="set_language" binds= ["fr"]]
+[connection signal="pressed" from="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/LanguageSelectionContainer/EnglishGuiButton" to="." method="set_language" binds= ["en"]]
+[connection signal="toggled" from="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/SectionsContainer/AudioSectionContainer/ListenSampleCheckButton" to="." method="_on_listen_sample_check_button_toggled"]
+[connection signal="toggled" from="InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/SectionsContainer/VideoSectionContainer/FullscreenCheckButton" to="." method="_on_fullscreen_check_button_toggled"]
+[connection signal="pressed" from="InterfaceContainer/DownButtons/CloseGuiButton" to="." method="_on_close_gui_button_pressed"]
+[connection signal="pressed" from="InterfaceContainer/DownButtons/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="InterfaceContainer/DownButtons/ResetSaveButton" to="." method="_on_reset_save_button_pressed"]
