@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://ctqop0yf2jda1"]
+
+[ext_resource type="Environment" uid="uid://ox68mjsssu1o" path="res://assets/world_env/test_ground_environment.tres" id="1_cqday"]
+
+[sub_resource type="GDScript" id="GDScript_lwqyk"]
+script/source = "extends Node3D
+
+@onready var camera_pivot: Node3D = $CameraPivot
+@onready var camera: Camera3D = $CameraPivot/Camera
+
+@export_range(0.05, 0.2, 0.05) var camera_rotation_speed: float = 0.1
+
+func _physics_process(delta: float) -> void:
+	camera_pivot.rotate_y(camera_rotation_speed * delta)
+	camera.look_at_from_position(
+		camera.global_position,
+		Vector3.ZERO
+	)
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2trew"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4f737"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_wiahk"]
+size = Vector3(500, 0.5, 500)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tx1ri"]
+size = Vector3(500, 0.5, 500)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k7pvs"]
+size = Vector3(10, 25, 12.5)
+
+[node name="MenuBG" type="Node3D" unique_id=1575357494]
+script = SubResource("GDScript_lwqyk")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1266099655]
+environment = ExtResource("1_cqday")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1594663698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+
+[node name="Camera" type="Camera3D" parent="CameraPivot" unique_id=845213685]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 0, 10)
+current = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot/Camera" unique_id=1047975055]
+light_energy = 16.0
+spot_range = 30.0
+spot_angle = 70.0
+spot_angle_attenuation = 4.0000005
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraPivot" unique_id=1547664944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+material_override = SubResource("StandardMaterial3D_2trew")
+mesh = SubResource("SphereMesh_4f737")
+skeleton = NodePath("../..")
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=512751220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="MeshInstance" type="MeshInstance3D" parent="Ground" unique_id=412665708]
+mesh = SubResource("BoxMesh_wiahk")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Ground" unique_id=439365545]
+shape = SubResource("BoxShape3D_tx1ri")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=569203578]
+mesh = SubResource("BoxMesh_k7pvs")

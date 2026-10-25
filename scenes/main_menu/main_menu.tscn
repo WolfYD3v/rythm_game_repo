@@ -1,28 +1,19 @@
 [gd_scene format=3 uid="uid://c751m542lclx0"]
 
-[ext_resource type="Theme" uid="uid://ut3t5ujk5v4b" path="res://assets/themes/global_interface_theme.tres" id="1_0ebjn"]
 [ext_resource type="Script" uid="uid://dp8hxtpjxr6nw" path="res://scenes/main_menu/main_menu.gd" id="2_0ebjn"]
-[ext_resource type="AudioStream" uid="uid://rebcva64gats" path="res://assets/songs/traian1984-ambience-wind-blowing-through-trees-01-186986_map_windy_ambiance.mp3" id="3_ob46e"]
-[ext_resource type="PackedScene" uid="uid://bveucnbq4p8f2" path="res://scenes/gui_button/gui_button.tscn" id="3_wem23"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_0ebjn"]
-viewport_path = NodePath("HoyplomaSubViewport")
+[ext_resource type="PackedScene" uid="uid://ctqop0yf2jda1" path="res://scenes/menu_bg/menu_bg.tscn" id="2_ob46e"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ebjn"]
 
-[node name="MainMenu" type="Control" unique_id=2077391775]
-custom_minimum_size = Vector2(450, 400)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_0ebjn")
+[node name="MainMenu" type="Node3D" unique_id=2112828968]
 script = ExtResource("2_0ebjn")
 
-[node name="BlueBG" type="ColorRect" parent="." unique_id=239461653]
-layout_mode = 1
+[node name="MenuBG" parent="." unique_id=1575357494 instance=ExtResource("2_ob46e")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1961876926]
+
+[node name="BlueBG" type="ColorRect" parent="CanvasLayer" unique_id=239461653]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.19607843, 1, 1)
 
-[node name="Label" type="Label" parent="BlueBG" unique_id=1918735606]
+[node name="Label" type="Label" parent="CanvasLayer/BlueBG" unique_id=1918735606]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,24 +33,14 @@ text = "LOADING"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HoyplomaBG" type="TextureRect" parent="." unique_id=1774219232]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("ViewportTexture_0ebjn")
-
-[node name="GUI" type="HBoxContainer" parent="." unique_id=1311781777]
-layout_mode = 1
+[node name="GUI" type="HBoxContainer" parent="CanvasLayer" unique_id=1311781777]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameNameLabel" type="Label" parent="GUI" unique_id=1004746467]
+[node name="GameNameLabel" type="Label" parent="CanvasLayer/GUI" unique_id=1004746467]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -71,45 +52,43 @@ text = "Outside of Hoyploma"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI" unique_id=763781772]
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/GUI" unique_id=763781772]
 layout_mode = 2
 
-[node name="StoryModeGuiButton" parent="GUI/VBoxContainer" unique_id=1786408275 instance=ExtResource("3_wem23")]
-layout_mode = 2
-size_flags_vertical = 3
-text = "STORY MODE"
-
-[node name="FreePlayGuiButton" parent="GUI/VBoxContainer" unique_id=1629328300 instance=ExtResource("3_wem23")]
+[node name="NewGameButton" type="Button" parent="CanvasLayer/GUI/Buttons" unique_id=1133369783]
 layout_mode = 2
 size_flags_vertical = 3
-disabled = true
-text = "FREE PLAY"
+text = "New Game"
 
-[node name="SettingsGuiButton" parent="GUI/VBoxContainer" unique_id=2091447333 instance=ExtResource("3_wem23")]
+[node name="ContinueButton" type="Button" parent="CanvasLayer/GUI/Buttons" unique_id=744325633]
 layout_mode = 2
 size_flags_vertical = 3
-text = "SETTINGS"
+text = "Continue"
 
-[node name="CreditsGuiButton" parent="GUI/VBoxContainer" unique_id=245022294 instance=ExtResource("3_wem23")]
+[node name="SettingsButton" type="Button" parent="CanvasLayer/GUI/Buttons" unique_id=1234079410]
 layout_mode = 2
 size_flags_vertical = 3
-text = "CREDITS"
+text = "Settings"
 
-[node name="QuitGuiButton" parent="GUI/VBoxContainer" unique_id=1217957834 instance=ExtResource("3_wem23")]
+[node name="CreditsButton" type="Button" parent="CanvasLayer/GUI/Buttons" unique_id=749815268]
 layout_mode = 2
 size_flags_vertical = 3
-text = "QUIT"
+text = "Credits"
 
-[node name="CreditsRichTextLabel" type="RichTextLabel" parent="." unique_id=106784539]
+[node name="QuitButton" type="Button" parent="CanvasLayer/GUI/Buttons" unique_id=405343342]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[node name="CreditsRichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=106784539]
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CloseCreditsButton" type="Button" parent="CreditsRichTextLabel" unique_id=73596185]
+[node name="CloseCreditsButton" type="Button" parent="CanvasLayer/CreditsRichTextLabel" unique_id=73596185]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -118,7 +97,7 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
-[node name="Label" type="Label" parent="CreditsRichTextLabel" unique_id=1172262853]
+[node name="Label" type="Label" parent="CanvasLayer/CreditsRichTextLabel" unique_id=1172262853]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -131,16 +110,12 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Click to close"
 
-[node name="HoyplomaSubViewport" type="SubViewport" parent="." unique_id=1176821296]
-size = Vector2i(1152, 648)
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1023012194]
-stream = ExtResource("3_ob46e")
 volume_db = 24.0
 autoplay = true
 
-[connection signal="pressed" from="GUI/VBoxContainer/StoryModeGuiButton" to="." method="_on_story_mode_gui_button_pressed"]
-[connection signal="pressed" from="GUI/VBoxContainer/SettingsGuiButton" to="." method="_on_settings_gui_button_pressed"]
-[connection signal="pressed" from="GUI/VBoxContainer/CreditsGuiButton" to="." method="_on_credits_gui_button_pressed"]
-[connection signal="pressed" from="GUI/VBoxContainer/QuitGuiButton" to="." method="_on_quit_gui_button_pressed"]
-[connection signal="pressed" from="CreditsRichTextLabel/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GUI/Buttons/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GUI/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GUI/Buttons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GUI/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/CreditsRichTextLabel/CloseCreditsButton" to="." method="_on_close_credits_button_pressed"]

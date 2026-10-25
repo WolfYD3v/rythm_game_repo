@@ -1,22 +1,12 @@
-extends Control
+extends Node3D
 class_name Settings
 
-@onready var listen_sample_check_button: CheckButton = $InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/SectionsContainer/AudioSectionContainer/ListenSampleCheckButton
-@onready var hoyploma_sub_viewport: SubViewport = $HoyplomaSubViewport
-@onready var color_rect: ColorRect = $ColorRect
-@onready var fullscreen_check_button: CheckButton = $InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/SectionsContainer/VideoSectionContainer/FullscreenCheckButton
+@onready var listen_sample_check_button: CheckButton = $CanvasLayer/InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/SectionsContainer/AudioSectionContainer/ListenSampleCheckButton
+@onready var fullscreen_check_button: CheckButton = $CanvasLayer/InterfaceContainer/SettingsContainer/MarginContainer/VBoxContainer/SectionsContainer/VideoSectionContainer/FullscreenCheckButton
 
 @export var pause_menu_mode: bool = false
 
 func _ready() -> void:
-	color_rect.visible = not(pause_menu_mode)
-	get_node("HoyplomaBG").visible = not(pause_menu_mode)
-	if not pause_menu_mode:
-		var ss = SceneManager.get_scene("Hoyploma")
-		if not ss.is_empty(): hoyploma_sub_viewport.add_child(
-			load(ss).instantiate()
-		)
-	
 	setup_interface()
 
 func setup_interface() -> void:
@@ -31,7 +21,7 @@ func set_language(language: String) -> void:
 func _on_listen_sample_check_button_toggled(toggled_on: bool) -> void:
 	SettingsManager.listen_samples = toggled_on
 
-func _on_close_gui_button_pressed() -> void:
+func _on_close_button_pressed() -> void:
 	SettingsManager.save_settings_file()
 	
 	if not pause_menu_mode: SceneManager.replace_scene("MainMenu")

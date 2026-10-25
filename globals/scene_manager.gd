@@ -6,6 +6,8 @@
 
 extends Node
 
+signal scene_changed
+
 var _scenes : Dictionary = {}
 var _current_scene : Node = null
 var _current_scene_name : String = ""
@@ -36,6 +38,7 @@ func replace_scene(scene_name: String) -> void :
 		_current_scene = new_scene
 		_current_scene_name = scene_name
 		get_tree().root.add_child.call_deferred(_current_scene)
+		scene_changed.emit()
 
 func get_scene(scene_name: String) -> String:
 	if _scenes.has(scene_name): return _scenes.get(scene_name)
