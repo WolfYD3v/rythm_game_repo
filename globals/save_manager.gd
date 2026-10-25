@@ -4,8 +4,12 @@ signal game_saved
 signal save_loaded
 
 const BASE_SAVE_DATA: Dictionary = {
-	"context_seen": false,
-	"max_level_id": 1
+	"current_chapter": 1,
+	"current_position_in_chapter": {
+		"x": 0.0,
+		"y": 0.0,
+		"z": 0.0
+	}
 }
 
 var save_file_path: String = ProjectSettings.globalize_path("user://save.json")
