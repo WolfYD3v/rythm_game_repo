@@ -6,7 +6,6 @@ class_name MainMenu
 @onready var credits_rich_text_label: RichTextLabel = $CanvasLayer/CreditsRichTextLabel
 
 const SETTINGS_SCENE_PATH: String = "res://scenes/settings/settings.tscn"
-const CONTEXT_SCENE_PATH: String = "res://scenes/context/context.tscn"
 const HOYPLOMA_SCENE_PATH: String = "res://scenes/hoyploma/hoyploma.tscn"
 
 func _ready() -> void:
@@ -26,14 +25,16 @@ func _on_settings_button_pressed() -> void:
 
 func _on_new_game_button_pressed() -> void:
 	gui.hide()
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1.0).timeout
 	
-	var tween = get_tree().create_tween()
-	tween.tween_property(blue_bg, "modulate", Color(0.0, 0.0, 0.0, 0.0), 5.0)
-	await tween.finished
+	#var tween = get_tree().create_tween()
+	#tween.tween_property(blue_bg, "modulate", Color(0.0, 0.0, 0.0, 0.0), 5.0)
+	#await tween.finished
 	
-	SceneManager.add_scene("Context", CONTEXT_SCENE_PATH)
-	SceneManager.replace_scene("Context")
+	SaveManager.reset()
+	await get_tree().create_timer(0.5).timeout
+	SceneManager.add_scene("Map", ChaptersManager.get_chapter_map_file_path())
+	SceneManager.replace_scene("Map")
 
 # TEMP
 func _on_credits_button_pressed() -> void:
