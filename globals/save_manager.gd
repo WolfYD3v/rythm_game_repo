@@ -15,8 +15,6 @@ const BASE_SAVE_DATA: Dictionary = {
 var save_file_path: String = ProjectSettings.globalize_path("user://save.json")
 var _loaded_save_data: Dictionary = {}
 
-#e
-
 func _ready() -> void:
 	# Create an empty save file if it has not been found
 	if not save_exist(): save_game()
