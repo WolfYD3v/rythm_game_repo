@@ -3,70 +3,54 @@ extends Node
 signal game_saved
 signal save_loaded
 
-const BASE_SAVE_DATA: Dictionary = {
-	"current_chapter": 1,
-	"current_position_in_chapter": {
-		"x": 0.0,
-		"y": 0.0,
-		"z": 0.0
-	}
-}
+const SAVE_FILE_PATH: String = "user://save.tres"
 
-var save_file_path: String = ProjectSettings.globalize_path("user://save.json")
-var _loaded_save_data: Dictionary = {}
+var _globalized_save_file_path: String = ProjectSettings.globalize_path(SAVE_FILE_PATH)
+var _loaded_save_file: Resource_SaveFile = null
 
 func _ready() -> void:
 	# Create an empty save file if it has not been found
-	if not save_exist(): save_game()
+	if not save_exist(): save_game(true)
 	load_save()
 	
 	# If the save file is not up to date, update it
 	# The new save file is filled with the values of the previous one
-	if not save_file_up_to_date():
-		delete_save()
-		save_game(_loaded_save_data)
-		load_save()
+	#if not save_file_up_to_date():
+		#delete_save()
+		#save_game()
+		#load_save()
 
-func save_file_up_to_date() -> bool:
-	var base_save_data_size: int = BASE_SAVE_DATA.size()
-	var loaded_save_data: int = _loaded_save_data.size()
+#func save_file_up_to_date() -> bool:
+	#var base_save_data_size: int = BASE_SAVE_DATA.size()
+	#var loaded_save_data: int = _loaded_save_data.size()
+	#var is_up_to_date: bool = true
+	#
+	## CODE
+	#
+	#return is_up_to_date
+
+func save_exist() -> bool: return FileAccess.file_exists(_globalized_save_file_path)
+
+func delete_save() -> void: if save_exist(): DirAccess.remove_absolute(_globalized_save_file_path)
+
+func save_game(make_clean_file: bool = false) -> void:
+	if not _loaded_save_file: make_clean_file = true
 	
-	return base_save_data_size == loaded_save_data
-
-func save_exist() -> bool:
-	return FileAccess.file_exists(save_file_path)
-
-func delete_save() -> void:
-	if save_exist(): DirAccess.remove_absolute(save_file_path)
-
-func save_game(values_to_save: Dictionary = {}) -> void:
-	var save_file = FileAccess.open(save_file_path, FileAccess.WRITE)
-	if save_file:
-		var save_data_to_write = BASE_SAVE_DATA.duplicate()
-		# Setup the values to change
-		if not values_to_save.is_empty():
-			for data: String in values_to_save.keys():
-				if save_data_to_write.has(data): save_data_to_write.set(data, values_to_save[data])
-		
-		var save_file_content: String = JSON.stringify(save_data_to_write, "    ")
-		save_file.store_string(save_file_content)
-		save_file.close()
-		
-		game_saved.emit()
+	var save_file_to_write: Resource_SaveFile = null
+	if make_clean_file: save_file_to_write = Resource_SaveFile.new()
+	else: save_file_to_write = _loaded_save_file.duplicate()
+	
+	ResourceSaver.save(save_file_to_write, _globalized_save_file_path)
+	game_saved.emit()
 
 func load_save() -> void:
-	var save_file = FileAccess.open(save_file_path, FileAccess.READ)
-	if save_file:
-		var save_file_content: String = save_file.get_as_text()
-		save_file.close()
-		
-		_loaded_save_data = JSON.parse_string(save_file_content)
-		save_loaded.emit()
+	_loaded_save_file = ResourceLoader.load(_globalized_save_file_path)
+	if _loaded_save_file: save_loaded.emit()
 
 func get_save_data(data: String) -> Variant:
-	if _loaded_save_data.is_empty(): return null
-	return _loaded_save_data.get(data)
+	if !_loaded_save_file: return null
+	return _loaded_save_file.get(data)
 
 func reset() -> void:
-	save_game(BASE_SAVE_DATA)
+	save_game(true)
 	load_save()
