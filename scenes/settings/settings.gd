@@ -6,8 +6,7 @@ class_name Settings
 
 @export var pause_menu_mode: bool = false
 
-func _ready() -> void:
-	setup_interface()
+func _ready() -> void: setup_interface()
 
 func setup_interface() -> void:
 	SettingsManager.get_settings()

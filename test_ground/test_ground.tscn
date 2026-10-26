@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dvfxx4y8bhkd"]
 
 [ext_resource type="Environment" uid="uid://ox68mjsssu1o" path="res://assets/world_env/test_ground_environment.tres" id="1_n0beb"]
+[ext_resource type="PackedScene" uid="uid://bilpyuh08kf2" path="res://assets/models/ground_tile/ground_tile.tscn" id="3_d7pbd"]
 [ext_resource type="PackedScene" uid="uid://dg3ayk0uub7ip" path="res://scenes/player/player.tscn" id="3_w2skl"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vnf86"]
@@ -8,6 +9,12 @@ size = Vector3(75, 0.5, 75)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w2skl"]
 size = Vector3(75, 0.5, 75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2skl"]
+albedo_color = Color(0.35586354, 0.2972719, 0.089860685, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7pbd"]
+albedo_color = Color(1.1070073e-06, 0.32401457, 0.44665504, 1)
 
 [node name="TestGround" type="Node3D" unique_id=1971716311]
 
@@ -24,9 +31,70 @@ shape = SubResource("BoxShape3D_w2skl")
 
 [node name="Player" parent="." unique_id=1568525091 instance=ExtResource("3_w2skl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
-speed = 7.5
-jump_velocity = 5.5
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Player" unique_id=1699437128]
-shadow_enabled = true
 omni_range = 7.5
+
+[node name="Node3D" type="Node3D" parent="." unique_id=918636264]
+transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 0, 0, 1.9999999)
+
+[node name="GroundTile" parent="Node3D" unique_id=1816801863 instance=ExtResource("3_d7pbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
+
+[node name="GroundTile2" parent="Node3D" unique_id=1087975928 instance=ExtResource("3_d7pbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -1)
+top_material = SubResource("StandardMaterial3D_w2skl")
+bottom_material = SubResource("StandardMaterial3D_d7pbd")
+
+[node name="GroundTile5" parent="Node3D" unique_id=1475239557 instance=ExtResource("3_d7pbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
+top_material = SubResource("StandardMaterial3D_w2skl")
+bottom_material = SubResource("StandardMaterial3D_d7pbd")
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=667260740]
+transform = Transform3D(-0.99999994, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, -0.99999994, 1.9999999, 0, 0)
+
+[node name="GroundTile" parent="Node3D2" unique_id=1327209950 instance=ExtResource("3_d7pbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
+
+[node name="GroundTile2" parent="Node3D2" unique_id=102742831 instance=ExtResource("3_d7pbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -1)
+top_material = SubResource("StandardMaterial3D_w2skl")
+bottom_material = SubResource("StandardMaterial3D_d7pbd")
+
+[node name="GroundTile5" parent="Node3D2" unique_id=694831895 instance=ExtResource("3_d7pbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
+top_material = SubResource("StandardMaterial3D_w2skl")
+bottom_material = SubResource("StandardMaterial3D_d7pbd")
+
+[node name="Node3D3" type="Node3D" parent="." unique_id=1923470876]
+transform = Transform3D(5.9604645e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 5.9604645e-08, 0, 0, -1.9999999)
+
+[node name="GroundTile" parent="Node3D3" unique_id=1218332134 instance=ExtResource("3_d7pbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
+
+[node name="GroundTile2" parent="Node3D3" unique_id=839155783 instance=ExtResource("3_d7pbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -1)
+top_material = SubResource("StandardMaterial3D_w2skl")
+bottom_material = SubResource("StandardMaterial3D_d7pbd")
+
+[node name="GroundTile5" parent="Node3D3" unique_id=292668590 instance=ExtResource("3_d7pbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
+top_material = SubResource("StandardMaterial3D_w2skl")
+bottom_material = SubResource("StandardMaterial3D_d7pbd")
+
+[node name="Node3D4" type="Node3D" parent="." unique_id=1387353974]
+transform = Transform3D(1, 0, 1.4901161e-07, 0, 1, 0, -1.4901161e-07, 0, 1, -1.9999999, 0, 0)
+
+[node name="GroundTile" parent="Node3D4" unique_id=1964082143 instance=ExtResource("3_d7pbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
+
+[node name="GroundTile2" parent="Node3D4" unique_id=1679875243 instance=ExtResource("3_d7pbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -1)
+top_material = SubResource("StandardMaterial3D_w2skl")
+bottom_material = SubResource("StandardMaterial3D_d7pbd")
+
+[node name="GroundTile5" parent="Node3D4" unique_id=1109447268 instance=ExtResource("3_d7pbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
+top_material = SubResource("StandardMaterial3D_w2skl")
+bottom_material = SubResource("StandardMaterial3D_d7pbd")

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bilpyuh08kf2"]
+
+[ext_resource type="Script" uid="uid://cuncvhdqqq41k" path="res://assets/models/ground_tile/ground_tile.gd" id="1_7sphj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32ni4"]
+albedo_color = Color(0.43529412, 0.18039216, 0.4509804, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_no82l"]
+albedo_color = Color(0.22745098, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7sphj"]
+size = Vector3(1.1, 0.2, 1.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fsks6"]
+size = Vector3(1, 1.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_112x8"]
+size = Vector3(1.1, 1.6, 1.1)
+
+[node name="GroundTile" type="StaticBody3D" unique_id=1816801863]
+script = ExtResource("1_7sphj")
+top_material = SubResource("StandardMaterial3D_32ni4")
+bottom_material = SubResource("StandardMaterial3D_no82l")
+
+[node name="TopPart" type="MeshInstance3D" parent="." unique_id=1032080742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+material_override = SubResource("StandardMaterial3D_32ni4")
+mesh = SubResource("BoxMesh_7sphj")
+skeleton = NodePath("../CollisionShape")
+
+[node name="BottomPart" type="MeshInstance3D" parent="." unique_id=1547180164]
+material_override = SubResource("StandardMaterial3D_no82l")
+mesh = SubResource("BoxMesh_fsks6")
+skeleton = NodePath("../CollisionShape")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1500359161]
+shape = SubResource("BoxShape3D_112x8")
