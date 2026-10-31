@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dvfxx4y8bhkd"]
 
 [ext_resource type="Environment" uid="uid://ox68mjsssu1o" path="res://assets/world_env/test_ground_environment.tres" id="1_n0beb"]
+[ext_resource type="PackedScene" uid="uid://bss4roon0oq5d" path="res://scenes/players/normal_player/normal_player.tscn" id="2_w2skl"]
 [ext_resource type="PackedScene" uid="uid://bilpyuh08kf2" path="res://assets/models/ground_tile/ground_tile.tscn" id="3_d7pbd"]
-[ext_resource type="PackedScene" uid="uid://dg3ayk0uub7ip" path="res://scenes/player/player.tscn" id="3_w2skl"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_vnf86"]
 size = Vector3(75, 0.5, 75)
@@ -29,10 +29,11 @@ mesh = SubResource("BoxMesh_vnf86")
 [node name="CollisionShape" type="CollisionShape3D" parent="Ground" unique_id=1970778107]
 shape = SubResource("BoxShape3D_w2skl")
 
-[node name="Player" parent="." unique_id=1568525091 instance=ExtResource("3_w2skl")]
+[node name="NormalPlayer" parent="." unique_id=1568525091 instance=ExtResource("2_w2skl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Player" unique_id=1699437128]
+[node name="OmniLight3D" type="OmniLight3D" parent="NormalPlayer" unique_id=1699437128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 omni_range = 7.5
 
 [node name="Node3D" type="Node3D" parent="." unique_id=918636264]

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bss4roon0oq5d"]
+
+[ext_resource type="PackedScene" uid="uid://drama81y7o7o2" path="res://scenes/players/base_player/base_player.tscn" id="1_cxdn7"]
+[ext_resource type="Script" uid="uid://cjm2lvafes0tg" path="res://scenes/players/normal_player/normal_player.gd" id="2_q6lxc"]
+
+[node name="NormalPlayer" unique_id=1568525091 instance=ExtResource("1_cxdn7")]
+script = ExtResource("2_q6lxc")
+base_speed = 3.0
+running_speed_factor = 1.65
+already_tired_at_stamina_pourcentage = 0.05
+full_energy_at_stamina_pourcentage = 0.75
+tired_speed_factor = 0.2
+jump_velocity = 4.5
+max_stamina = 850.0
+stamina_gain = 1.5
+stamina_lose = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="6" unique_id=1401684226]
+
+[node name="StaminaProgressBar" type="ProgressBar" parent="CanvasLayer" index="0" unique_id=1006985203]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+show_percentage = false
+
+[node name="Label" type="Label" parent="CanvasLayer" index="1" unique_id=1277790968]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -602.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Player Controls:
+- Move in 8 directions
+- Run (drain stamina)
+- Jump (drain stamina, more when the player is running when jumping but jump highter)
+
+The player go faster when he runs, but he go slower when he is tired (when he drains all of his stamina)
+He regain his stamina automatically, 3 scenarios comes here:
+- When the player don't move he regains the most amount of stamina
+- When he is moving he regains less
+- When he is jumping  he regains less than when he is moving
+
+At a certain point (defined by WolfY_D3v), the player speed when running will decrease based on the stamina, so the transition from the running speed to the tired speed is smooth and as unpleasantly realistically possible (it uses an advanced math concept and oh god I have doing this shit).
+The player can't jump if he is tired. To not be tired, stamina have to be regains at 100%.
+The whole player controler depends on the stamina system to work. It make the game more realistic, real standards humans can't run for 15 minutes straight at the same speed without being tired :)"
+autowrap_mode = 3
