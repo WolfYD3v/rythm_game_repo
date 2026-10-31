@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://h35573flsu5o" path="res://scenes/players/base_player/base_player.gd" id="1_xiof5"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_qny8s"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v03il"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xiof5"]
@@ -28,17 +26,10 @@ _data = {
 [node name="BasePlayer" type="CharacterBody3D" unique_id=1568525091]
 script = ExtResource("1_xiof5")
 
-[node name="Body" type="MeshInstance3D" parent="." unique_id=187054582]
-mesh = SubResource("CapsuleMesh_qny8s")
+[node name="Model" type="Node3D" parent="." unique_id=139536141]
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1747288125]
 shape = SubResource("CapsuleShape3D_v03il")
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1298841290]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
-visible = false
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D" unique_id=476858907]
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1258875957]
 
